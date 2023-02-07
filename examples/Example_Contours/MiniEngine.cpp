@@ -235,7 +235,37 @@ bool MiniEngine::LoadData(const char* rootpath)
 	Geoweb3d::IGW3DVectorLayerWPtr layer;
 	Geoweb3d::GW3DEnvelope env;
 
-	if (CreateElevationRep(sdk_context_, "../examples/media/NED 10-meter DC.tif", 16, 0, true, 6.0, env).expired())
+	Geoweb3d::IGW3DRasterRepresentationWPtr elev_rep;
+
+	//NOTE: Using auto_Open allows the system to select the most appropriate driver to open the data source instead of the user
+	//having to guess which data source driver is needed to open up a particular dataset.
+
+	auto ds = sdk_context_->get_RasterDriverCollection()->auto_Open("../examples/media/NED 10-meter DC.tif", res);
+
+	if (!ds.expired())
+	{
+		Geoweb3d::IGW3DRasterLayerCollection* layer_collection = ds.lock()->get_RasterLayerCollection();
+		auto elevation_rep_driver = sdk_context_->get_RasterLayerRepresentationDriverCollection()->get_Driver("Elevation");
+
+		if (!elevation_rep_driver.expired() && layer_collection && layer_collection->count() > 0)
+		{
+			auto props = elevation_rep_driver.lock()->get_PropertyCollection()->create_Clone();
+			props->put_Property(Geoweb3d::Raster::ElevationParameters::VERTICAL_SCALE, 2.0f);
+
+			Geoweb3d::Raster::RasterRepresentationLayerCreationParameter params;
+			params.page_level = 14;
+			params.priority = 0;
+			params.representation_layer_activity = true;
+			params.representation_default_parameters = props;
+
+			auto layer = layer_collection->get_AtIndex(0);
+
+			elev_rep = elevation_rep_driver.lock()->get_RepresentationLayerCollection()->create(layer, params);
+
+			env = layer.lock()->get_Envelope();
+		}
+	}
+	else
 	{
 		printf("could not load elevation data source\n");
 		return false;
@@ -243,30 +273,34 @@ bool MiniEngine::LoadData(const char* rootpath)
 
 	env.sort();
 	
+
 	{
 		Geoweb3d::IGW3DRasterDriverCollection* raster_drivers = sdk_context_->get_RasterDriverCollection();
 		Geoweb3d::IGW3DLayerHelperCollectionPtr layer_col = sdk_context_->create_LayerHelperCollection();
 
 		//Populate the IGW3DLayerHelperCollection wil the layers of interest.
 		//For this example use all dems that are loaded within the target bounds. 
+
+		//This is meant to composite multiple data sources - but for this example we should get back one since we are using the 
+		//exacty envelope of that data source to query it back out.  Kind of pointless but it show if you had more datasources and different
+		//envelops how it would query them back out of the system. 
 		MyQuery raster_query;
 		Geoweb3d::GW3DResult query_res = Geoweb3d::Raster::StreamRasterQuery(env, raster_query);
 		if (Geoweb3d::Succeeded(query_res))
 		{
 			for (auto& filename : raster_query.file_names_)
 			{
-				Geoweb3d::IGW3DRasterDataSourceWPtr rdatasource2;
+				Geoweb3d::IGW3DRasterDataSourceWPtr comp_datasource;
 				Geoweb3d::GW3DResult result;
 				//NOTE: Using auto_Open allows the system to select the most appropriate driver to open the data source instead of the user
 				//having to guess which data source driver is needed to open up a particular dataset.
-				rdatasource2 = raster_drivers->auto_Open(filename, result);
+				comp_datasource = raster_drivers->auto_Open(filename, result);
 
-				if (!rdatasource2.expired())
+				if (!comp_datasource.expired())
 				{
-					Geoweb3d::IGW3DRasterLayerCollection* layer_collection2 = rdatasource2.lock()->get_RasterLayerCollection();
-					Geoweb3d::IGW3DRasterLayerWPtr raster_layer2 = layer_collection2->get_AtIndex(0);
-
-					layer_col->add(raster_layer2);
+					Geoweb3d::IGW3DRasterLayerCollection* comp_layer_col = comp_datasource.lock()->get_RasterLayerCollection();
+					Geoweb3d::IGW3DRasterLayerWPtr comp_layer = comp_layer_col->get_AtIndex(0);
+					layer_col->add(comp_layer);
 				}
 			}
 		}
@@ -274,7 +308,9 @@ bool MiniEngine::LoadData(const char* rootpath)
 		
 		layer_col->set_SortMode(Geoweb3d::IGW3DLayerHelperCollection::SortMode::RESOLUTION);
 
-		
+		//turn off the elevation from the scene
+		elev_rep.lock()->put_Enabled(false);
+
 		Geoweb3d::IGW3DDataSourceCompositor* data_composite_util = sdk_context_->get_DataSourceCompositor();
 		Geoweb3d::DataSourceCompositeParameters dsc_params;
 		dsc_params.x_size = 900;
@@ -341,6 +377,7 @@ bool MiniEngine::LoadData(const char* rootpath)
 						layer = vlyrcollection->get_AtIndex(0);
 
 						//rep the vectorized contours as colored-lines
+						if(0)
 						{
 							Geoweb3d::IGW3DVectorRepresentationDriverWPtr colored_line_rep_driver = sdk_context_->get_VectorRepresentationDriverCollection()->get_Driver("ColoredLine");
 							Geoweb3d::IGW3DPropertyCollectionPtr colored_line_properties = colored_line_rep_driver.lock()->get_PropertyCollection()->create_Clone();
@@ -392,7 +429,7 @@ bool MiniEngine::LoadData(const char* rootpath)
 
 									if (!imagery_layer.expired())
 									{
-										if (0) //show rasterized contours as imagery
+										if (1) //show rasterized contours as imagery
 										{
 											if (0) //legacy way to show an overlay using "Imagery" representations - basically invalid value are not composited when no replacements are set
 											{

@@ -25,7 +25,7 @@
 #include "engine/GW3DCamera.h"
 
 //The Geoweb3dCore APIs are from the previous C-like API
-//and will eventualy be fully replaced in the C++ API and deprecated
+//and will eventual be fully replaced in the C++ API and deprecated
 #include "Geoweb3dCore/GeometryExports.h"
 #include "GeoWeb3dCore/SystemExports.h"
 #include "Geoweb3dCore/LayerParameters.h"
@@ -69,7 +69,7 @@ void ValidateEqualOperatorAndSamePointers( Geoweb3d::IGW3DVectorDataSourceWPtr d
 {
     if( ds1.expired() )
 	{
-		std::cout<< "Invalid datasource specificed, aborting test(s)." << std::endl;
+		std::cout<< "Invalid datasource specified, aborting test(s)." << std::endl;
         return;
     }
 
@@ -125,7 +125,7 @@ void RunApplication( Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context )
 	// Create a named datasource with the requested vector driver
     Geoweb3d::IGW3DVectorDataSourceWPtr created_datasource = create_Geoweb3dDataSource( sdk_context, "Dynamic_Features.geoweb3d" );
 
-	// Not neccessary, but demonstrates the comparison of API-provided pointers
+	// Not necessary, but demonstrates the comparison of API-provided pointers
     ValidateEqualOperatorAndSamePointers( created_datasource );
 
 	// Specify the 2D point geometry type

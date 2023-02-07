@@ -178,7 +178,7 @@ void NavigationHelper::reset_ToHomePosition (Geoweb3d::IGW3DCameraWPtr &camPtr)
 	}
 	else
 	{
-		printf("Bug detected - selected camera has no home position!\n");
+		//printf("Bug detected - selected camera has no home position!\n");
 	}
 }
 
@@ -236,7 +236,7 @@ bool NavigationHelper::setCentralPixelLocation()
 	}
 	else
 	{
-		printf("Bug detected - selected camera has no query structure!\n");
+		//printf("Bug detected - selected camera has no query structure!\n");
 
 	}
 	return false;
@@ -257,7 +257,7 @@ bool NavigationHelper::setMousePixelLocation(int x, int y)
 	}
 	else
 	{
-		printf("Bug detected - selected camera has no query structure!\n");
+		//printf("Bug detected - selected camera has no query structure!\n");
 
 	}
 	return false;
@@ -281,7 +281,7 @@ bool NavigationHelper::getCentralPixelLocation(const Geoweb3d::GW3DPoint **pt)
 	}
 	else
 	{
-		printf("Bug detected - selected camera has no query structure!\n");
+		//printf("Bug detected - selected camera has no query structure!\n");
 
 	}
 	printf("Could not obtain center pixel location\n");
@@ -306,7 +306,7 @@ bool NavigationHelper::getMousePixelLocation(const Geoweb3d::GW3DPoint **pt)
 	}
 	else
 	{
-		printf("Bug detected - selected camera has no query structure!\n");
+		//printf("Bug detected - selected camera has no query structure!\n");
 
 	}
 	printf("Could not obtain pixel location\n");
@@ -699,7 +699,7 @@ Geoweb3d::IGW3DCameraWPtr NavigationHelper::ProcessEvent(const Geoweb3d::WindowE
 				}
 			/* Orbit Related Navigation -------------------------------------------------------------------------*/
 			case Geoweb3d::Key::L: 
-			//Record central pixel - it will be used in consequetive orbiting calls (using a new central pixel directly for subsequent orbites will cause drift due to limited central pixel precision)
+			//Record central pixel - it will be used in consecutive orbiting calls (using a new central pixel directly for subsequent orbits will cause drift due to limited central pixel precision)
 				{
 					lockOrbitTarget(!target->lock_loc);			
 					break;

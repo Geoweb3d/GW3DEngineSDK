@@ -75,15 +75,16 @@ void RunApplication(Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context, CommandLineArgs& 
 /// <remarks>	Geoweb3d, 11/2/2012. </remarks>
 ///
 /// <param name="argc">	The argc. </param>
-/// <param name="argv">	[in,out] If non-null, the argv. </param>
-///
+/// <param name="argv[1]"> TAK Server hostname/ip address</param>
+/// <param name="argv[2]"> TAK Server port</param>
+/// <param name="argv[3]"> TAK user callsign</param>
+/// <param name="argv[4]"> TAK Server user name(if required)</param>
+/// <param name="argv[5]"> TAK Server password( if required)</param>
 /// <returns>	. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	std::cout << "\nUsage: " << "TAKRepresentation.exe <server ip> <server port> <callsign>" << std::endl;
-
     SetInformationHandling();
 
     Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context(Geoweb3d::IGW3DGeoweb3dSDK::CreateInterface());
@@ -94,6 +95,7 @@ int _tmain(int argc, _TCHAR* argv[])
         sdk_init->put_ESRILicenseCheckout(false); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
         if (Geoweb3d::Succeeded(sdk_context->InitializeLibrary("geoweb3dsdkdemo", sdk_init, 5, 0)))
         {
+            std::cout << "\nUsage: " << "TAKRepresentation.exe <server ip> <server port> <callsign> <user_name> <password>" << std::endl;
 
 			CommandLineArgs commandline_arg;
 			using convert_type = std::codecvt_utf8<wchar_t>;
@@ -105,30 +107,35 @@ int _tmain(int argc, _TCHAR* argv[])
 
 				if(i == 1)
 				{
+                    //Server ip address required for connect to a given TAK server.
 					commandline_arg.server_ip = converter.to_bytes(args);
 					continue;
 				}
 
 				if(i == 2)
 				{
-					commandline_arg.server_port = std::stoi( converter.to_bytes(args) );
+                    //Server ip address required for connect to a given TAK server.
+                    commandline_arg.server_port = std::stoi( converter.to_bytes(args) );
 					continue;
 				}
 				if(i == 3)
 				{
+                    //Assign the user callsign that will be used to identify this instance on the TAK server.
 					commandline_arg.callsign = converter.to_bytes(args);
 					continue;
 				}
 
 				if(i == 4)
 				{
-					commandline_arg.user_name = converter.to_bytes(args);
+                    //Assign user name used to connect to the TAK server if required.
+                    commandline_arg.user_name = converter.to_bytes(args);
 					continue;
 				}
 
 				if(i == 5)
 				{
-					commandline_arg.password = converter.to_bytes(args);
+                    //Assign password used to connect to the TAK server if required.
+                    commandline_arg.password = converter.to_bytes(args);
 					continue;
 				}
 			}

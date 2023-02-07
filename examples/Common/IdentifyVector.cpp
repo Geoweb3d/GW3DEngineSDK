@@ -23,7 +23,7 @@ bool IdentifyVector::ProcessEvent(const Geoweb3d::WindowEvent& win_event, Geoweb
 	switch( win_event.Type )
     {
 	case win_event.MouseMoved:
-		line_segment_.lock()->put_Enabled( false ); //they moved the mouse, so they are probably trying to move in he 3d scene and not identify
+		line_segment_.lock()->put_Enabled( false ); //they moved the mouse, so they are probably trying to move in the 3d scene and not identify
 		possible_identify_action_to_take_place_ = false;
 		break;
 		
@@ -129,7 +129,7 @@ void IdentifyVector::displayVectorRepresentationInterceptReport()
 				std::cout << "\tVectorLayer [" << intersection_report->get_VectorRepresentation().lock()->get_VectorLayer().lock()->get_Name() << \
 							"] Representation Driver [" << intersection_report->get_VectorRepresentation().lock()->get_Driver().lock()->get_Name() << "]\n";
 				
-				std::cout << "\t\tIntersection Objct ID = [" << intersection_detail->get_ObjectID() << "] \n";
+				std::cout << "\t\tIntersection Object ID = [" << intersection_detail->get_ObjectID() << "] \n";
 				std::cout << "\t\tDistance = [" << intersection_detail->get_IntersectionDistance() << "] \n";	
 				std::cout << "\t\tFrameCount = [" << intersection_detail->get_FrameTimeStamp() << "] \n";
 			}

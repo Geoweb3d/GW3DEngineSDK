@@ -349,11 +349,14 @@ MiniEngine::MiniEngine(Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context, const CommandL
 {
 	font_ = Geoweb3d::IGW3DFont::create("Arial.ttf", 10, Geoweb3d::IGW3DFont::NORMAL, false);
 
+	//NOTE: Add a few generic messages that can be sent to a selected contact via the chat 'menu' option.
 	chat_messages_[0] = "RGR";
 	chat_messages_[1] = "@Brch";
 	chat_messages_[2] = "@LCC";
 	chat_messages_[3] = "@VOD";
 
+	//Add a few different callsign to give the user the ability to change the callsign. If a callsign is specified 
+	//on the command line( line 124, main.cpp) this will be used as the first callsign in the array.
 	callsigns_[0] = args.callsign.empty() ? std::string("Geoweb3d_CallSign#2") : args.callsign;
 
 	callsigns_[1] = "Geoweb3d_CallSign#3";
@@ -390,6 +393,9 @@ MiniEngine::MiniEngine(Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context, const CommandL
 		Geoweb3d::IGW3DTAKClientContext::Team::Brown
 	};
 
+	//Assign the server url. The default is the FreeTAKServer. If a server ip/host name is
+	//specified on the command line( line 111, main.cpp) it will be used as the actually
+	//server connection instead of the default.
 	server_url_ = args.server_ip.empty() ? std::string("204.48.30.216") : args.server_ip;
 	server_port_ = args.server_port;
 
@@ -398,11 +404,15 @@ MiniEngine::MiniEngine(Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context, const CommandL
 
 	if(!args.user_name.empty())
 	{
+		//If a user name is specified on the commandline ( line 131, main.cpp ) we use it to set the corresponding
+		//vector driver property. This will allow us to pass the credential to the TAK server when connecting.
 		data_driver_props_->put_Property(data_driver_props_->get_DefinitionCollection()->get_IndexByName("username"), args.user_name.c_str());
 	}
 
 	if(!args.password.empty())
 	{
+		//If a password is specified on the commandline ( line 138, main.cpp ) we use it to set the corresponding
+		//vector driver property. This will allow us to pass the credential to the TAK server when connecting.
 		data_driver_props_->put_Property(data_driver_props_->get_DefinitionCollection()->get_IndexByName("password"), args.password.c_str());
 	}
 }

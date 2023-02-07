@@ -173,7 +173,7 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsExtruded( Geoweb3d::IGW3DGeow
 
 						Geoweb3d::IGW3DPropertyCollectionPtr defaultsettings = elevation_driver.lock()->get_PropertyCollection()->create_Clone();
 
-						defaultsettings->put_Property(scale_index, 20.0);
+						defaultsettings->put_Property(scale_index, 2.0);
 						imagery_rep.lock()->put_PropertyCollection(defaultsettings);
 					}
 				}
@@ -234,7 +234,8 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsExtruded( Geoweb3d::IGW3DGeow
 						double center_lon = (env.MaxX + env.MinX) / 2.0;
 						double center_lat = (env.MaxY + env.MinY) / 2.0;
 						camera_.lock()->get_CameraController()->put_Location(center_lon, center_lat);
-						camera_.lock()->get_CameraController()->put_Elevation( 4000.0, Geoweb3d::IGW3DPositionOrientation::Relative );
+						camera_.lock()->get_CameraController()->put_Elevation( 3000.0, Geoweb3d::IGW3DPositionOrientation::Relative );
+						camera_.lock()->get_CameraController()->put_Rotation(0.f, 89.f, 0.f);
 
 
 						Geoweb3d::IGW3DLatitudeLongitudeGrid* grid = camera_.lock()->get_LatitudeLongitudeGrid();

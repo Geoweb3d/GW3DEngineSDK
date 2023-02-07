@@ -110,7 +110,7 @@ public:
 	// When IGW3DVectorLayer::Stream is called with this class, the SDK will call OnStream for each requested feature
 	virtual bool OnStream(Geoweb3d::IGW3DVectorLayerStreamResult* result)
 	{
-		// Request the attibute data for the current feature
+		// Request the attribute data for the current feature
 		const Geoweb3d::IGW3DAttributeCollection* attribute_collection = result->get_AttributeCollection();
 
 		// Query the object id (or feature id) for the current feature
@@ -657,7 +657,7 @@ public:
 					if (state->texture_blend_ < 0.0f)
 					{
 						state->texture_blend_ = -1.0f;
-						//moduluate the texture by the color (black stays black, white area become the target color)
+						//modulate the texture by the color (black stays black, white area become the target color)
 						printf("COLOR MODULATION MODE \n");
 					}
 				}
@@ -948,7 +948,7 @@ public:
 
 		if (driver.expired())
 		{
-			std::cout << "Could not find the requested driver! For a list of supported drivers, run the Print Capabilites example" << std::endl;
+			std::cout << "Could not find the requested driver! For a list of supported drivers, run the Print Capabilities example" << std::endl;
 			return false;
 		}
 

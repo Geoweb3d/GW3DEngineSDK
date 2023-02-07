@@ -32,8 +32,8 @@ void SetInformationHandling();
 ///           class will exemplify how to load 3DTiles. </summary>
 /// 
 /// <remarks> This application inherits from the IGW3DWindowCallback so that the user
-///           can extend mouse or key events to interact with the camera naviagtor and
-///           the Reprensetations in the scene.                                         </remarks>
+///           can extend mouse or key events to interact with the camera navigator and
+///           the Representations in the scene.                                         </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class App : public Geoweb3d::IGW3DWindowCallback
@@ -111,7 +111,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary> Pumps the window draw and PostDraw tasks.                  </summary>
         ///
-        /// <remarks> This will continuosuly pump so long as the draw was valid. </remarks>
+        /// <remarks> This will continuously pump so long as the draw was valid. </remarks>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         void Run()
@@ -318,7 +318,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary> Runs the Textured Draped Lines Application instance.
-///           This will continuosly run until the window is closed.      </summary>
+///           This will continuously run until the window is closed.      </summary>
 /// 
 /// <param name="sdk_context"> The Geoweb3d engine context.              </param>
 ////////////////////////////////////////////////////////////////////////////////////////////////////

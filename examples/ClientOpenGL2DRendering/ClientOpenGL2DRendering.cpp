@@ -238,7 +238,7 @@ void RunApplication(Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context)
 	}
 
 	//so what attributes do we want to store about our moving features? You don't have to do this, but
-	//it *may* help you attribute map later on, but nothing is stoping you from using our own structures
+	//it *may* help you attribute map later on, but nothing is stopping you from using our own structures
 	//to attribute map.  What I mean is, if you have a feature with Name "ABC123", and you have this represented
 	//as a sphere in the 3D scene, you can have all sphere's green by default, but for "ABC123" make it red.  You 
 	//do not need to "stream" to do attribute mapping either, but why not..makes it easy, and you can move your geometry
@@ -249,11 +249,11 @@ void RunApplication(Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context)
 	//so now we created our datasource, but a datasource can have 1 through n layers in it, which is whatever the spec of the datasource driver is!  A geoweb3d datasource is unlimited
 	Geoweb3d::IGW3DVectorDataSourceCollection *dcol = datasource_driver.lock()->get_VectorDataSourceCollection();
 
-	//Geoweb3d_Datasource can take any name... I'm using .gw3d just to help drive home the pointif you used a shapefile driver for example.
+	//Geoweb3d_Datasource can take any name... I'm using .gw3d just to help drive home the point if you used a shapefile driver for example.
 	Geoweb3d::IGW3DVectorDataSourceWPtr dynamic_features_datasource = dcol->create("MovingFeatures_Entities_Whatever.gw3d"); //if this was a "disk" based datasource driver, you will see the filename created at that path given
 
 
-	//descibe our layer that we will now populate.  You will see it has a name, the geometry type, and the description(definition/attributes) of each feature
+	//describe our layer that we will now populate.  You will see it has a name, the geometry type, and the description(definition/attributes) of each feature
 	Geoweb3d::IGW3DVectorLayerWPtr entity_layer = dynamic_features_datasource.lock()->get_VectorLayerCollection()->create("MovingEntitiesLayer", Geoweb3d::gtPOINT_25D, fdcol_header_title_whatever /*So we just described our layer*/);
 
 	//moving billboards, only  moving billboards when it comes to point type reps needs to have all the features created
@@ -261,7 +261,7 @@ void RunApplication(Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context)
 	//NOTE, if you do not add all up front, then you will need to call representation refresh on the layer after you add
 	//new features, but you may see a frame flicker in the 3D scene (this may be acceptable to some vs creating all the features up front)
 
-	//so now from our defition/attributes we want to store along with the feature's location..
+	//so now from our definition/attributes we want to store along with the feature's location..
 	Geoweb3d::IGW3DPropertyCollectionPtr fcolfeature_attributes = fdcol_header_title_whatever->create_PropertyCollection();
 	fcolfeature_attributes->put_Property(fcolfeature_attributes->get_DefinitionCollection()->get_IndexByName("SomethingIWantToStoreSuchAs_NAME"), "feature_id_A_NAME_is_BUDDY");
 
@@ -344,7 +344,7 @@ void RunApplication(Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context)
 				return true;
 			}
 
-			// These are required to be implimented!  *NOTE* if
+			// These are required to be implemented!  *NOTE* if
 			// [count] returns 0, then no other of APIs to index
 			// into selection_set_fids_ will get called.  What this
 			// means is if you are streaming a whole layer, its safe to
