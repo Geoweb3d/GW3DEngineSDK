@@ -1,0 +1,28 @@
+<GDAL_WMS>
+	<Service name="WMS">
+		<Version>1.3.0</Version>
+		<ServerUrl>https://seamlessrnc.nauticalcharts.noaa.gov/arcgis/services/RNC/NOAA_RNC/ImageServer/WMSServer?</ServerUrl>
+		<ImageFormat>image/tiff</ImageFormat>
+		<Layers>0</Layers>
+		<CRS>CRS:84</CRS>
+	</Service>
+	<DataWindow>
+		<UpperLeftX>-180</UpperLeftX>
+		<UpperLeftY>74.7781</UpperLeftY>
+		<LowerRightX>179.997</LowerRightX>
+		<LowerRightY>-14.648</LowerRightY>
+	    <SizeX>1073741824</SizeX>
+		<SizeY>536870912</SizeY>	
+	</DataWindow>
+  <BandsCount>3</BandsCount>
+  <BlockSizeX>1024</BlockSizeX>
+  <BlockSizeY>1024</BlockSizeY>
+  <OverviewCount>20</OverviewCount>
+	<Cache>
+		<Path></Path>
+		<MaxSize>64</MaxSize>
+		<Expires>604800</Expires>
+	</Cache>
+	<MaxConnections>2</MaxConnections>
+	<UnsafeSSL>true</UnsafeSSL>
+</GDAL_WMS>

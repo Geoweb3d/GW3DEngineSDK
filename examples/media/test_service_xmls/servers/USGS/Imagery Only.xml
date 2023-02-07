@@ -1,0 +1,24 @@
+<GDAL_WMTS>
+	<GetCapabilitiesUrl>WMTSCapabilitiesImagery Only.xml</GetCapabilitiesUrl>
+	<Layer>USGSImageryOnly</Layer>
+	<Style>default</Style>
+	<TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
+	<DataWindow>
+		<UpperLeftX>-19286101.89936751</UpperLeftX>
+		<UpperLeftY>11577830.08553455</UpperLeftY>
+		<LowerRightX>16266591.45892539</LowerRightX>
+		<LowerRightY>-1617574.127349412</LowerRightY>
+	</DataWindow>
+	<!--will fail after 16-->
+	<ZoomLevel>16</ZoomLevel>
+	<BandsCount>3</BandsCount>
+	<Cache>
+		<Path></Path>
+	</Cache>
+	<UnsafeSSL>true</UnsafeSSL>
+	<ZeroBlockHttpCodes>204,404</ZeroBlockHttpCodes>
+	<ZeroBlockOnServerException>true</ZeroBlockOnServerException>
+	<MaxConnections>2</MaxConnections>
+	<MaxSize>64</MaxSize>
+	<Expires>604800</Expires>
+</GDAL_WMTS>

@@ -1,0 +1,15 @@
+<GDAL_WMS>
+	<Service name="VirtualEarth">
+		<ServerUrl>http://ecn.t2.tiles.virtualearth.net/tiles/h${quadkey}.jpeg?g=1</ServerUrl>
+	</Service>
+	<Cache>
+		<Path></Path>
+	</Cache>
+	<MaxConnections>2</MaxConnections>
+	<MaxSize>64</MaxSize>
+	<Expires>604800</Expires>
+	<DataWindow>
+	<!--will fail after 19-->
+	<TileLevel>19</TileLevel>
+	</DataWindow>
+</GDAL_WMS>

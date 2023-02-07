@@ -1,0 +1,26 @@
+<GDAL_WMS>
+  <Service name="WMS">
+    <Version>1.3.0</Version>
+    <ServerUrl>https://geo.weather.gc.ca/geomet?SERVICE=WMS</ServerUrl>
+    <Layers>GDPS.ETA_TT</Layers>
+    <CRS>EPSG:4326</CRS>
+     <ImageFormat>image/png</ImageFormat>
+    <Transparent>TRUE</Transparent>
+    <BBoxOrder>yxYX</BBoxOrder>
+  </Service>
+  <DataWindow>
+    <UpperLeftX>-180</UpperLeftX>
+    <UpperLeftY>90</UpperLeftY>
+    <LowerRightX>180</LowerRightX>
+    <LowerRightY>-90.24</LowerRightY>
+    <SizeX>1073741824</SizeX>
+    <SizeY>537586739</SizeY>
+  </DataWindow>
+  <BandsCount>4</BandsCount>
+  <BlockSizeX>1024</BlockSizeX>
+  <BlockSizeY>1024</BlockSizeY>
+  <OverviewCount>20</OverviewCount>
+  <Cache>
+    <Path></Path>
+  </Cache>
+</GDAL_WMS>

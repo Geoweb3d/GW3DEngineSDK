@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mappings>
+    <Feature Name="basr_com_simple_brown" Type="AREA">
+        <Rule Value="FILE_COM = brown AND LAYER = industrial_scaled"/>
+        <Layer Field="LAYER"/>
+        <Size Value="40"/>
+        <Height Field="HEIGHT"/>
+        <HeightType Value="AGL"/>
+        <CTDBType Value="VOLUME"/>
+        <OTFTemplate Value="669"/>
+        <TopTexture File="Demo_apt_bld_roof_01.rgb"/>
+        <TopTextureRotation Value="FIRST_EDGE"/>
+        <SideTexture File="Demo_wh_bld_01_a.rgb"/>
+        <SimpleModel Value="bldg_com_scale_1.flt"/>
+        <SimpleLayer Field="LAYER"/>
+    </Feature>
+    <Feature Name="basr_com_simple_grey" Type="AREA">
+        <Rule Value="FILE_COM = grey AND LAYER = industrial_scaled"/>
+        <Layer Field="LAYER"/>
+        <Size Value="40"/>
+        <Height Field="HEIGHT"/>
+        <HeightType Value="AGL"/>
+        <CTDBType Value="VOLUME"/>
+        <OTFTemplate Value="669"/>
+        <OTFType Value="AREA"/>
+        <TopTexture File="Demo_apt_bld_roof_02.rgb"/>
+        <TopTextureRotation Value="FIRST_EDGE"/>
+        <SideTexture File="Demo_wh_bld_02_a.rgb"/>
+        <SimpleModel Value="bldg_com_scale_2.flt"/>
+        <SimpleLayer Field="LAYER"/>
+    </Feature>
+    <Feature Name="basr_com_simple_orange" Type="AREA">
+        <Rule Value="FILE_COM = orange AND LAYER = industrial_scaled"/>
+        <Layer Field="LAYER"/>
+        <Size Value="40"/>
+        <Height Field="HEIGHT"/>
+        <HeightType Value="AGL"/>
+        <CTDBType Value="VOLUME"/>
+        <OTFTemplate Value="669"/>
+        <TopTexture File="Demo_apt_bld_roof_03.rgb"/>
+        <TopTextureRotation Value="FIRST_EDGE"/>
+        <SideTexture File="Demo_wh_bld_03_a.rgb"/>
+        <SimpleModel Value="bldg_com_scale_3.flt"/>
+        <SimpleLayer Field="LAYER"/>
+    </Feature>
+    <Feature Name="basr_com_simple_white" Type="AREA">
+        <Rule Value="FILE_COM = white AND LAYER = industrial_scaled"/>
+        <Layer Field="LAYER"/>
+        <Size Value="40"/>
+        <Height Field="HEIGHT"/>
+        <HeightType Value="AGL"/>
+        <CTDBType Value="VOLUME"/>
+        <OTFTemplate Value="669"/>
+        <TopTexture File="Demo_apt_bld_roof_04.rgb"/>
+        <TopTextureRotation Value="FIRST_EDGE"/>
+        <SideTexture File="Demo_wh_bld_04_a.rgb"/>
+        <SimpleModel Value="bldg_com_scale_4.flt"/>
+        <SimpleLayer Field="LAYER"/>
+    </Feature>
+    <Feature Name="basr_com_brown" Type="AREA">
+        <Rule Value="FILE_COM = brown AND LAYER = industrial"/>
+        <Layer Field="LAYER"/>
+        <Size Value="40"/>
+        <Height Value="6"/>
+        <HeightType Value="AGL"/>
+        <CTDBType Value="VOLUME"/>
+        <OTFTemplate Value="669"/>
+        <TopTexture File="Demo_apt_bld_roof_01.rgb"/>
+        <TopTextureRotation Value="FIRST_EDGE"/>
+        <SideTexture File="Demo_wh_bld_01_a.rgb"/>
+    </Feature>
+    <Feature Name="basr_com_grey" Type="AREA">
+        <Rule Value="FILE_COM = grey AND LAYER = industrial"/>
+        <Layer Field="LAYER"/>
+        <Size Value="40"/>
+        <Height Value="6"/>
+        <HeightType Value="AGL"/>
+        <CTDBType Value="VOLUME"/>
+        <OTFTemplate Value="669"/>
+        <TopTexture File="Demo_apt_bld_roof_02.rgb"/>
+        <TopTextureRotation Value="FIRST_EDGE"/>
+        <SideTexture File="Demo_wh_bld_02_a.rgb"/>
+    </Feature>
+    <Feature Name="basr_com_orange" Type="AREA">
+        <Rule Value="FILE_COM = orange AND LAYER = industrial"/>
+        <Layer Field="LAYER"/>
+        <Size Value="40"/>
+        <Height Value="6"/>
+        <HeightType Value="AGL"/>
+        <CTDBType Value="VOLUME"/>
+        <OTFTemplate Value="669"/>
+        <TopTexture File="Demo_apt_bld_roof_03.rgb"/>
+        <TopTextureRotation Value="FIRST_EDGE"/>
+        <SideTexture File="Demo_wh_bld_03_a.rgb"/>
+    </Feature>
+    <Feature Name="basr_com_white" Type="AREA">
+        <Rule Value="FILE_COM = white AND LAYER = industrial"/>
+        <Layer Field="LAYER"/>
+        <Size Value="40"/>
+        <Height Value="6"/>
+        <HeightType Value="AGL"/>
+        <CTDBType Value="VOLUME"/>
+        <OTFTemplate Value="669"/>
+        <TopTexture File="Demo_apt_bld_roof_04.rgb"/>
+        <TopTextureRotation Value="FIRST_EDGE"/>
+        <SideTexture File="Demo_wh_bld_04_a.rgb"/>
+    </Feature>
+</Mappings>

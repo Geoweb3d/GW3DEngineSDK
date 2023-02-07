@@ -1,0 +1,23 @@
+<GDAL_WMTS>
+	<GetCapabilitiesUrl>WMTSCapabilities.xml</GetCapabilitiesUrl>
+	<Layer>DRGMosaic</Layer>
+	<Style>default</Style>
+	<TileMatrixSet>GlobalCRS84Pixel</TileMatrixSet>
+	<Format>image/png</Format>
+	<DataWindow>
+		<UpperLeftX>-170.859375</UpperLeftX>
+		<UpperLeftY>76.640625</UpperLeftY>
+		<LowerRightX>158.9062499999998</LowerRightX>
+		<LowerRightY>6.328125000000043</LowerRightY>
+	</DataWindow>
+	<BandsCount>3</BandsCount>
+	<Cache>
+		<Path></Path>
+	</Cache>
+	<UnsafeSSL>true</UnsafeSSL>
+	<ZeroBlockHttpCodes>204,404</ZeroBlockHttpCodes>
+	<ZeroBlockOnServerException>true</ZeroBlockOnServerException>
+	<MaxConnections>5</MaxConnections>
+	<MaxSize>64</MaxSize>
+	<Expires>604800</Expires>
+</GDAL_WMTS>

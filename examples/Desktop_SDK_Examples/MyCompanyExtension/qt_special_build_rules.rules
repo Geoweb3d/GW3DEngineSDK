@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VisualStudioToolFile
+	Name="Qt custom build rules"
+	Version="8.00"
+	>
+	<Rules>
+		<CustomBuildRule
+			Name="Qt_UI_custom_build"
+			DisplayName="Qt_UI_custom_build"
+			CommandLine="$(QTDIR)\bin\uic.exe $(InputPath) &gt; tmp\uic\$(InputName).h"
+			Outputs="tmp\uic\$(InputName).h"
+			AdditionalDependencies="$(InputPath)"
+			FileExtensions="*.ui"
+			ExecutionDescription="Running UIC on $(InputPath)"
+			>
+			<Properties>
+			</Properties>
+		</CustomBuildRule>
+		<CustomBuildRule
+			Name="Qt_MOC_custom_build"
+			DisplayName="Qt_MOC_custom_build"
+			CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -D      -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtOpenGL&quot; -I&quot;$(QTDIR)\include\QtOpenGL&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;tmp\moc\debug_shared&quot; -I&quot;.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; -D_MSC_VER=1400 -DWIN32 $(InputPath) -o tmp\moc\moc_$(InputName).cpp"
+			Outputs="tmp\moc\moc_$(InputName).cpp"
+			AdditionalDependencies="$(QTDIR)\bin\moc.exe;$(InputPath)"
+			FileExtensions="*.h"
+			ExecutionDescription="Running MOC on $(InputPath)"
+			>
+			<Properties>
+			</Properties>
+		</CustomBuildRule>
+	</Rules>
+</VisualStudioToolFile>

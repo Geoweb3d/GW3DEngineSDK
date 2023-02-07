@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by Geoweb3d Desktop version 4.1.7.3115 on Wed Dec 15 2021 -->
+<!DOCTYPE Geoweb3dLayer>
+<Geoweb3dLayer UseRelative="1" RootPath="C:/data/examples/media/">
+ <AppVersion>4.1.7.3115</AppVersion>
+ <Layers>
+  <GroupLayer checked="1" expanded="1">
+   <GroupName>DC</GroupName>
+   <Camera>
+    <Label>Default Camera</Label>
+    <Eyepoint>
+     <Latitude>38.8748093573</Latitude>
+     <Longitude>-77.0285445141</Longitude>
+     <Elevation>300.432</Elevation>
+     <Roll>0</Roll>
+     <Pitch>27.6686</Pitch>
+     <Yaw>356.927</Yaw>
+    </Eyepoint>
+   </Camera>
+   <Layer type="RasterImagery" checked="1" expanded="0">
+    <Url>WSI-Earth99-2k.ecw</Url>
+    <LayerName></LayerName>
+    <Label>WSI-Earth99-2k.ecw</Label>
+    <ImageryProperties>
+     <Priority>0</Priority>
+     <PageLevel>0</PageLevel>
+     <UseImageTransparency>1</UseImageTransparency>
+     <UseUserTransparency>0</UseUserTransparency>
+     <TransparentRed>0</TransparentRed>
+     <TransparentGreen>0</TransparentGreen>
+     <TransparentBlue>0</TransparentBlue>
+     <UseTransparencyTolerance>0</UseTransparencyTolerance>
+     <TransparencyTolerance>0</TransparencyTolerance>
+     <MapMode>0</MapMode>
+    </ImageryProperties>
+    <Symbol type="Imagery3D" class="3d" checked="1" expanded="0">
+     <Label>Imagery</Label>
+    </Symbol>
+   </Layer>
+   <Layer type="RasterImagery" checked="1" expanded="0">
+    <Url>DC_1ft_demo.ecw</Url>
+    <LayerName></LayerName>
+    <Label>DC_1ft_demo.ecw</Label>
+    <ImageryProperties>
+     <Priority>0</Priority>
+     <PageLevel>0</PageLevel>
+     <UseImageTransparency>1</UseImageTransparency>
+     <UseUserTransparency>0</UseUserTransparency>
+     <TransparentRed>0</TransparentRed>
+     <TransparentGreen>0</TransparentGreen>
+     <TransparentBlue>0</TransparentBlue>
+     <UseTransparencyTolerance>0</UseTransparencyTolerance>
+     <TransparencyTolerance>0</TransparencyTolerance>
+     <MapMode>0</MapMode>
+    </ImageryProperties>
+    <Symbol type="Imagery3D" class="3d" checked="1" expanded="0">
+     <Label>Imagery</Label>
+    </Symbol>
+   </Layer>
+   <Layer type="RasterElevation" checked="1" expanded="0">
+    <Url>NED 10-meter DC.tif</Url>
+    <LayerName></LayerName>
+    <Label>NED 10-meter DC.tif</Label>
+    <DemProperties>
+     <UseNullValue>1</UseNullValue>
+     <NullValue>-10000</NullValue>
+     <LessIsNull>1</LessIsNull>
+     <PageLevel>8</PageLevel>
+     <VerticalExaggeration>1</VerticalExaggeration>
+    </DemProperties>
+    <Symbol type="Elevation3D" class="3d" checked="1" expanded="0">
+     <Label>Elevation</Label>
+    </Symbol>
+   </Layer>
+   <Layer type="Vector" checked="1" expanded="0">
+    <Url>Building Footprints.shp</Url>
+    <LayerName>Building Footprints</LayerName>
+    <Label>Building Footprints</Label>
+    <GeometryType>Polygon</GeometryType>
+    <Driver>ESRI Shapefile</Driver>
+    <Symbol type="Polygons3D" class="3d" checked="1" expanded="0">
+     <Label>Polygons</Label>
+     <Parameters>
+      <PageLevel auto="0">11</PageLevel>
+     </Parameters>
+     <ClampRadius enabled="0">
+      <Maximum units="meters">5000</Maximum>
+      <Minimum units="meters">0</Minimum>
+     </ClampRadius>
+     <AttributeMap type="All Features" enabled="1" delay="0" expanded="1">
+      <Representation type="Polygons3D">
+       <Settings>
+        <SettingGroup class="Translate">
+         <Setting class="Direction">0</Setting>
+         <Setting class="Distance">0</Setting>
+        </SettingGroup>
+        <Setting class="Elevation" display_units="meters">0</Setting>
+        <Setting class="ElevationMode">Relative To Ground</Setting>
+        <SettingGroup class="Fill">
+         <SettingGroup class="Color">
+          <Setting class="Red">0.57647058823529407</Setting>
+          <Setting class="Green">0.57647058823529407</Setting>
+          <Setting class="Blue">0.57647058823529407</Setting>
+          <Setting class="Alpha">1</Setting>
+         </SettingGroup>
+         <Setting class="Blend">0.5</Setting>
+         <SettingGroup class="Texture">
+          <SettingGroup class="Top">
+           <SettingGroup class="Repeat">
+            <Setting class="X">1</Setting>
+            <Setting class="Y">1</Setting>
+           </SettingGroup>
+           <Setting class="MappingMode">1</Setting>
+           <Setting class="PaletteIndex">0</Setting>
+          </SettingGroup>
+          <SettingGroup class="Side">
+           <SettingGroup class="Repeat">
+            <Setting class="X">10</Setting>
+            <Setting class="Y">1</Setting>
+           </SettingGroup>
+           <Setting class="PaletteIndex">0</Setting>
+          </SettingGroup>
+          <Setting class="Enabled">0</Setting>
+         </SettingGroup>
+         <Setting class="Mode">0</Setting>
+        </SettingGroup>
+        <SettingGroup class="Extrusion">
+         <Setting class="Height" display_units="meters">10</Setting>
+        </SettingGroup>
+        <SettingGroup class="Simplification">
+         <Setting class="Horizontal">5.0000000000000004e-006</Setting>
+        </SettingGroup>
+        <Setting class="DrapeMode">0</Setting>
+        <SettingGroup class="Outline">
+         <Setting class="ColorBias">0.10000000000000001</Setting>
+        </SettingGroup>
+        <Setting class="OUTLINE_LINE_WIDTH">2</Setting>
+        <Setting class="TransparencyMode">0</Setting>
+        <Setting class="Exclude">0</Setting>
+       </Settings>
+      </Representation>
+     </AttributeMap>
+    </Symbol>
+   </Layer>
+  </GroupLayer>
+ </Layers>
+</Geoweb3dLayer>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="AnimationPlayback.cpp" />
+    <ClCompile Include="EntityController.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="..\Common\NavigationHelper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EntityController.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="..\Common\NavigationHelper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{0ee9a589-8cc0-44ae-b534-c586078e885d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

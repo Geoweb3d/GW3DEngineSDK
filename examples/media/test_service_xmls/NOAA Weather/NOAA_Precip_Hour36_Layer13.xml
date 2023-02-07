@@ -1,0 +1,28 @@
+<GDAL_WMS>
+  <Service name="WMS">
+    <Version>1.1.1</Version>
+    <ServerUrl>https://nowcoast.noaa.gov/arcgis/services/nowcoast/forecast_meteoceanhydro_sfc_ndfd_qpf6hrs_offsets/MapServer/WmsServer?SERVICE=WMS</ServerUrl>
+    <Layers>13</Layers>
+    <SRS>EPSG:4326</SRS>
+    <ImageFormat>image/png32</ImageFormat>
+    <Transparent>TRUE</Transparent>
+    <BBoxOrder>xyXY</BBoxOrder>
+  </Service>
+  <DataWindow>
+    <UpperLeftX>-179.999996</UpperLeftX>
+    <UpperLeftY>75.462461</UpperLeftY>
+    <LowerRightX>179.998185</LowerRightX>
+    <LowerRightY>16.970803</LowerRightY>
+    <SizeX>1073741824</SizeX>
+    <SizeY>174459046</SizeY>
+  </DataWindow>
+  <BandsCount>4</BandsCount>
+  <BlockSizeX>1024</BlockSizeX>
+  <BlockSizeY>1024</BlockSizeY>
+  <OverviewCount>20</OverviewCount>
+  <Cache>
+    <Path>C:\mycacheloc</Path>
+	<Expires>3600</Expires>
+  	<CleanTimeout>120</CleanTimeout>
+  </Cache>
+</GDAL_WMS>

@@ -1,0 +1,6 @@
+; CompanyExtension_MFC.def : Declares the module parameters for the DLL.
+
+LIBRARY      "CompanyExtension_MFC"
+
+EXPORTS
+    ; Explicit exports can go here

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Stereo_GenericHMD.cpp" />
+    <ClCompile Include="..\Common\EntityController.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\NavigationHelper.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="..\Common\EntityController.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\NavigationHelper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{9ec7a344-19fc-4b8f-8799-9cf38ba2dcbf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+C:/dev/sourcecode/trunk/geoweb3d/distribution/examples/ThirdParty/MyGUI_3.2.0/Tools/SkinEditor/CMakeLists.txt
+C:/dev/sourcecode/trunk/geoweb3d/distribution/examples/ThirdParty/MyGUI_3.2.0/Tools/SkinEditor/SkinEditor.list
+C:/dev/sourcecode/trunk/geoweb3d/distribution/examples/ThirdParty/MyGUI_3.2.0/CMake/Utils/PrecompiledHeader.cmake
+C:/dev/sourcecode/trunk/geoweb3d/distribution/examples/ThirdParty/MyGUI_3.2.0/CMake/Templates/VisualStudioUserFile.vcproj.user.in

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Analysis">
+      <UniqueIdentifier>{bec06b29-7aae-48df-abd3-cde671c60ce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BuildingClassifier">
+      <UniqueIdentifier>{1a0b6301-32e0-4ce2-8b50-236a13e98d85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MiniEngine">
+      <UniqueIdentifier>{2f70fb96-4cba-4937-a5da-165d46973787}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RepresentationHelpers">
+      <UniqueIdentifier>{ea694447-9870-4d1a-9373-242438ccc1cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tasks">
+      <UniqueIdentifier>{2bec955a-f9d8-4c67-abba-2e62430a9a96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{cb396579-ab1c-461c-a8dc-f71782605d17}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CameraFrustumContentsTest.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="IntersectionTestHandler.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewshedHandler.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildingClassifier.cpp">
+      <Filter>BuildingClassifier</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniEngine.cpp">
+      <Filter>MiniEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RepresentationHelpers.cpp">
+      <Filter>RepresentationHelpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\NavigationHelper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="RepresentingVectorData.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CameraFrustumContentsTest.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="IntersectionTestHandler.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewshedHandler.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingClassifier.h">
+      <Filter>BuildingClassifier</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniEngine.h">
+      <Filter>MiniEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RepresentationHelpers.h">
+      <Filter>RepresentationHelpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\NavigationHelper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

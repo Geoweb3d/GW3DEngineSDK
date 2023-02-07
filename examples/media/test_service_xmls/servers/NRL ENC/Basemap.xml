@@ -1,0 +1,30 @@
+<GDAL_WMS>
+  <Service name="WMS">
+    <Version>1.1.1</Version>
+    <ServerUrl>https://geoint.nrlssc.navy.mil/enc/wms/ENC/basemap/ENC-BASEMAP?&amp;SERVICE=WMS</ServerUrl>
+    <Layers>ENC-BASEMAP</Layers>
+    <SRS>EPSG:4326</SRS>
+    <ImageFormat>image/jpeg</ImageFormat>
+    <Transparent>FALSE</Transparent>
+    <BBoxOrder>xyXY</BBoxOrder>
+  </Service>
+  <DataWindow>
+    <UpperLeftX>-180</UpperLeftX>
+    <UpperLeftY>90</UpperLeftY>
+    <LowerRightX>180</LowerRightX>
+    <LowerRightY>-90</LowerRightY>
+    <SizeX>1073741824</SizeX>
+    <SizeY>536870912</SizeY>
+  </DataWindow>
+  <BandsCount>3</BandsCount>
+  <BlockSizeX>1024</BlockSizeX>
+  <BlockSizeY>1024</BlockSizeY>
+  <OverviewCount>20</OverviewCount>
+	<Cache>
+		<Path></Path>
+	</Cache>
+	<UnsafeSSL>true</UnsafeSSL>
+	<MaxConnections>5</MaxConnections>
+	<MaxSize>64</MaxSize>
+	<Expires>604800</Expires>  
+</GDAL_WMS>

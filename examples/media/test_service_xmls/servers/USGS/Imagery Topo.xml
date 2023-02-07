@@ -1,0 +1,24 @@
+<GDAL_WMTS>
+	<GetCapabilitiesUrl>WMTSCapabilitiesImagery Topo.xml</GetCapabilitiesUrl>
+	<Layer>USGSImageryTopo</Layer>
+	<Style>default</Style>
+	<TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
+	<!--will fail after 16-->
+	<ZoomLevel>16</ZoomLevel>
+	<DataWindow>
+		<UpperLeftX>-20037507.14846069</UpperLeftX>
+		<UpperLeftY>20037508.34278925</UpperLeftY>
+		<LowerRightX>20037507.14846067</LowerRightX>
+		<LowerRightY>-20037508.34278924</LowerRightY>
+	</DataWindow>
+	<BandsCount>3</BandsCount>
+	<Cache>
+		<Path></Path>
+	</Cache>
+	<UnsafeSSL>true</UnsafeSSL>
+	<ZeroBlockHttpCodes>204,404</ZeroBlockHttpCodes>
+	<ZeroBlockOnServerException>true</ZeroBlockOnServerException>
+	<MaxConnections>2</MaxConnections>
+	<MaxSize>64</MaxSize>
+	<Expires>604800</Expires>
+</GDAL_WMTS>

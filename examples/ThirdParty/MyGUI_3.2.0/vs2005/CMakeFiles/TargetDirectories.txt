@@ -1,0 +1,9 @@
+C:/dev/sourcecode/trunk/geoweb3d/distribution/examples/ThirdParty/MyGUI_3.2.0/vs2005/MyGUIEngine/CMakeFiles/ALL_BUILD.dir
+C:/dev/sourcecode/trunk/geoweb3d/distribution/examples/ThirdParty/MyGUI_3.2.0/vs2005/Common/CMakeFiles/Common.dir
+C:/dev/sourcecode/trunk/geoweb3d/distribution/examples/ThirdParty/MyGUI_3.2.0/vs2005/Tools/FontViewer/CMakeFiles/FontViewer.dir
+C:/dev/sourcecode/trunk/geoweb3d/distribution/examples/ThirdParty/MyGUI_3.2.0/vs2005/Tools/ImageSetViewer/CMakeFiles/ImageSetViewer.dir
+C:/dev/sourcecode/trunk/geoweb3d/distribution/examples/ThirdParty/MyGUI_3.2.0/vs2005/Tools/LayoutEditor/CMakeFiles/LayoutEditor.dir
+C:/dev/sourcecode/trunk/geoweb3d/distribution/examples/ThirdParty/MyGUI_3.2.0/vs2005/Platforms/OpenGL/OpenGLPlatform/CMakeFiles/MyGUI.OpenGLPlatform.dir
+C:/dev/sourcecode/trunk/geoweb3d/distribution/examples/ThirdParty/MyGUI_3.2.0/vs2005/MyGUIEngine/CMakeFiles/MyGUIEngine.dir
+C:/dev/sourcecode/trunk/geoweb3d/distribution/examples/ThirdParty/MyGUI_3.2.0/vs2005/Tools/SkinEditor/CMakeFiles/SkinEditor.dir
+C:/dev/sourcecode/trunk/geoweb3d/distribution/examples/ThirdParty/MyGUI_3.2.0/vs2005/CMakeFiles/ZERO_CHECK.dir

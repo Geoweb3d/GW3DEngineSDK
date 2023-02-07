@@ -1,0 +1,10 @@
+
+We also offer two examples for integrating third-party libraries:  
+
+Example_MyGUI_Integration\MyGUI_Integration.vcproj
+Example_SDL_Render_Surface\SDL_Render_Surface.vcproj
+
+As well as two examples for developing Geoweb3d Desktop plugins using the GUI SDK:
+
+Desktop_SDK_Examples\CompanyExtension_MFC\CompanyExtension_MFC.vcproj
+Desktop_SDK_Examples\MyCompanyExtension\MyCompanyExtension.vcproj

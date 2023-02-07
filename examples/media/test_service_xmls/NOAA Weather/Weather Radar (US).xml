@@ -1,0 +1,26 @@
+<GDAL_WMS>
+  <Service name="WMS">
+    <Version>1.3.0</Version>
+    <ServerUrl>https://nowcoast.noaa.gov/arcgis/services/nowcoast/radar_meteo_imagery_nexrad_time/MapServer/WmsServer?SERVICE=WMS</ServerUrl>
+    <Layers>1</Layers>
+	<CRS>EPSG:4326</CRS>
+    <ImageFormat>image/png32</ImageFormat>
+    <Transparent>TRUE</Transparent>
+    <BBoxOrder>yxYX</BBoxOrder>
+  </Service>
+  <DataWindow>
+    <UpperLeftX>-176.000515</UpperLeftX>
+    <UpperLeftY>72.010528</UpperLeftY>
+    <LowerRightX>150.006911</LowerRightX>
+    <LowerRightY>8.999407</LowerRightY>
+    <SizeX>1073741824</SizeX>
+    <SizeY>207534155</SizeY>
+  </DataWindow>
+  <BandsCount>4</BandsCount>
+  <BlockSizeX>1024</BlockSizeX>
+  <BlockSizeY>1024</BlockSizeY>
+  <OverviewCount>20</OverviewCount>
+  <Cache>
+    <Path></Path>
+  </Cache>
+</GDAL_WMS>

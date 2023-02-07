@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="Qt"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="$(QTDIR)\include"
+		PreprocessorDefinitions="QT_DLL;QT_CORE_LIB;QT_GUI_LIB"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="qtmain.lib Qt5Core.lib Qt5Gui.lib Qt5Widgets.lib Qt5Xml.lib"
+		AdditionalLibraryDirectories="$(QTDIR)\lib"
+	/>
+	<UserMacro
+		Name="QTDIR"
+		Value="..\..\ThirdParty\qt-5.4.2-x86-msvc2012"
+		PerformEnvironmentSet="true"
+	/>
+</VisualStudioPropertySheet>

@@ -1,0 +1,244 @@
+Determining if files unistd.h exist failed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec436616986"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec436616986, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec436616986.dir\Debug\\" /Fd"cmTryCompileExec436616986.dir\Debug\vc80.pdb" /W3 /c /Zi /TC ".\CheckIncludeFiles.c"
+1>CheckIncludeFiles.c
+1>.\CheckIncludeFiles.c(2) : fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec436616986.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec436616986 - 1 error(s), 0 warning(s)
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+Source:
+/* */
+#include <unistd.h>
+
+
+int main(){return 0;}
+
+Determining if files sys/time.h exist failed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec2504961621"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec2504961621, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec2504961621.dir\Debug\\" /Fd"cmTryCompileExec2504961621.dir\Debug\vc80.pdb" /W3 /c /Zi /TC ".\CheckIncludeFiles.c"
+1>CheckIncludeFiles.c
+1>.\CheckIncludeFiles.c(2) : fatal error C1083: Cannot open include file: 'sys/time.h': No such file or directory
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec2504961621.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec2504961621 - 1 error(s), 0 warning(s)
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+Source:
+/* */
+#include <sys/time.h>
+
+
+int main(){return 0;}
+
+Determining if files stdbool.h exist failed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec2482385472"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec2482385472, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec2482385472.dir\Debug\\" /Fd"cmTryCompileExec2482385472.dir\Debug\vc80.pdb" /W3 /c /Zi /TC ".\CheckIncludeFiles.c"
+1>CheckIncludeFiles.c
+1>.\CheckIncludeFiles.c(2) : fatal error C1083: Cannot open include file: 'stdbool.h': No such file or directory
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec2482385472.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec2482385472 - 1 error(s), 0 warning(s)
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+Source:
+/* */
+#include <stdbool.h>
+
+
+int main(){return 0;}
+
+Determining if files sys/param.h exist failed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec902996404"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec902996404, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec902996404.dir\Debug\\" /Fd"cmTryCompileExec902996404.dir\Debug\vc80.pdb" /W3 /c /Zi /TC ".\CheckIncludeFiles.c"
+1>CheckIncludeFiles.c
+1>.\CheckIncludeFiles.c(2) : fatal error C1083: Cannot open include file: 'sys/param.h': No such file or directory
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec902996404.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec902996404 - 1 error(s), 0 warning(s)
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+Source:
+/* */
+#include <sys/param.h>
+
+
+int main(){return 0;}
+
+Determining if files sys/ioctl.h exist failed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec2175570600"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec2175570600, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec2175570600.dir\Debug\\" /Fd"cmTryCompileExec2175570600.dir\Debug\vc80.pdb" /W3 /c /Zi /TC ".\CheckIncludeFiles.c"
+1>CheckIncludeFiles.c
+1>.\CheckIncludeFiles.c(2) : fatal error C1083: Cannot open include file: 'sys/ioctl.h': No such file or directory
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec2175570600.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec2175570600 - 1 error(s), 0 warning(s)
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+Source:
+/* */
+#include <sys/ioctl.h>
+
+
+int main(){return 0;}
+
+Determining if files usbhid.h exist failed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec87958609"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec87958609, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec87958609.dir\Debug\\" /Fd"cmTryCompileExec87958609.dir\Debug\vc80.pdb" /W3 /c /Zi /TC ".\CheckIncludeFiles.c"
+1>CheckIncludeFiles.c
+1>.\CheckIncludeFiles.c(2) : fatal error C1083: Cannot open include file: 'usbhid.h': No such file or directory
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec87958609.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec87958609 - 1 error(s), 0 warning(s)
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+Source:
+/* */
+#include <usbhid.h>
+
+
+int main(){return 0;}
+
+Determining if the function gettimeofday exists failed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec3161626960"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec3161626960, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "CHECK_FUNCTION_EXISTS=gettimeofday" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec3161626960.dir\Debug\\" /Fd"cmTryCompileExec3161626960.dir\Debug\vc80.pdb" /W3 /c /Zi /TC "c:\Program Files (x86)\CMake\share\cmake-3.0\Modules\CheckFunctionExists.c"
+1>CheckFunctionExists.c
+1>Compiling manifest to resources...
+1>Linking...
+1>CheckFunctionExists.obj : error LNK2019: unresolved external symbol _gettimeofday referenced in function _main
+1>H:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec3161626960.exe : fatal error LNK1120: 1 unresolved externals
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec3161626960.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec3161626960 - 2 error(s), 0 warning(s)
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+
+Determining if the function XParseGeometry exists failed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec3578124761"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec3578124761, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "CHECK_FUNCTION_EXISTS=XParseGeometry" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec3578124761.dir\Debug\\" /Fd"cmTryCompileExec3578124761.dir\Debug\vc80.pdb" /W3 /c /Zi /TC "c:\Program Files (x86)\CMake\share\cmake-3.0\Modules\CheckFunctionExists.c"
+1>CheckFunctionExists.c
+1>Compiling manifest to resources...
+1>Linking...
+1>CheckFunctionExists.obj : error LNK2019: unresolved external symbol _XParseGeometry referenced in function _main
+1>H:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec3578124761.exe : fatal error LNK1120: 1 unresolved externals
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec3578124761.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec3578124761 - 2 error(s), 0 warning(s)
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+
+Determining if files stdint.h exist failed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec293322175"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec293322175, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec293322175.dir\Debug\\" /Fd"cmTryCompileExec293322175.dir\Debug\vc80.pdb" /W3 /c /Zi /TC ".\CheckIncludeFiles.c"
+1>CheckIncludeFiles.c
+1>.\CheckIncludeFiles.c(2) : fatal error C1083: Cannot open include file: 'stdint.h': No such file or directory
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec293322175.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec293322175 - 1 error(s), 0 warning(s)
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+Source:
+/* */
+#include <stdint.h>
+
+
+int main(){return 0;}
+
+Determining if files inttypes.h exist failed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec84192430"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec84192430, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec84192430.dir\Debug\\" /Fd"cmTryCompileExec84192430.dir\Debug\vc80.pdb" /W3 /c /Zi /TC ".\CheckIncludeFiles.c"
+1>CheckIncludeFiles.c
+1>.\CheckIncludeFiles.c(2) : fatal error C1083: Cannot open include file: 'inttypes.h': No such file or directory
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec84192430.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec84192430 - 1 error(s), 0 warning(s)
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+Source:
+/* */
+#include <inttypes.h>
+
+
+int main(){return 0;}
+

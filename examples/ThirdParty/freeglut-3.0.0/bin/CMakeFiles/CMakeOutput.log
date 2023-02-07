@@ -1,0 +1,204 @@
+The system is: Windows - 6.1 - AMD64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler:  
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: CompilerIdC, Configuration: Debug Win32 ------
+1>Compiling...
+1>CMakeCCompilerId.c
+1>Linking...
+1>Embedding manifest...
+1>Performing Post-Build Event...
+1>CMAKE_C_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio 8\VC\bin\cl.exe
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\3.0.2\CompilerIdC\Debug\BuildLog.htm"
+1>CompilerIdC - 0 error(s), 0 warning(s)
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcproj"
+
+The C compiler identification is MSVC, found in "H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/3.0.2/CompilerIdC/CompilerIdC.exe"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler:  
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: CompilerIdCXX, Configuration: Debug Win32 ------
+1>Compiling...
+1>CMakeCXXCompilerId.cpp
+1>Linking...
+1>Embedding manifest...
+1>Performing Post-Build Event...
+1>CMAKE_CXX_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio 8\VC\bin\cl.exe
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\3.0.2\CompilerIdCXX\Debug\BuildLog.htm"
+1>CompilerIdCXX - 0 error(s), 0 warning(s)
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcproj"
+
+The CXX compiler identification is MSVC, found in "H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/3.0.2/CompilerIdCXX/CompilerIdCXX.exe"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec3890227559"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec3890227559, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec3890227559.dir\Debug\\" /Fd"cmTryCompileExec3890227559.dir\Debug\vc80.pdb" /W3 /c /Zi /TC ".\testCCompiler.c"
+1>testCCompiler.c
+1>Compiling manifest to resources...
+1>Linking...
+1>Embedding manifest...
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec3890227559.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec3890227559 - 0 error(s), 0 warning(s)
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec1402461786"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec1402461786, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec1402461786.dir\Debug\\" /Fd"cmTryCompileExec1402461786.dir\Debug\vc80.pdb" /W3 /c /Zi /TC "c:\Program Files (x86)\CMake\share\cmake-3.0\Modules\CMakeCCompilerABI.c"
+1>CMakeCCompilerABI.c
+1>Compiling manifest to resources...
+1>Linking...
+1>Embedding manifest...
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec1402461786.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec1402461786 - 0 error(s), 0 warning(s)
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec1535377775"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec1535377775, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /EHsc /RTC1 /MDd /Fo"cmTryCompileExec1535377775.dir\Debug\\" /Fd"cmTryCompileExec1535377775.dir\Debug\vc80.pdb" /W3 /c /Zi /TP ".\testCXXCompiler.cxx"
+1>testCXXCompiler.cxx
+1>Compiling manifest to resources...
+1>Linking...
+1>Embedding manifest...
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec1535377775.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec1535377775 - 0 error(s), 0 warning(s)
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec2637122789"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec2637122789, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /EHsc /RTC1 /MDd /Fo"cmTryCompileExec2637122789.dir\Debug\\" /Fd"cmTryCompileExec2637122789.dir\Debug\vc80.pdb" /W3 /c /Zi /TP "c:\Program Files (x86)\CMake\share\cmake-3.0\Modules\CMakeCXXCompilerABI.cpp"
+1>CMakeCXXCompilerABI.cpp
+1>Compiling manifest to resources...
+1>Linking...
+1>Embedding manifest...
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec2637122789.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec2637122789 - 0 error(s), 0 warning(s)
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+
+
+Determining if files sys/types.h exist passed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec695049525"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec695049525, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec695049525.dir\Debug\\" /Fd"cmTryCompileExec695049525.dir\Debug\vc80.pdb" /W3 /c /Zi /TC ".\CheckIncludeFiles.c"
+1>CheckIncludeFiles.c
+1>Compiling manifest to resources...
+1>Linking...
+1>Embedding manifest...
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec695049525.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec695049525 - 0 error(s), 0 warning(s)
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+
+
+Determining if files fcntl.h exist passed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec1213995430"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec1213995430, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec1213995430.dir\Debug\\" /Fd"cmTryCompileExec1213995430.dir\Debug\vc80.pdb" /W3 /c /Zi /TC ".\CheckIncludeFiles.c"
+1>CheckIncludeFiles.c
+1>Compiling manifest to resources...
+1>Linking...
+1>Embedding manifest...
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec1213995430.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec1213995430 - 0 error(s), 0 warning(s)
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+
+
+Determining size of unsigned __int64 passed with the following output:
+Change Dir: H:/dev/trunk/geoweb3d/distribution/examples/ThirdParty/freeglut-3.0.0/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio 8/Common7/IDE/devenv.com" "CMAKE_TRY_COMPILE.sln" "/build" "Debug" "/project" "cmTryCompileExec2095046638"
+
+Microsoft (R) Visual Studio Version 8.0.50727.867.
+Copyright (C) Microsoft Corp 1984-2005. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec2095046638, Configuration: Debug Win32 ------
+1>Compiling...
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.762 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "CMAKE_INTDIR=\"Debug\"" /D "_MBCS" /FD /RTC1 /MDd /Fo"cmTryCompileExec2095046638.dir\Debug\\" /Fd"cmTryCompileExec2095046638.dir\Debug\vc80.pdb" /W3 /c /Zi /TC "..\CheckTypeSize\U__INT64.c"
+1>U__INT64.c
+1>Compiling manifest to resources...
+1>Linking...
+1>Embedding manifest...
+1>Build log was saved at "file://h:\dev\trunk\geoweb3d\distribution\examples\ThirdParty\freeglut-3.0.0\bin\CMakeFiles\CMakeTmp\cmTryCompileExec2095046638.dir\Debug\BuildLog.htm"
+1>cmTryCompileExec2095046638 - 0 error(s), 0 warning(s)
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+
+

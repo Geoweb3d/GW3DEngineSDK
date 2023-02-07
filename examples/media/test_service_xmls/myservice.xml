@@ -1,0 +1,21 @@
+<GDAL_WMTS>
+  <GetCapabilitiesUrl>https://geoint.nrlssc.navy.mil/nrltileserver/wmts2/1.0.0/WMTSCapabilities.xml</GetCapabilitiesUrl>
+  <Layer>ASTER_DEM_COLOR1</Layer>
+  <Style>default</Style>
+  <TileMatrixSet>GlobalCRS84Pixel</TileMatrixSet>
+  <Format>image/png</Format>
+  <DataWindow>
+    <UpperLeftX>-180</UpperLeftX>
+    <UpperLeftY>90</UpperLeftY>
+    <LowerRightX>179.9999999999998</LowerRightX>
+    <LowerRightY>-89.99999999999989</LowerRightY>
+  </DataWindow>
+  <BandsCount>4</BandsCount>
+  <Cache>
+    <Path>C:\mycacheloc</Path>
+  </Cache>
+  <UnsafeSSL>true</UnsafeSSL>
+  <ZeroBlockHttpCodes>204,404</ZeroBlockHttpCodes>
+  <ZeroBlockOnServerException>true</ZeroBlockOnServerException>
+  <MaxConnections>8</MaxConnections>
+</GDAL_WMTS>

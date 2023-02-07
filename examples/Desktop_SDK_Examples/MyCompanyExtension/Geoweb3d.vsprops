@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="Geoweb3d"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(GW3DDIR)\include&quot;;&quot;$(GW3DDIR)\include\Geoweb3d&quot;"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalLibraryDirectories="$(GW3DLIB)\bin;"
+	/>
+	<UserMacro
+		Name="GW3DDIR"
+		Value="..\..\..\"
+		PerformEnvironmentSet="true"
+	/>
+</VisualStudioPropertySheet>

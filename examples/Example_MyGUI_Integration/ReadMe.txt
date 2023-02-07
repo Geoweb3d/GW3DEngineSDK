@@ -1,0 +1,1 @@
+Note that if you upgrade the Visual Studio version of this project, you will need to recompile the third-party MyGUI or you will see linker errors!
