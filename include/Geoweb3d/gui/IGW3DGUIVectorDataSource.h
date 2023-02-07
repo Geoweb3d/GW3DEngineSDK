@@ -1,0 +1,106 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// Geoweb3d SDK
+// Copyright (c) Geoweb3d, 2008-2023, all rights reserved.
+//
+// This code can be used only under the rights granted to you by the specific
+// Geoweb3d SDK license under which the SDK provided.
+//
+//////////////////////////////////////////////////////////////////////////////
+
+#pragma once
+#include "core/GW3DGUIInterFace.h"
+
+/* Primary namespace */
+namespace Geoweb3d
+{
+namespace GUI
+{
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Vector Datasource. </summary>
+	///
+	/// <remarks>	A vector datasource is a file, database, or other datasource containing one or 
+	/// 			more vector layers.  All vector layers are accessed through a vector datasource. </remarks>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	struct IGW3DGUIVectorDataSource 
+	{
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Gets the name of the datasource. </summary>
+		///
+		/// <remarks>	Gets the full name of the datasource.  This is the string that was given in the
+		/// 			open or create function of the driver. </remarks>
+		///
+		/// <returns>	null if it fails, else the name. </returns>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		virtual const char *  get_Name() const = 0;
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Gets this datasource's driver. </summary>
+		///
+		/// <remarks>	Gets the vector driver that this datasource uses. </remarks>
+		///
+		/// <returns>	The driver. </returns>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		virtual IGW3DGUIVectorDriverWPtr get_Driver() = 0;
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Gets vector layer preview collection. </summary>
+		///
+		/// <remarks>	The vector layer preview collection contains read only layer previews for all
+		/// 			layers that exist for the datasource, whether opened or not.  These are available 
+		///				to be opened via the IGW3DGUIVectorLayerCollection.</remarks>
+		///
+		/// <returns>	the vector layer preview collection. </returns>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		virtual IGW3DGUIVectorLayerPreviewCollection* get_VectorLayerPreviewCollection( bool reset_next_iterator = false ) = 0;
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Gets vector layer collection. </summary>
+		///
+		/// <remarks>	The vector layer preview collection contains all layers that have been opened or 
+		///				created in this datasource.  These are owned by the plugin, though if added to the 
+		///				table of contents, they may be removed by the user or another plugin.</remarks>
+		///
+		/// <returns>	the vector layer preview collection. </returns>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		virtual IGW3DGUIVectorLayerCollection* get_VectorLayerCollection( bool reset_next_iterator = false ) = 0;
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Gets vector datasource collection to which is datasource belongs. </summary>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		virtual IGW3DGUIVectorDataSourceCollection* get_VectorDataSourceCollection( bool reset_next_iterator = false ) = 0;
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	A macro that defines if creating layers is supported. </summary>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		#define isCreateLayerSupported       "CreateLayer" 
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	A macro that defines if deleting layers is supported. </summary>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		#define isDeleteLayerSupported       "DeleteLayer" 
+	
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Check if the datasource is capable of a given behavior. </summary>
+		///
+		/// <param name="isSupported">	The capability to be queried </param>
+		///
+		/// <returns>	true if the datasource is capable, false if it is not. </returns>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		virtual bool get_isCapable( const char *isSupported ) = 0;
+
+	};
+
+}
+}

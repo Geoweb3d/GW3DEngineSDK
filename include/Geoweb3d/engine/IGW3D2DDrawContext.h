@@ -1,0 +1,45 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// Geoweb3d SDK
+// Copyright (c) Geoweb3d, 2008-2023, all rights reserved.
+//
+// This code can be used only under the rights granted to you by the specific
+// Geoweb3d SDK license under which the SDK provided.
+//
+//////////////////////////////////////////////////////////////////////////////
+
+#pragma once
+#include "../core/GW3DInterFace.h"
+
+/* Primary namespace */
+namespace Geoweb3d
+{
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	TODO </summary>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	struct GW3D_DLL IGW3D2DDrawContext
+	{
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary> TODO </summary>
+		///
+		/// <param name="font"> TODO </param>
+		/// <param name="x"> TODO </param>
+		/// <param name="y"> TODO </param>
+		/// <param name="r"> TODO </param>
+		/// <param name="g"> TODO </param>
+		/// <param name="b"> TODO </param>
+		/// <param name="a"> TODO </param>
+		/// <param name="text"> TODO </param>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		virtual void draw_Text(
+			const IGW3DFontWPtr& font,
+			int x, int y,
+			float r, float g, float b, float a,
+			const char* text) = 0; 
+	};
+
+}
