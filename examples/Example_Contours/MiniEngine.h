@@ -23,7 +23,7 @@
 #include "engine/IGW3DDataSourceCompositor.h"
 #include "engine/GW3DRaster.h"
 
-//interfaces that will be depricated
+//interfaces that will be deprecated
 #include "GeoWeb3dCore/SystemExports.h"
 #include "GeoWeb3dCore/ImageryExports.h"
 #include "engine/IGW3DLayerHelperCollection.h"
@@ -210,7 +210,7 @@ private:
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Called just before drawing starts</summary>
 	///
-	/// <remarks>	If a client draws or uses the framebuffer at this point, it will get overwritten
+	/// <remarks>	If a client draws or uses the frame buffer at this point, it will get overwritten
 	///             when the sdk starts to draw.
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	virtual void OnDrawBegin()

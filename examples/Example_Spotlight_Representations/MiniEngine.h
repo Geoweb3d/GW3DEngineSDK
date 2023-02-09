@@ -185,7 +185,7 @@ private:
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Called just before drawing starts</summary>
     ///
-    /// <remarks>	If a client draws or uses the framebuffer at this point, it will get overwritten
+    /// <remarks>	If a client draws or uses the frame buffer at this point, it will get overwritten
     ///             when the sdk starts to draw.
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 	virtual void OnDrawBegin( )
@@ -296,7 +296,7 @@ private:
 
 public:
 
-	/// <summary>	The lightpoint representation. </summary>
+	/// <summary>	The light point representation. </summary>
     Geoweb3d::IGW3DVectorRepresentationWPtr spotlight_representation_;
     /// <summary>	The extruded representation. </summary>
     Geoweb3d::IGW3DVectorRepresentationWPtr extruded_representation_;
@@ -391,7 +391,7 @@ private:
 	time_t rawtime;
 
 
-	/// <summary> The minnutes time stamp of the last post draw session </summary>
+	/// <summary> The minutes time stamp of the last post draw session </summary>
     int time_stamp_minutes_old_;
 
 	/// <summary> The seconds time stamp of the last post draw session </summary>

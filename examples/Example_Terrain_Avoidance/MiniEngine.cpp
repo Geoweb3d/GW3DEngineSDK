@@ -33,10 +33,10 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsExtruded( Geoweb3d::IGW3DGeow
     }
     else
     {
-        // prints the values the layers has to help the user know what they can attribute map into the representatin
+        // prints the values the layers has to help the user know what they can attribute map into the representation
         const Geoweb3d::IGW3DDefinitionCollection* def = layer.lock()->get_AttributeDefinitionCollection();
 
-        printf("Attribute Names within the layer: [%s] you can map to the a extruded polygon propery: \n", layer.lock()->get_Name() );
+        printf("Attribute Names within the layer: [%s] you can map to the a extruded polygon property: \n", layer.lock()->get_Name() );
         for(unsigned i = 0; i < def->count(); ++i )
         {
             printf("\t[%s]\n", def->get_AtIndex(i)->property_name );
@@ -135,7 +135,7 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsPointCloud(Geoweb3d::IGW3DGeo
 
         //just loading up vector data so I can try to make it easy
         //or someone to load additional or other data.  In a real application
-        //you would probably want to keep your vectordatasources in your own
+        //you would probably want to keep your vector datasources in your own
         //container so you don't have to always loop through the dozens of drivers
         //to find the one you are looking for
         std::deque<std::string> vectordata;
@@ -248,7 +248,7 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsPointCloud(Geoweb3d::IGW3DGeo
 
 				if (!Geoweb3d::Succeeded(validitychk = draped_ring_driver.lock()->get_CapabilityToRepresent(layer)))
 				{
-					printf("not able to mix this geometry type with the draoed line rep..\n");
+					printf("not able to mix this geometry type with the draped line rep..\n");
 				}
 				else
 				{

@@ -124,7 +124,7 @@ bool BuildingTextureMapping::OnStream( Geoweb3d::IGW3DVectorLayerStreamResult *r
 
     const  Geoweb3d::IGW3DAttributeCollection *attibutes = result->get_AttributeCollection();
 
-    //this is just showing how to drive down into the defintions if interested...
+    //this is just showing how to drive down into the definitions if interested...
     const  Geoweb3d::IGW3DDefinitionCollection* def = attibutes->get_DefinitionCollection();
 
     int index = def->get_IndexByName("Height");

@@ -202,7 +202,7 @@ public:
 	// When IGW3DVectorLayer::Stream is called with this class, the SDK will call OnStream for each requested feature
 	virtual bool OnStream(Geoweb3d::IGW3DVectorLayerStreamResult* result)
 	{
-		// Request the attibute data for the current feature
+		// Request the attribute data for the current feature
 		const Geoweb3d::IGW3DAttributeCollection* attribute_collection = result->get_AttributeCollection();
 
 		// Query the object id (or feature id) for the current feature
@@ -521,7 +521,7 @@ bool MiniEngine::LoadData(const char *rootpath)
 
 	if (driver.expired())
 	{
-		printf("Could  not find the driver requested!  For a list of supported drivers, run the Print Capabilites example");
+		printf("Could  not find the driver requested!  For a list of supported drivers, run the Print Capabilities example");
 		return false;
 	}
 

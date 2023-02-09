@@ -79,7 +79,7 @@ class App
 
             if ( driver.expired() )
             {
-                std::cout << "Could not find the requested driver! For a list of supported drivers, run the Print Capabilites example" << std::endl;
+                std::cout << "Could not find the requested driver! For a list of supported drivers, run the Print Capabilities example" << std::endl;
                 return false;
             }
 
@@ -364,7 +364,7 @@ class App
             colored_line_rep_layer_creation_params.page_level = 1;
             colored_line_rep_layer_creation_params.representation_default_parameters = default_colored_line_properties;
 
-            // This will tell the driver to officially represent the layer with the previous set layer paramaters and should now be visible in the scene.
+            // This will tell the driver to officially represent the layer with the previous set layer parameters and should now be visible in the scene.
 			colored_line_rep_ = colored_line_rep_driver_.lock()->get_RepresentationLayerCollection()->create( layer, colored_line_rep_layer_creation_params );           			
 
 			return true;
@@ -432,7 +432,7 @@ class App
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary> Runs the Colored Line Application instance.
-///           This will continuosly run until the window is closed. </summary>
+///           This will continuously run until the window is closed. </summary>
 /// 
 /// <param name="sdk_context"> The Geoweb3d engine context.         </param>
 ////////////////////////////////////////////////////////////////////////////////////////////////////

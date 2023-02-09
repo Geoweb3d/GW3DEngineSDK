@@ -319,7 +319,7 @@ public:
 		pilot_camera_.lock()->get_LatitudeLongitudeGrid()->put_Enabled(false);
 		pilot_camera_.lock()->get_EnvironmentEffects()->put_EnableLensFlare(false);
 
-		// configure to be constant illum (aways light out), yet keeping the sun moon and starts in the right places.
+		// configure to be constant illum (always light out), yet keeping the sun moon and starts in the right places.
 		pilot_camera_.lock()->get_EnvironmentEffects()->get_LightingConfiguration()->put_EnableLightingOverride(true);
 
 		//need a lon lat readback!
@@ -485,7 +485,7 @@ public:
 		const double cam_lat = (envelope.MaxY + envelope.MinY) * 0.5;
 		const double cam_elev = 120;
 
-		//putting the cam at a relative location incase the customer adds elevation data and they are in mountains... as they 
+		//putting the cam at a relative location in case the customer adds elevation data and they are in mountains... as they 
 		//could be underground if they are learning things here....
 		nav_helper_.put_HomePosition(pilot_camera_, 0.0, 30.0, 0.0, cam_lon, cam_lat, cam_elev, Geoweb3d::IGW3DPositionOrientation::Relative);
 		nav_helper_.reset_ToHomePosition(pilot_camera_);
@@ -501,12 +501,12 @@ public:
 
 		//we want to enable picking on all of these
 		//NOTE this just creates a rest from the camera out, but
-		//you can put these anywere in the world.
+		//you can put these anywhere in the world.
 		
 		/*IdentifyVector::*/addAllVectorRepresentationToTest();
 
 
-		//pretend we get an intial position here before we start the update thread..
+		//pretend we get an initial position here before we start the update thread..
 
 		//lets get the attributes definitions that we already setup when we created the database shell and description
 		const Geoweb3d::IGW3DDefinitionCollection* attribute_fields = entity_layer_.lock()->get_AttributeDefinitionCollection();
@@ -624,7 +624,7 @@ public:
 			}
 
 			{
-				//locked because our thread is pumping locations udpates etc..
+				//locked because our thread is pumping locations updates etc..
 				CritSectEx::Scope scope(database_thread_protection_);			/* Now we stream, which prompts the Geoweb3d::IGW3DVectorLayerStream::OnStream callback to get called for each entity */
 				entity_layer_.lock()->Stream(this);
 

@@ -256,7 +256,7 @@ private:
 	/// Invoked whenever a file transfer to the client is initiated. 
 	///</summary>
 	/// <remarks>  
-	/// Implementor should return true to confirm/accept the transfer, or false to cancel the transfer.
+	/// Implementer should return true to confirm/accept the transfer, or false to cancel the transfer.
 	/// </remarks>
 	///
 	////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -294,7 +294,7 @@ private:
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>
-	/// Invoked whenever connection to the server is inactive or otherwised disabled.
+	/// Invoked whenever connection to the server is inactive or otherwise disabled.
 	///</summary>
 	/// <remarks>  
 	///	Communication with the server should only occur when the server connection is active. 

@@ -23,11 +23,11 @@ void PrintAboutExample()
 {
 	std::string str =
 		"Draped Rings Example : \n"
-		"This example concentrates on the Draped Line Represenation.  \n"
+		"This example concentrates on the Draped Line Representation.  \n"
 		"It shows the representation of a static layer off disc and of a dynamically created layer. \n"
-		"It shows how to change properties and some basic editiing on the dynamic representation. \n"
+		"It shows how to change properties and some basic editing on the dynamic representation. \n"
 		"Other:\n"
-		"2 rasters are representated as imagery.\n";
+		"2 rasters are represented as imagery.\n";
 
 	printf("\n----------ABOUT EXAMPLE INFO ----------------------------------------------------------------\n");
 	printf("%s", str.c_str());
@@ -47,14 +47,14 @@ void PrintHelpMenu()
 	printf("    (just need to hook up another option to remove the feature properties if desired to return to defaults).\n");
 
 	printf(
-		"\t A - Mininum Screen Space Diameter		\n"
+		"\t A - Minimum Screen Space Diameter		\n"
 		"\t S - Toggle Outline						\n"
 		"\t D - Inner Radius						\n"
 		"\t F - Outer Radius						\n"
 		"\t Z - Alpha Value							\n"
 		"\t X - Green Component of Color			\n"
 		"\t C - Texture to Color Blend				\n"
-		"\t V - Lighint mode						\n"
+		"\t V - Lighting mode						\n"
 	);
 	printf("------------EDIT KEYS ------------------------------------------------------------------------\n");
 	printf("  Edit Mode: Press to start / press again to stop\n");
@@ -131,7 +131,7 @@ public:
 	// When IGW3DVectorLayer::Stream is called with this class, the SDK will call OnStream for each requested feature
 	virtual bool OnStream(Geoweb3d::IGW3DVectorLayerStreamResult* result)
 	{
-		// Request the attibute data for the current feature
+		// Request the attribute data for the current feature
 		const Geoweb3d::IGW3DAttributeCollection* attribute_collection = result->get_AttributeCollection();
 
 		// Query the object id (or feature id) for the current feature

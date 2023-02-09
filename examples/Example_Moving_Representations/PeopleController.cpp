@@ -92,7 +92,7 @@ void PeopleController::SetModelElevationOffset( float elevation )
 {
 	 if (p->is_3D())
 	 {
-		 printf("-not implimented-");
+		 printf("-not implemented-");
 	 }
 	 else
 	 {
@@ -104,7 +104,7 @@ void PeopleController::SetModelElevationOffset( float elevation )
 {
 	 if (p->is_3D())
 	 {
-		 printf("-not implimented-");
+		 printf("-not implemented-");
 	 }
 	 else
 	 {
@@ -116,7 +116,7 @@ void PeopleController::SetModelElevationOffset( float elevation )
 {
 	 if (p->is_3D())
 	 {
-		 printf("-not implimented-");
+		 printf("-not implemented-");
 	 }
 	 else
 	 {
@@ -128,7 +128,7 @@ void PeopleController::SetModelElevationOffset( float elevation )
 {
 	 if (p->is_3D())
 	 {
-		 printf("-not implimented-");
+		 printf("-not implemented-");
 	 }
 	 else
 	 {
@@ -140,7 +140,7 @@ void PeopleController::SetModelElevationOffset( float elevation )
 {
 	 if (p->is_3D())
 	 {
-		 printf("-not implimented-");
+		 printf("-not implemented-");
 	 }
 	 else
 	 {
@@ -152,7 +152,7 @@ void PeopleController::SetModelElevationOffset( float elevation )
 {
 	 if (p->is_3D())
 	 {
-		 printf("-not implimented-");
+		 printf("-not implemented-");
 	 }
 	 else
 	 {
@@ -202,7 +202,7 @@ bool PeopleController::OnStream( Geoweb3d::IGW3DVectorLayerStreamResult *result 
 			//      // 222ms if targeted_property_set_test = *false* for 100k models
 			//      // vs. 144ms if  targeted_property_set_test = *true*.
 
-			//      //Thus, a PropertyCollection copy adds alot of time, but if you are replacing most of the properties, its probably
+			//      //Thus, a PropertyCollection copy adds a lot of time, but if you are replacing most of the properties, its probably
 			//      //still faster than targeting all the individual property sets...
 			//      if(targeted_property_set_test)
 			//      {

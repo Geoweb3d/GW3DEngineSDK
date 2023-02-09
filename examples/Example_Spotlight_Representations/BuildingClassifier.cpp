@@ -138,7 +138,7 @@ bool BuildingClassifier::OnStream( Geoweb3d::IGW3DVectorLayerStreamResult *resul
 
     const  Geoweb3d::IGW3DAttributeCollection *attibutes = result->get_AttributeCollection();
 
-    //this is just showing how to drive down into the defintions if interested...
+    //this is just showing how to drive down into the definitions if interested...
     const  Geoweb3d::IGW3DDefinitionCollection* def = attibutes->get_DefinitionCollection();
 
     //incase you don't know, "Function" is a field name in the shapefile

@@ -19,7 +19,7 @@
 
 		//The fact we got the event on this camera for this representation means data is paged in within
 		//your page level settings. Thus, is visible would mean the camera is looking at the bounding box area
-		//of the pasged in data. Else the data is paged in, but the camera is not looking/intersecting at the
+		//of the paged in data. Else the data is paged in, but the camera is not looking/intersecting at the
 		//bounding box of the representation data.
 		if( contents->get_VectorRepresentationIsVisible() ) 
 		{

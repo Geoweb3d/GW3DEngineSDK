@@ -63,7 +63,7 @@
 
         //just loading up vector data so I can try to make it easy
         //or someone to load additional or other data.  In a real application
-        //you would probably want to keep your vectordatasources in your own
+        //you would probably want to keep your vector datasources in your own
         //container so you don't have to always loop through the dozens of drivers
         //to find the one you are looking for
         std::deque<std::string> vectordata;
@@ -151,7 +151,7 @@
                         env.merge( layer.lock()->get_Envelope() );
 
                         //**** REPRESENTATION ASSUMPTIONS ON LAYER NAMES ****
-                        // Obviously this example is tryint go be generic and this is not the right way
+                        // Obviously this example is trying to be generic and this is not the right way
                         // to do this in the real world.
 
                         //if layer name has footprints anywhere, we will assume its extruded polygons, as well
@@ -185,7 +185,7 @@
             }
         }
     
-		// Create the spotlight controller task object and add it to the drame tasks vector
+		// Create the spotlight controller task object and add it to the frame tasks vector
 		SpotlightControllerTask *p= new SpotlightControllerTask(spotlight_representation_, this);
 		this->frame_tasks_.push_back(p);
 

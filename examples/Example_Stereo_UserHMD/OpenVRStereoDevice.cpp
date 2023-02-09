@@ -171,7 +171,7 @@ bool OpenVRStereoDevice::Initialize( Geoweb3d::IGW3DRenderTargetConfigurationHel
 	// Check whether both base stations are found, not mandatory but just in case...
 	if ( base_stations_count < 2 )
 	{
-		printf( "There was a problem indentifying the base stations, please check they are powered on \n" );
+		printf( "There was a problem identifying the base stations, please check they are powered on \n" );
 	}
 
 	// Setup Cameras ....

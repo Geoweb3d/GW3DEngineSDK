@@ -61,7 +61,7 @@ void DrapedRingController::CaptureAScribPoint()
 
 void DrapedRingController::CreateScribedLine(Geoweb3d::IGW3DPropertyCollectionPtr defaults)
 {
-	printf("Attemping to create the feature that was being scribed.\n");
+	printf("Attempting to create the feature that was being scribed.\n");
 	if (!dynamic_layer_.expired())
 	{
 		auto ep_layer_locked = dynamic_layer_.lock();

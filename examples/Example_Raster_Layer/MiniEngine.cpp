@@ -136,7 +136,7 @@ bool CaptureStream::OnStream(Geoweb3d::IGW3DRasterLayerEnvelopeStreamResult* res
 			if(desc && desc->c_str())
 			{
 				//if you want the a wmts service to work in the future without an internet connection
-				//you will need to save out a local copy of the capabilites of the wmts service 
+				//you will need to save out a local copy of the capabilities of the wmts service 
 				//and change the capabilities path to this local copy
 				Geoweb3d::GW3DResult result;
 				Geoweb3d::IGW3DDataBufferPtr data_buffer = Geoweb3d::OS_Helpers::GetHTTPFetch(desc->c_str(), result);

@@ -92,7 +92,7 @@ public:
 	// When IGW3DVectorLayer::Stream is called with this class, the SDK will call OnStream for each requested feature
 	virtual bool OnStream(Geoweb3d::IGW3DVectorLayerStreamResult* result)
 	{
-		// Request the attibute data for the current feature
+		// Request the attribute data for the current feature
 		const Geoweb3d::IGW3DAttributeCollection* attribute_collection = result->get_AttributeCollection();
 
 		// Query the object id (or feature id) for the current feature
@@ -231,7 +231,7 @@ public:
 	// When IGW3DVectorLayer::Stream is called with this class, the SDK will call OnStream for each requested feature
 	virtual bool OnStream(Geoweb3d::IGW3DVectorLayerStreamResult* result)
 	{
-		// Request the attibute data for the current feature
+		// Request the attribute data for the current feature
 		const Geoweb3d::IGW3DAttributeCollection* attribute_collection = result->get_AttributeCollection();
 
 		// Query the object id (or feature id) for the current feature
@@ -1258,7 +1258,7 @@ void MiniEngine::onChatMessageReceived(const Geoweb3d::IGW3DTAKClientContext* co
 /// Invoked whenever a file transfer to the client is initiated. 
 ///</summary>
 /// <remarks>  
-/// Implementor should return true to confirm/accept the transfer, or false to cancel the transfer.
+/// Implementer should return true to confirm/accept the transfer, or false to cancel the transfer.
 /// </remarks>
 ///
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1330,7 +1330,7 @@ void MiniEngine::onServerConnectionActive(const Geoweb3d::IGW3DTAKClientContext*
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>
-/// Invoked whenever connection to the server is inactive or otherwised disabled.
+/// Invoked whenever connection to the server is inactive or otherwise disabled.
 ///</summary>
 /// <remarks>  
 ///	Communication with the server should only occur when the server connection is active. 

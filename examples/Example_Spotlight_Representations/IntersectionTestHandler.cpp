@@ -72,7 +72,7 @@
 
             //NOTE, OnStream gives the results of all the new collisions, but nothing is stopping you to
             //query the results directly. *However*, calling STREAM is what runs the analysis within the SDK!
-            //What this means is, if you are not interested the way to get spacially all the linesegment results,
+            //What this means is, if you are not interested the way to get spatially all the linesegment results,
             //you can just call stream leaving this function empty, and then call get_IntersectionCollection
             //on your linesegment of interest.
             Geoweb3d::IGW3DLineSegmentIntersectionTestWPtr linesegmenttest;

@@ -83,7 +83,7 @@ class CritSectEx {
 	}
 
 public:
-	// Constructor/Destroctor
+	// Constructor/Destructor
 	CritSectEx()
 	{
 		ZeroMemory(this, sizeof(*this));

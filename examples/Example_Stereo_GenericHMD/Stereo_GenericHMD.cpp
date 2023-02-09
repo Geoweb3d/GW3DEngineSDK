@@ -41,7 +41,7 @@ AMD Drivers : http://support.amd.com/en-us/download
 
 Make sure your computer is VR Ready : http://store.steampowered.com/app/323910/
 
-Install Hardware Specifc Software. (Instructions are usually packaged with the device)
+Install Hardware Specific Software. (Instructions are usually packaged with the device)
 HTC Vive : https://www.vive.com/us/setup/
 Oculus Rift : https://www.oculus.com/setup/
 
@@ -49,7 +49,7 @@ Launch SteamVR
 You can do this by clicking the VR button that appears in the top right corner of the
 Steam client.
 You can also launch SteamVR from the Steam library under Tools.
-The SteamVR Status window will show up. Follow the prompts to fnish installing
+The SteamVR Status window will show up. Follow the prompts to finish installing
 your Device.
 */
 
@@ -85,7 +85,7 @@ public:
 		bool stereo_enabled = camera_.lock()->get_CameraStereoSettings()->get_Enable();
 
 		int v_sync_state = stereo_enabled
-			? 0		// vsync disabled for Stero Device
+			? 0		// vsync disabled for Stereo Device
 			: -1;	// adaptive vsync 
 
         if( sdk_context_->draw( window_, v_sync_state ) == Geoweb3d::GW3D_sOk )
@@ -174,8 +174,8 @@ public:
 		Geoweb3d::IGW3DVectorDriverWPtr vdriver;
         while( sdk_context_->get_VectorDriverCollection()->next(&vdriver) )
         {
-            //note, going through a lock() all the time creates alot of extra work
-            //we can avoid when we are in a tight loop, as we know we are all good programers
+            //note, going through a lock() all the time creates a lot of extra work
+            //we can avoid when we are in a tight loop, as we know we are all good programmers
             Geoweb3d::IGW3DVectorDataSourceCollection *vdscollection = vdriver.lock()->get_VectorDataSourceCollection();
 
             Geoweb3d::IGW3DVectorDataSourceWPtr vdatasource;
@@ -250,7 +250,7 @@ private:
 				Geoweb3d::GW3DResult result = camera_.lock()->get_CameraStereoSettings()->put_Enable( enabled );
 				if ( Geoweb3d::Succeeded( result ) )
 				{
-					std::cout << "VR enable state chaanged: " << enabled << std::endl;
+					std::cout << "VR enable state changed: " << enabled << std::endl;
 				}
 				else
 				{
@@ -534,10 +534,10 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsExtruded( Geoweb3d::IGW3DGeow
     }
     else
     {
-        // prints the values the layers has to help the user know what they can attribute map into the representatin
+        // prints the values the layers has to help the user know what they can attribute map into the representation
         const Geoweb3d::IGW3DDefinitionCollection* def = layer.lock()->get_AttributeDefinitionCollection();
 
-        printf("Attribute Names within the layer: [%s] you can map to the a extruded polygon propery: \n", layer.lock()->get_Name() );
+        printf("Attribute Names within the layer: [%s] you can map to the a extruded polygon property: \n", layer.lock()->get_Name() );
         for(unsigned i = 0; i < def->count(); ++i )
         {
             printf("\t[%s]\n", def->get_AtIndex(i)->property_name );

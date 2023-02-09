@@ -88,7 +88,7 @@ bool SpotlightController::OnStream( Geoweb3d::IGW3DVectorLayerStreamResult *resu
 
     const  Geoweb3d::IGW3DAttributeCollection *attibutes = result->get_AttributeCollection();
 
-	//this is just showing how to drive down into the defintions if interested...
+	//this is just showing how to drive down into the definitions if interested...
     const  Geoweb3d::IGW3DDefinitionCollection* def = attibutes->get_DefinitionCollection();
 
 	// Get the DESC_ index of the current vector layer result

@@ -78,7 +78,7 @@ public:
 
         if ( driver.expired() )
         {
-            std::cout << "Could not find the requested driver! For a list of supported drivers, run the Print Capabilites example" << std::endl;
+            std::cout << "Could not find the requested driver! For a list of supported drivers, run the Print Capabilities example" << std::endl;
             return false;
         }
 
@@ -430,7 +430,7 @@ public:
         extruded_path_rep_layer_creation_params.page_level = 1;
         extruded_path_rep_layer_creation_params.representation_default_parameters = default_extruded_path_properties;
 
-        // This will tell the driver to officially represent the layer with the previous set layer paramaters and should now be visible in the scene.
+        // This will tell the driver to officially represent the layer with the previous set layer parameters and should now be visible in the scene.
         extruded_path_rep_ = extruded_path_rep_driver_.lock()->get_RepresentationLayerCollection()->create( layer, extruded_path_rep_layer_creation_params );
 
         return true;
@@ -509,7 +509,7 @@ private:
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary> Runs the Extruded Path Application instance.
-///           This will continuosly run until the window is closed. </summary>
+///           This will continuously run until the window is closed. </summary>
 /// 
 /// <param name="sdk_context"> The Geoweb3d engine context.         </param>
 ////////////////////////////////////////////////////////////////////////////////////////////////////

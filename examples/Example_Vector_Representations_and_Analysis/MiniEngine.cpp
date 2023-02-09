@@ -72,7 +72,7 @@
 
         //just loading up vector data so I can try to make it easy
         //or someone to load additional or other data.  In a real application
-        //you would probably want to keep your vectordatasources in your own
+        //you would probably want to keep your vector datasources in your own
         //container so you don't have to always loop through the dozens of drivers
         //to find the one you are looking for
         std::deque<std::string> vectordata;
@@ -188,7 +188,7 @@
                             //can represent a model and do a frustum contents query
                             custom_representation_ = RepresentAsCustom( sdk_context_, layer );
                             custom_representation_.lock()->get_FrameAnalysisContentsConfiguration()->get_FrustumAnalysis()->get_FeatureFeedbackConfiguration()->put_Enabled( true );
-							custom_representation_.lock()->get_FrameAnalysisContentsConfiguration()->get_FrustumAnalysis()->get_FeatureFeedbackConfiguration()->get_ContentsFilter()->put_Enabled( true );//we want to use paramters different than what we use for rendering
+							custom_representation_.lock()->get_FrameAnalysisContentsConfiguration()->get_FrustumAnalysis()->get_FeatureFeedbackConfiguration()->get_ContentsFilter()->put_Enabled( true );//we want to use parameters different than what we use for rendering
                             //we want to knwo where on the window the point is
                             custom_representation_.lock()->get_FrameAnalysisContentsConfiguration()->get_FrustumAnalysis()->get_FeatureFeedbackConfiguration()->get_FeatureID2DPixelLocationConfiguration()->put_Enabled( true );
 
@@ -338,7 +338,7 @@
 
                 if(!toggle_)
                 {
-                    //put all back to the default settings of the represetnation driver
+                    //put all back to the default settings of the representation driver
                     lightpoint_representation_.lock()->put_PropertyCollection( 0 );
                 }
                 else
@@ -545,7 +545,7 @@
 	{
 		if(!lightpoint_representation_.expired())
 		{
-			//variants are expensive to create and destroy, so resuse the object when you can.
+			//variants are expensive to create and destroy, so reuse the object when you can.
 			Geoweb3d::IGW3DVariant scratchpad;
 			Geoweb3d::IGW3DPropertyCollectionPtr properties = lightpoint_representation_.lock()->get_PropertyCollection()->create_Clone();
 			scratchpad = 1.0;

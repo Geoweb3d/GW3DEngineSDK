@@ -14,7 +14,7 @@
 #include "engine/GW3DWindow.h"
 #include "engine/GW3DVector.h"
 
-// include the error handeling 
+// include the error handling 
 #include "Geoweb3dCore/SystemExports.h"
 
 #pragma comment(lib, "GW3DEngineSDK.lib")
@@ -57,7 +57,7 @@ Geoweb3d::GW3DEnvelope LoadandRepresentVectorData(Geoweb3d::IGW3DGeoweb3dSDKPtr 
 
 				}
 				else
-				{ // non compatable ExtrudedPolygon
+				{ // non compatible ExtrudedPolygon
 					std::cout << " not able to represent vector layer [" << t_data_source.lock()->get_VectorLayerCollection()->get_AtIndex(ii).lock()->get_Name() << "] \n";
 				}
 			}
@@ -76,7 +76,7 @@ Geoweb3d::GW3DEnvelope LoadandRepresentVectorData(Geoweb3d::IGW3DGeoweb3dSDKPtr 
 
 
 class WindowCallback : public Geoweb3d::IGW3DWindowCallback, public IdentifyVector, public NavigationHelper, public MiniEngineCore			
-{ // windows call back class for use wih the windows call back and the navagation helper class
+{ // windows call back class for use with the windows call back and the navigation helper class
 
 public:
 	WindowCallback(Geoweb3d::IGW3DGeoweb3dSDKPtr t_sdk_context) : IdentifyVector(t_sdk_context)
@@ -120,20 +120,20 @@ int _tmain(int argc, _TCHAR* argv[])
 
 // first step to interact with the SDK is to construct and SDK context,
 // this is the primary context of communication between the sdk and host application
-// the sdk context is -- <put a good descition here>
+// the sdk context is -- <put a good description here>
 
-// currently only one sdk context is allowed to be instatiated at any one time.
+// currently only one sdk context is allowed to be instantiated at any one time.
 
 // to create an image you have to use the create through the image collection
 // to destroy that image, you have to use the mage collection
 
 // all management is owned by the sdk
-// all collections are management objects and are maticly created and managed by the sdk context this is why thay are raw pointers.
+// all collections are management objects and are magically created and managed by the sdk context this is why they are raw pointers.
 // the client (user of the sdk) will create and destroy member of the collections 
 
 
-// all access of data mambers is encapulated with in the collections, all create and remove is done throught the
-//  the mechanisum of a collection
+// all access of data members is encapsulated with in the collections, all create and remove is done through the
+//  mechanism of a collection
 
 
 	// creation of the sdk context
@@ -221,8 +221,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	return 0;
 }
 
-// the following functions are needed for the procesing of the lowest level error handeling
-// this covers the error handeling for the creation of the SDK 
+// the following functions are needed for the processing of the lowest level error handling
+// this covers the error handling for the creation of the SDK 
 
 /*! General info function, this will be used to print any general info and non-fatal warnings */
 void my_info_function(const char *msg )

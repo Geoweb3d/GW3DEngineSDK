@@ -82,8 +82,8 @@ void TestMemory()
 	std::cout << "Total Virtual Memory: "	<< memory_details.virtual_total << std::endl;
 	std::cout << "Free Virtual Memory: "	<< memory_details.virtual_total - memory_details.virtual_used << std::endl << std::endl;
 
-	std::cout << "Physical Memory Used by this proccessed: " << memory_details.physical_usedByProcess << std::endl;
-	std::cout << "Virtual Memory Used by this proccessed: " << memory_details.virtual_total - memory_details.virtual_usedByProcess << std::endl;
+	std::cout << "Physical Memory Used by this process: " << memory_details.physical_usedByProcess << std::endl;
+	std::cout << "Virtual Memory Used by this process: " << memory_details.virtual_total - memory_details.virtual_usedByProcess << std::endl;
 
 
 }

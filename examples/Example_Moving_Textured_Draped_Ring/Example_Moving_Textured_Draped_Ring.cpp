@@ -142,7 +142,7 @@ class TexturedDrapedRingStream : public Geoweb3d::IGW3DVectorLayerStream
 
         enum ObjectMovementMode
         {
-            CAMERA_POS           = 1, // -90 degress from camera's current angle, it will ignore pitch.
+            CAMERA_POS           = 1, // -90 degrees from camera's current angle, it will ignore pitch.
             CAMERA_POS_AND_PITCH = 2  // Takes pitch into account, will use vector data to determine z coordinates.
         };
 
@@ -405,7 +405,7 @@ class TexturedDrapedRingStream : public Geoweb3d::IGW3DVectorLayerStream
         /// <summary> Array indexer operator. Gets feature/object id at index. </summary>
         ///
         /// <remarks> For the most part, this can usually forward the call to
-        ///           get_AtIndex with the index paramater being passed along. </remarks>
+        ///           get_AtIndex with the index parameter being passed along. </remarks>
         ///
         /// <param name="index"> Zero-based index of the feature/object id.    </param>
         ///
@@ -463,8 +463,8 @@ class TexturedDrapedRingStream : public Geoweb3d::IGW3DVectorLayerStream
 ///           The Texture Draped Ring will always be tethered to the camera.            </summary>
 /// 
 /// <remarks> This application inherits from the IGW3DWindowCallback so that the user
-///           can extend mouse or key events to interact with the camera naviagtor and
-///           the Reprensetations in the scene.                                         </remarks>
+///           can extend mouse or key events to interact with the camera navigator and
+///           the Representations in the scene.                                         </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class App : public Geoweb3d::IGW3DWindowCallback
@@ -581,7 +581,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary> Pumps the window draw and PostDraw tasks.                  </summary>
         ///
-        /// <remarks> This will continuosuly pump so long as the draw was valid. </remarks>
+        /// <remarks> This will continuously pump so long as the draw was valid. </remarks>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         void Run()
@@ -611,7 +611,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
             
 			if( driver.expired() )
 			{
-				std::cout << "Could not find the requested driver! For a list of supported drivers, run the Print Capabilites example" << std::endl;
+				std::cout << "Could not find the requested driver! For a list of supported drivers, run the Print Capabilities example" << std::endl;
 				return false;
 			}
 
@@ -938,7 +938,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary> Runs the Moving Textured Draped Ring Application instance.
-///           This will continuosly run until the window is closed.      </summary>
+///           This will continuously run until the window is closed.      </summary>
 /// 
 /// <param name="sdk_context"> The Geoweb3d engine context.              </param>
 ////////////////////////////////////////////////////////////////////////////////////////////////////

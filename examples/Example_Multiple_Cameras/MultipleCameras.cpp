@@ -12,7 +12,7 @@
 
 #include "stdafx.h"
 
-#include "GeoWeb3dCore/SystemExports.h" //needed for debug/log informatin
+#include "GeoWeb3dCore/SystemExports.h" //needed for debug/log information
 
 #include "engine/IGW3DGeoweb3dSDK.h"
 #include "engine/IGW3DInitializationConfiguration.h"

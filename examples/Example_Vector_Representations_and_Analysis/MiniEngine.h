@@ -163,7 +163,7 @@ private:
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Called just before drawing starts</summary>
     ///
-    /// <remarks>	If a client draws or uses the framebuffer at this point, it will get overwritten
+    /// <remarks>	If a client draws or uses the frame buffer at this point, it will get overwritten
     ///             when the sdk starts to draw.
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 	virtual void OnDrawBegin( )
@@ -266,7 +266,7 @@ private:
 
     /// <summary>	The light layer. </summary>
     Geoweb3d::IGW3DVectorLayerWPtr light_layer;
-    /// <summary>	The lightpoint representation. </summary>
+    /// <summary>	The light point representation. </summary>
     Geoweb3d::IGW3DVectorRepresentationWPtr lightpoint_representation_;
     /// <summary>	The extruded representation. </summary>
     Geoweb3d::IGW3DVectorRepresentationWPtr extruded_representation_;

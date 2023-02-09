@@ -85,7 +85,7 @@ public:
 	// When IGW3DVectorLayer::Stream is called with this class, the SDK will call OnStream for each requested feature
 	virtual bool OnStream(Geoweb3d::IGW3DVectorLayerStreamResult* result)
 	{
-		// Request the attibute data for the current feature
+		// Request the attribute data for the current feature
 		const Geoweb3d::IGW3DAttributeCollection* attribute_collection = result->get_AttributeCollection();
 
 		// Query the object id (or feature id) for the current feature
@@ -171,7 +171,7 @@ Geoweb3d::IGW3DVectorRepresentationWPtr MiniEngine::RepresentAsDrapedLine(Geoweb
 		// prints the values the layers has to help the user know what they can attribute map into the representation
 		const Geoweb3d::IGW3DDefinitionCollection* def = layer.lock()->get_AttributeDefinitionCollection();
 
-		printf("Attribute Names within the layer: [%s] you can map to the a draped line propery: \n", layer.lock()->get_Name());
+		printf("Attribute Names within the layer: [%s] you can map to the a draped line property: \n", layer.lock()->get_Name());
 		for (unsigned i = 0; i < def->count(); ++i)
 		{
 			printf("\t[%s]\n", def->get_AtIndex(i)->property_name);

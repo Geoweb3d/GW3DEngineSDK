@@ -197,8 +197,8 @@
 		
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		///
-		/// Now our datasource is set - time to choose a represenation 
-		/// Remember that some representation only work with certain layer datatypes. 
+		/// Now our datasource is set - time to choose a representation 
+		/// Remember that some representation only work with certain layer data types. 
 		///
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		Geoweb3d::IGW3DVectorRepresentationDriverWPtr extruded_poly_rep_driver = sdk_context_->get_VectorRepresentationDriverCollection()->get_Driver("ExtrudedPolygon");
@@ -231,7 +231,7 @@
 		///	He we do the colored line representation of the original 'internal' datasource 
 		/// We show this just as a reference.  As this example app is mainly to show the architecture
 		/// of a 'call back' datasource. 
-		/// (i.e. note picking, tooltip, and context menue are not hooked up to work with this representation).
+		/// (i.e. note picking, tool tip, and context menu are not hooked up to work with this representation).
 		///
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		if (represent_internal_datasource_as_well)
@@ -384,7 +384,7 @@
 
 						SelectById(intersection_detail->get_ObjectID());
 
-						//only allowing one selection (if more are needed - need to track history or rep properties - in order to delect back to there previous states).
+						//only allowing one selection (if more are needed - need to track history or rep properties - in order to deselect back to the previous states).
 						break;
 						//just showing we can also access the actual intersection point
 						//const Geoweb3d::GW3DPoint* hit_point = intersection_detail->get_IntersectionPoint();

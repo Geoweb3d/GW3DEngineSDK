@@ -171,7 +171,7 @@ private:
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Called just before drawing starts</summary>
 	///
-	/// <remarks>	If a client draws or uses the framebuffer at this point, it will get overwritten
+	/// <remarks>	If a client draws or uses the frame buffer at this point, it will get overwritten
 	///             when the sdk starts to draw.
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	virtual void OnDrawBegin()
@@ -186,7 +186,7 @@ private:
 	{}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
-	/// <summary>	Helper to populate the transistion properties of a selected feature.</summary>
+	/// <summary>	Helper to populate the transition properties of a selected feature.</summary>
 	///
 	void PopulateCurrentStateProps(const long current_fid);
 

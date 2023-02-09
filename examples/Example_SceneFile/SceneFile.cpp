@@ -12,7 +12,8 @@
 
 #include <Geoweb3d/engine/IGW3DVectorRepresentation.h>
 #include <Geoweb3d/engine/IGW3DVectorRepresentationDriver.h>
-
+#include <Geoweb3d/engine/IGW3DEnvironmentEffects.h>
+#include <Geoweb3d/engine/IGW3DEnvironmentLabs.h>
 
 #include <Geoweb3d/attributemapper/IGW3DSceneLoadingCallbacks.h>
 #include <Geoweb3d/attributemapper/IGW3DSceneCollection.h>
@@ -93,7 +94,7 @@ public:
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     bool Update()
-    {		
+    {
 		if( sdk_context_->draw( window_ ) == Geoweb3d::GW3D_sOk )
         {
             return true;
@@ -293,8 +294,59 @@ private:
 		{
 		case Geoweb3d::WindowEvent::KeyPressed:
 		{
+			const bool nomods = !win_event.Key.shift && !win_event.Key.alt && !win_event.Key.control;
+			const bool alt = 	win_event.Key.alt;
+
+			printf( "code: %i, nomods: %s, alt flag: %s, control: %s, shift: %s, alt: %s \n", (int)win_event.Key.code, (nomods ? "true" : "false"), (alt ? "true" : "false"), (win_event.Key.control ? "true" : "false"), (win_event.Key.shift ? "true" : "false"), (win_event.Key.alt ? "true" : "false") );
+
 			switch ( win_event.Key.code )
 			{
+			case Geoweb3d::Key::A:
+			{
+				SetFogActivity( !GetFogActivity() );
+				break;
+			}
+
+			case Geoweb3d::Key::Numpad7 :
+			{
+				if ( nomods )	DecreaseHazeVisibility();
+				else if ( alt )	IncreaseHazeTransition();
+			}
+			break;
+
+			case Geoweb3d::Key::Numpad9:
+			{
+				if ( nomods )	IncreaseHazeVisibility();
+				else if ( alt )	DecreaseHazeTransition();
+			}
+			break;
+
+			case Geoweb3d::Key::Numpad4:
+			{
+				if ( nomods )	DecreaseFogVisibility();
+				else if ( alt )	IncreaseFogTransition();
+			}
+			break;
+
+			case Geoweb3d::Key::Numpad6:
+			{
+				if ( nomods )	IncreaseFogVisibility();
+				else if ( alt )	DecreaseFogTransition();
+			}
+			break;
+
+			case Geoweb3d::Key::Numpad8:
+			{
+				IncreaseFogHeight();
+			}
+			break;
+
+			case Geoweb3d::Key::Numpad5:
+			{
+				DecreaseFogHeight();
+			}
+			break;
+
 			case Geoweb3d::Key::Num0:
 				camera_.lock()->get_CameraController()->put_Location( 0.0, 0.0 );
 				camera_.lock()->get_CameraController()->put_Elevation( 500.0, Geoweb3d::IGW3DPositionOrientation::Relative );
@@ -338,8 +390,13 @@ private:
 		break;
 
 		default:
+		{
 			nav_helper_->ProcessEvent( win_event, window_ );
-			break;
+			float heading = camera_.lock()->get_CameraController()->get_Heading();
+			float pitch = camera_.lock()->get_CameraController()->get_Pitch();
+			printf( "Heading: %lf, Pitch: %lf \n", heading, pitch );
+		}
+		break;
 		}
 	}
 
@@ -474,8 +531,12 @@ private:
 			printf("User Set: UnDelimitedString: %s\n", camera.lock()->get_DateTime()->get_DateFromUnDelimitedString()->c_str());
 
 
-			camera.lock()->get_DateTime()->put_Time(12,0);
-			//go back to useing the date and time of this computer
+			Geoweb3d::IGW3DDateTime* dt = camera.lock()->get_DateTime();
+			dt->put_isFollowCameraLocationForReference( true );
+			dt->put_Time(22,00);
+			dt->put_DateFromUnDelimitedString("2023125");
+
+			//go back to using the date and time of this computer
 			//camera.lock()->get_DateTime()->put_isUseComputerDate(true);
 			//camera.lock()->get_DateTime()->put_isUseComputerTime(true);
 		}
@@ -499,6 +560,133 @@ private:
 			printf("Callback : Layer: %s -> Representation: %s\n", lyr_l->get_Name(), rep_l->get_Driver().lock()->get_Name());
 		}
 	}
+
+	void SetFogActivity (bool active)
+	{
+		fog_enabled_ = active;
+
+		if (!camera_.expired())
+		{
+			camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->put_FogActivity(active);
+		}
+
+	}
+
+	bool GetFogActivity () const
+	{
+		return fog_enabled_;
+	}
+
+	void IncreaseHazeVisibility()
+	{
+		if (!camera_.expired())
+		{
+			Geoweb3d::GW3DFoggingParameters params = camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->get_FogParameters();
+			params.haze_visibility_range = (std::max)( params.haze_visibility_range + primary_increment_value_, 0.0f );
+			camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->put_FogParameters( params );
+			std::cout << "Haze Visibility set to: " << params.haze_visibility_range << std::endl;
+		}
+	}
+
+	void DecreaseHazeVisibility()
+	{
+		if (!camera_.expired())
+		{
+			Geoweb3d::GW3DFoggingParameters params = camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->get_FogParameters();
+			params.haze_visibility_range = (std::max)( params.haze_visibility_range - primary_increment_value_, 0.0f );
+			camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->put_FogParameters( params );
+			std::cout << "Haze Visibility set to: " << params.haze_visibility_range << std::endl;
+		}
+	}
+
+	void IncreaseFogVisibility()
+	{
+		if (!camera_.expired())
+		{
+			Geoweb3d::GW3DFoggingParameters params = camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->get_FogParameters();
+			params.fog_visibility_range = (std::max)( params.fog_visibility_range + primary_increment_value_, 0.0f );
+			camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->put_FogParameters( params );
+			std::cout << "Fog Visibility set to: " << params.fog_visibility_range << std::endl;
+		}
+	}
+
+	void DecreaseFogVisibility()
+	{
+		if (!camera_.expired())
+		{
+			Geoweb3d::GW3DFoggingParameters params = camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->get_FogParameters();
+			params.fog_visibility_range = (std::max)( params.fog_visibility_range - primary_increment_value_, 0.0f );
+			camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->put_FogParameters( params );
+			std::cout << "Fog Visibility set to: " << params.fog_visibility_range << std::endl;
+		}
+	}
+
+	void IncreaseFogHeight()
+	{
+		if (!camera_.expired())
+		{
+			Geoweb3d::GW3DFoggingParameters params = camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->get_FogParameters();
+			params.fog_height = (std::max)( params.fog_height + 1.0f, 0.0f );
+			camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->put_FogParameters( params );
+			std::cout << "Fog Height set to: " << params.fog_height << std::endl;
+		}
+	}
+
+	void DecreaseFogHeight()
+	{
+		if (!camera_.expired())
+		{
+			Geoweb3d::GW3DFoggingParameters params = camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->get_FogParameters();
+			params.fog_height = (std::max)( params.fog_height - 1.0f, 0.0f );
+			camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->put_FogParameters( params );
+			std::cout << "Fog Height set to: " << params.fog_height << std::endl;
+		}
+	}
+
+	void IncreaseFogTransition()
+	{
+		if (!camera_.expired())
+		{
+			Geoweb3d::GW3DFoggingParameters params = camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->get_FogParameters();
+			params.fog_transition_range = (std::max)( params.fog_transition_range + secondary_increment_value_, 0.0f );
+			camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->put_FogParameters( params );
+			std::cout << "Fog Transition set to: " << params.fog_transition_range << std::endl;
+		}
+	}
+
+	void DecreaseFogTransition()
+	{
+		if (!camera_.expired())
+		{
+			Geoweb3d::GW3DFoggingParameters params = camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->get_FogParameters();
+			params.fog_transition_range = (std::max)( params.fog_transition_range - secondary_increment_value_, 0.0f );
+			camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->put_FogParameters( params );
+			std::cout << "Fog Transition set to: " << params.fog_transition_range << std::endl;
+		}
+	}
+
+	void IncreaseHazeTransition()
+	{
+		if (!camera_.expired())
+		{
+			Geoweb3d::GW3DFoggingParameters params = camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->get_FogParameters();
+			params.haze_transition_range = (std::max)( params.haze_transition_range + secondary_increment_value_, 0.0f );
+			camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->put_FogParameters( params );
+			std::cout << "Haze transition range set to: " << params.haze_transition_range << std::endl;
+		}
+	}
+
+	void DecreaseHazeTransition()
+	{
+		if (!camera_.expired())
+		{
+			Geoweb3d::GW3DFoggingParameters params = camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->get_FogParameters();
+			params.haze_transition_range = (std::max)( params.haze_transition_range - secondary_increment_value_, 0.0f );
+			camera_.lock()->get_EnvironmentEffects()->get_EnvironmentLabs()->put_FogParameters( params );
+			std::cout << "Haze transition range set to: " << params.haze_transition_range << std::endl;
+		}
+	}
+
 private:
 
     /// <summary>	Context for the sdk. </summary>
@@ -516,6 +704,21 @@ private:
 	Geoweb3d::IGW3DCameraWPtr camera_;
 
 	NavigationHelper* nav_helper_;
+
+	//Fog & Haze 
+	bool fog_enabled_ = true;
+	const float primary_increment_value_ = 250.0;
+	const float secondary_increment_value_ = 10.0;
+
+	//Fog
+	float fog_visibility_range_ = 500.0f;
+	float fog_transition_range_ = 100.0f;
+	float fog_height_ = -1000000000000.0f;
+	
+	//Haze
+	float haze_visibility_range_ = 2000.0f;
+	float haze_transition_range_ = 2000.0f;
+
 }; //engine end of class
 
 

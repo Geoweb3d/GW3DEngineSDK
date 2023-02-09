@@ -32,10 +32,10 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsExtruded( Geoweb3d::IGW3DGeow
     }
     else
     {
-        // prints the values the layers has to help the user know what they can attribute map into the representatin
+        // prints the values the layers has to help the user know what they can attribute map into the representation
         const Geoweb3d::IGW3DDefinitionCollection* def = layer.lock()->get_AttributeDefinitionCollection();
 
-        printf("Attribute Names within the layer: [%s] you can map to the a extruded polygon propery: \n", layer.lock()->get_Name() );
+        printf("Attribute Names within the layer: [%s] you can map to the a extruded polygon property: \n", layer.lock()->get_Name() );
         for(unsigned i = 0; i < def->count(); ++i )
         {
             printf("\t[%s]\n", def->get_AtIndex(i)->property_name );
@@ -104,7 +104,7 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsExtruded( Geoweb3d::IGW3DGeow
 
         //just loading up vector data so I can try to make it easy
         //or someone to load additional or other data.  In a real application
-        //you would probably want to keep your vectordatasources in your own
+        //you would probably want to keep your vector datasources in your own
         //container so you don't have to always loop through the dozens of drivers
         //to find the one you are looking for
         std::deque<std::string> vectordata;
@@ -227,7 +227,7 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsExtruded( Geoweb3d::IGW3DGeow
 
 
                         //**** REPRESENTATION ASSUMPTIONS ON LAYER NAMES ****
-                        // Obviously this example is tryint go be generic and this is not the right way
+                        // Obviously this example is trying to be generic and this is not the right way
                         // to do this in the real world.
 
                         //if layer name has footprints anywhere, we will assume its extruded polygons, as well

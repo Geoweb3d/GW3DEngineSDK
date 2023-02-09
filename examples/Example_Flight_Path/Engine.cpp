@@ -159,7 +159,7 @@ bool Engine::Render()
 				}
 			}
 
-			// Autotracking map camera
+			// Auto-tracking map camera
 			//if (_MapCamera.lock()->get_Enabled()) {
 			//	SetCameraPosition(_MapCamera, position);
 			//	SetCameraOrientation(_MapCamera, 0.0f, 90.0f, 0.0f);
@@ -189,7 +189,7 @@ bool Engine::ResizeWindow(int x, int y, unsigned int cx, unsigned int cy)
 // Position the given camera
 bool Engine::SetCameraPosition(const IGW3DCameraWPtr& camera, double longitude, double latitude, double elevation)
 {
-	// Check to see if the current camera is valid and then relocate it somewhere desireable
+	// Check to see if the current camera is valid and then relocate it somewhere desirable
 	if (!camera.expired()) {
 		camera.lock()->get_CameraController()->put_Location(longitude, latitude);
 		camera.lock()->get_CameraController()->put_Elevation(elevation);
@@ -233,7 +233,7 @@ bool Engine::CreateSdkCameras()
 	_MapCamera = CreateCamera("2");
 
 	// We're creating pointers to the same cameras to facilitate easy
-	// deliniation of which camera occupys the screen and which is inset.
+	// delineation of which camera occupies the screen and which is inset.
 	_PrimaryCamera = _FollowCamera;
 	_SecondaryCamera = _MapCamera;
 
@@ -299,7 +299,7 @@ bool Engine::LoadFlightData(const std::string & filename)
 				auto pathRepresentationDriver = _SdkContext->get_VectorRepresentationDriverCollection()->get_Driver("ColoredLine");
 
 				if (pathRepresentationDriver.expired() || !Geoweb3d::Succeeded(pathRepresentationDriver.lock()->get_CapabilityToRepresent(pathLayer))) {
-					std::cout << "Layer can not be respresented" << std::endl;
+					std::cout << "Layer can not be represented" << std::endl;
 					return false;
 				}
 
@@ -324,7 +324,7 @@ bool Engine::LoadFlightData(const std::string & filename)
 				ribbonLayer.lock()->put_GeometryEditableMode(false);
 
 				if (solidRibbonDriver.expired() || !Geoweb3d::Succeeded(solidRibbonDriver.lock()->get_CapabilityToRepresent(ribbonLayer))) {
-					std::cout << "Layer can not be respresented" << std::endl;
+					std::cout << "Layer can not be represented" << std::endl;
 					return false;
 				}
 
@@ -346,7 +346,7 @@ bool Engine::LoadFlightData(const std::string & filename)
 				ribbonLayer.lock()->put_GeometryEditableMode(false);
 
 				if (meshRibbonDriver.expired() || !Geoweb3d::Succeeded(meshRibbonDriver.lock()->get_CapabilityToRepresent(ribbonLayer))) {
-					std::cout << "Layer can not be respresented" << std::endl;
+					std::cout << "Layer can not be represented" << std::endl;
 					return false;
 				}
 
@@ -373,7 +373,7 @@ bool Engine::LoadFlightData(const std::string & filename)
 				auto spireDriver = _SdkContext->get_VectorRepresentationDriverCollection()->get_Driver("Cylinder");
 
 				if (spireDriver.expired() || !Geoweb3d::Succeeded(spireDriver.lock()->get_CapabilityToRepresent(spireLayer))) {
-					std::cout << "Layer can not be respresented" << std::endl;
+					std::cout << "Layer can not be represented" << std::endl;
 					return false;
 				}
 
@@ -397,7 +397,7 @@ bool Engine::LoadFlightData(const std::string & filename)
 				auto modelDriver = _SdkContext->get_VectorRepresentationDriverCollection()->get_Driver("Model");
 
 				if (modelDriver.expired() || !Geoweb3d::Succeeded(modelDriver.lock()->get_CapabilityToRepresent(modelLayer))) {
-					std::cout << "Layer can not be respresented" << std::endl;
+					std::cout << "Layer can not be represented" << std::endl;
 					return false;
 				}
 
@@ -645,7 +645,7 @@ void Engine::OnDraw2D(const IGW3DCameraWPtr & camera, IGW3D2DDrawContext * drawc
 
 		text << "F1: Toggle Cameras" << std::endl;
 		text << "F2: Toggle Cockpit View" << std::endl;
-		text << "F3: Toggle Detatched View" << std::endl << std::endl;
+		text << "F3: Toggle Detached View" << std::endl << std::endl;
 		text << "F5: Toggle Flight Path On/Off" << std::endl;
 		text << "F6: Toggle Flight Path Posts On/Off" << std::endl;
 		text << "F7: Toggle GIS Imagery On/Off" << std::endl;
@@ -926,7 +926,7 @@ void Engine::ProcessEvent(const WindowEvent & event)
 		{
 			// Enable/Disable the visual representation of all raster imagery layers
 
-			// Nominally this should work, however there is currently a bug with raster collections where the iterator and indexor both return null
+			// Nominally this should work, however there is currently a bug with raster collections where the iterator and index or both return null
 			//auto imageryLayers = _SdkContext->get_RasterLayerRepresentationDriverCollection()->get_Driver("Imagery").lock()->get_RepresentationLayerCollection();
 			//auto layerCount = imageryLayers->count();
 
@@ -1031,7 +1031,7 @@ bool Engine::CreatePIPCameraBackground(const IGW3DCameraWPtr & camera)
 	glVertex2f(0.975f, 0.25f);
 	glEnd();
 
-	// Reenable things we disabled
+	// Re enable things we disabled
 	glEnable(GL_LIGHTING);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);

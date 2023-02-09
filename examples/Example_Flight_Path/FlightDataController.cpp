@@ -223,7 +223,7 @@ bool FlightDataController::OnStream(IGW3DVectorLayerStreamResult * result)
 
 	// Copy over the original source data for us to use later.  This isn't mandatory as the original
 	// datasource can be used directly as well.  This simply shows how to copy over the feature in its
-	// entriety.
+	// entirety.
 	_PathLayer.lock()->create_Feature(pathProperties, geometry, retVal);
 
 	// From here on out we're dynamically creating data...

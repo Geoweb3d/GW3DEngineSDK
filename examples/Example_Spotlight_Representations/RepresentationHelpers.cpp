@@ -18,10 +18,10 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsCustom( Geoweb3d::IGW3DGeoweb
     }
     else
     {
-        // prints the values the layers has to help the user know what they can attribute map into the representatin
+        // prints the values the layers has to help the user know what they can attribute map into the representation
         const Geoweb3d::IGW3DDefinitionCollection* def = layer.lock()->get_AttributeDefinitionCollection();
 
-        printf("Attribute Names within the layer: [%s] you can map to the a custom propery: \n", layer.lock()->get_Name() );
+        printf("Attribute Names within the layer: [%s] you can map to the a custom property: \n", layer.lock()->get_Name() );
         for(unsigned i = 0; i < def->count(); ++i )
         {
             printf("\t[%s]\n", def->get_AtIndex(i)->property_name  );
@@ -49,10 +49,10 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsSpotLights( Geoweb3d::IGW3DGe
     }
     else
     {
-        // prints the values the layers has to help the user know what they can attribute map into the representatin
+        // prints the values the layers has to help the user know what they can attribute map into the representation
         const Geoweb3d::IGW3DDefinitionCollection* def = layer.lock()->get_AttributeDefinitionCollection();
 
-        printf("Attribute Names within the layer: [%s] you can map to the a SpotLight propery: \n", layer.lock()->get_Name() );
+        printf("Attribute Names within the layer: [%s] you can map to the a SpotLight property: \n", layer.lock()->get_Name() );
         for(unsigned i = 0; i < def->count(); ++i )
         {
             printf("\t[%s]\n", def->get_AtIndex(i)->property_name  );

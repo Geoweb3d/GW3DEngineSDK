@@ -149,8 +149,8 @@ public:
 		Geoweb3d::IGW3DVectorDriverWPtr vdriver;
         while( sdk_context_->get_VectorDriverCollection()->next(&vdriver) )
         {
-            //note, going through a lock() all the time creates alot of extra work
-            //we can avoid when we are in a tight loop, as we know we are all good programers
+            //note, going through a lock() all the time creates a lot of extra work
+            //we can avoid when we are in a tight loop, as we know we are all good programmers
             Geoweb3d::IGW3DVectorDataSourceCollection *vdscollection = vdriver.lock()->get_VectorDataSourceCollection();
 
             Geoweb3d::IGW3DVectorDataSourceWPtr vdatasource;
@@ -225,7 +225,7 @@ private:
 				Geoweb3d::GW3DResult result = camera_.lock()->get_CameraStereoSettings()->put_Enable( enabled );
 				if ( Geoweb3d::Succeeded( result ) )
 				{
-					std::cout << "VR enable state chaanged: " << enabled << std::endl;
+					std::cout << "VR enable state changed: " << enabled << std::endl;
 				}
 				else
 				{
@@ -509,10 +509,10 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsExtruded( Geoweb3d::IGW3DGeow
     }
     else
     {
-        // prints the values the layers has to help the user know what they can attribute map into the representatin
+        // prints the values the layers has to help the user know what they can attribute map into the representation
         const Geoweb3d::IGW3DDefinitionCollection* def = layer.lock()->get_AttributeDefinitionCollection();
 
-        printf("Attribute Names within the layer: [%s] you can map to the a extruded polygon propery: \n", layer.lock()->get_Name() );
+        printf("Attribute Names within the layer: [%s] you can map to the a extruded polygon property: \n", layer.lock()->get_Name() );
         for(unsigned i = 0; i < def->count(); ++i )
         {
             printf("\t[%s]\n", def->get_AtIndex(i)->property_name );

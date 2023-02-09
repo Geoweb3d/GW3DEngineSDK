@@ -40,7 +40,7 @@ private:
 		//something was done by the user in the streamer that messed things up so bad we have to tell you about it
 		return false;
 	}
-    // These are required to be implimented in a IGW3DVectorLayerStream!
+    // These are required to be implemented in a IGW3DVectorLayerStream!
     // *NOTE* if [count] returns 0, then no other of APIs to index
     // into selection_set_fids_ will get called.  What this
     // means is if you are streaming a whole layer, its safe to
@@ -87,7 +87,7 @@ protected:
 	CritSectEx  database_thread_protection_;
 
 private:
-    //this is an expensive object to create and destory, so keep a scratchpad/reusable object
+    //this is an expensive object to create and destroy, so keep a scratchpad/reusable object
     Geoweb3d::IGW3DVariant scratchpad_;
     Geoweb3d::IGW3DPropertyCollectionPtr props_scratchpad_;
     Geoweb3d::IGW3DVectorRepresentationWPtr rep_;

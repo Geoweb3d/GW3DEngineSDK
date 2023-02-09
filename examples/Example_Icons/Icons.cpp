@@ -100,7 +100,7 @@ class IconsTestApp
 
 			if( driver.expired() )
 			{
-				std::cout << "Could not find the requested driver! For a list of supported drivers, run the Print Capabilites example" << std::endl;
+				std::cout << "Could not find the requested driver! For a list of supported drivers, run the Print Capabilities example" << std::endl;
 				return false;
 			}
 

@@ -46,7 +46,7 @@ void RunApplication(  Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context )
 
     if(driver.expired())
     {
-        printf("Could  not find the driver requested!  For a list of supported drivers, run the Print Capabilites example");
+        printf("Could  not find the driver requested!  For a list of supported drivers, run the Print Capabilities example");
         return;
     }
 
@@ -105,7 +105,7 @@ void RunApplication(  Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context )
 		env.merge( tester.lock()->get_Envelope() );
    }
 
-	//most gis datasource layers dont have a Z value for the bounds,
+	//most gis datasource layers don't have a Z value for the bounds,
 	//so here just set it to the last fid for now
 
 	env.MaxZ = pb.get_Z();

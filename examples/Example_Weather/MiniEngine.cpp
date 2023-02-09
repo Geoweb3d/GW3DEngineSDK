@@ -174,7 +174,7 @@
 		
 		//------------------------------------------------------------------------------------------------------------------------------------------------------------
 		//simulate another layer
-		//test code to show how multitple imagery-overlay rep can co-exist
+		//test code to show how multiple imagery-overlay rep can co-exist
 		if (0)
 		{
 			Geoweb3d::Imagery::ImageryLoadProperties imagery_properties;

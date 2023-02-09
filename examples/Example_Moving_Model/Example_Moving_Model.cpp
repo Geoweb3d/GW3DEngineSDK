@@ -147,7 +147,7 @@ class ModelIntersectionTestStream : public Geoweb3d::IGW3DVectorLayerStream
 
         enum ObjectMovementMode
         {
-            CAMERA_POS                     = 1, // -90 degress from camera's current angle, ignored pitch essentially
+            CAMERA_POS                     = 1, // -90 degrees from camera's current angle, ignored pitch essentially
             TERRAIN_AND_ALL_OTHER_GEOMETRY = 2, // Takes pitch into account, will use vector data to determine z coordinates
             TERRAIN_ONLY                   = 3  // Takes pitch into account, will NOT use vector data to determine z coordinates
         };
@@ -190,7 +190,7 @@ class ModelIntersectionTestStream : public Geoweb3d::IGW3DVectorLayerStream
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// <summary> Helper function used in conjuction with a LineSegmentIntersectionTest.
+        /// <summary> Helper function used in conjunction with a LineSegmentIntersectionTest.
         ///           All valid results of the IGW3DLineSegmentIntersectionReportCollection
         ///           from the App's PostDraw will be inserted into a local set of FeatureInfo
         ///           objects.                                                                    </summary>
@@ -419,7 +419,7 @@ class ModelIntersectionTestStream : public Geoweb3d::IGW3DVectorLayerStream
         /// <summary> Array indexer operator. Gets feature/object id at index. </summary>
         ///
         /// <remarks> For the most part, this can usually forward the call to
-        ///           get_AtIndex with the index paramater being passed along. </remarks>
+        ///           get_AtIndex with the index parameter being passed along. </remarks>
         ///
         /// <param name="index"> Zero-based index of the feature/object id.    </param>
         ///
@@ -469,7 +469,7 @@ class ModelIntersectionTestStream : public Geoweb3d::IGW3DVectorLayerStream
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary> An object to encapsulate left-click events from the 
-///           App's ProcessEvent calls. This helps seperate out the
+///           App's ProcessEvent calls. This helps separate out the
 ///           logic to determine if the LineSegmentIntersectionTest
 ///           hit the registered Representation or not. This will 
 ///           create a FeatureInfo object for a hit Feature and then
@@ -581,8 +581,8 @@ class ModelClickedEventTask
 ///           will begin the dragging and clicking it again will drop it.               </summary>
 /// 
 /// <remarks> This application inherits from the IGW3DWindowCallback so that the user
-///           can extend mouse or key events to interact with the camera naviagtor and
-///           the Reprensetations in the scene.                                         </remarks>
+///           can extend mouse or key events to interact with the camera navigator and
+///           the Representations in the scene.                                         </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class App : public Geoweb3d::IGW3DWindowCallback
@@ -740,7 +740,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary> Pumps the window draw and PostDraw tasks.                  </summary>
         ///
-        /// <remarks> This will continuosuly pump so long as the draw was valid. </remarks>
+        /// <remarks> This will continuously pump so long as the draw was valid. </remarks>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         void Run()
@@ -764,7 +764,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
         /// <param name = "draw_successful"> Whether or not the window properly
         ///                                  completed its draw call or not.       </param>
         /// 
-        /// <remarks> This will continuosuly pump so long as the draw was valid.   </remarks>
+        /// <remarks> This will continuously pump so long as the draw was valid.   </remarks>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         void DoPostDrawTask( bool draw_successful )
@@ -793,7 +793,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
 
 			if( driver.expired() )
 			{
-				std::cout << "Could not find the requested driver! For a list of supported drivers, run the Print Capabilites example" << std::endl;
+				std::cout << "Could not find the requested driver! For a list of supported drivers, run the Print Capabilities example" << std::endl;
 				return false;
 			}
 
@@ -1080,7 +1080,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary> Runs the Moving Model Application instance.
-///           This will continuosly run until the window is closed.   </summary>
+///           This will continuously run until the window is closed.   </summary>
 /// 
 /// <param name="sdk_context"> The Geoweb3d engine context.           </param>
 ////////////////////////////////////////////////////////////////////////////////////////////////////

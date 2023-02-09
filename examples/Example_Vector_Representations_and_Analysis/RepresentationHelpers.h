@@ -60,7 +60,7 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsCustom( Geoweb3d::IGW3DGeoweb
 ///
 /// <remarks>	Geoweb3d, 11/2/2012. </remarks>
 ///
-/// <param name="polygonrepresentation">	The polygonrepresentation. </param>
+/// <param name="polygonrepresentation">	The polygon representation. </param>
 /// <param name="new_height">				Height of the new. </param>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 

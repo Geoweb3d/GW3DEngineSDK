@@ -31,7 +31,7 @@ public:
     virtual bool OnError(/*todo*/ ) ;
 
 
-    // These are required to be implimented!  *NOTE* if
+    // These are required to be implemented!  *NOTE* if
     // [count] returns 0, then no other of APIs to index
     // into selection_set_fids_ will get called.  What this
     // means is if you are streaming a whole layer, its safe to

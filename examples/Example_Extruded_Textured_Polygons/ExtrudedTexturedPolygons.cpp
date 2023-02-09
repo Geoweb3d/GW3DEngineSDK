@@ -204,7 +204,7 @@ public:
 
             roof_propertycollection_id = image.lock()->get_PropertyCollectionID();
 
-            //this also shows how you can store your attribute data to the iamge.  Here is using an index,
+            //this also shows how you can store your attribute data to the image.  Here is using an index,
             //but you can also use a pointer as its a void * internally.
             int my_index_to_sum_user_attributedata = 0; //so it can be an index into your array for example
             image.lock()->put_UserData( reinterpret_cast<void*>( std::int64_t( my_index_to_sum_user_attributedata )));
@@ -216,7 +216,7 @@ public:
 
             side_propertycollection_id = image.lock()->get_PropertyCollectionID();
 
-            //this also shows how you can store your attribute data to the iamge.  Here is using an index,
+            //this also shows how you can store your attribute data to the image.  Here is using an index,
             //but you can also use a pointer as its a void * internally.
 			///so it can be an index into your array for example
             image.lock()->put_UserData( reinterpret_cast<void*>( std::int64_t( side_propertycollection_id ) ) );
@@ -228,7 +228,7 @@ public:
 
             roof_propertycollection_id_for_oddnumbered_features = image.lock()->get_PropertyCollectionID();
 
-            //this also shows how you can store your attribute data to the iamge.  Here is using an index,
+            //this also shows how you can store your attribute data to the image.  Here is using an index,
             //but you can also use a pointer as its a void * internally.
              //so it can be an index into your array for example
             image.lock()->put_UserData( reinterpret_cast<void*>( std::int64_t( roof_propertycollection_id_for_oddnumbered_features ) ) );
@@ -294,8 +294,8 @@ public:
         Geoweb3d::IGW3DVectorDriverWPtr vdriver;
         while( sdk_context_->get_VectorDriverCollection()->next(&vdriver) )
         {
-            //note, going through a lock() all the time creates alot of extra work
-            //we can avoid when we are in a tight loop, as we know we are all good programers
+            //note, going through a lock() all the time creates a lot of extra work
+            //we can avoid when we are in a tight loop, as we know we are all good programmers
             Geoweb3d::IGW3DVectorDataSourceCollection *vdscollection = vdriver.lock()->get_VectorDataSourceCollection();
 
             Geoweb3d::IGW3DVectorDataSourceWPtr vdatasource;
@@ -321,7 +321,7 @@ public:
                     }
                     else
                     {
-                        printf("Data is probably not in wgs 84, look at the MFC example how to load projection for this layer\n");
+                        printf("Data is probably not in wgs84, look at the MFC example how to load projection for this layer\n");
                     }
                 }
             }
@@ -659,10 +659,10 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsExtruded( Geoweb3d::IGW3DGeow
     }
     else
     {
-        // prints the values the layers has to help the user know what they can attribute map into the representatin
+        // prints the values the layers has to help the user know what they can attribute map into the representation
         const Geoweb3d::IGW3DDefinitionCollection* def = layer.lock()->get_AttributeDefinitionCollection();
 
-        printf("Attribute Names within the layer: [%s] you can map to the a extruded polygon propery: \n", layer.lock()->get_Name() );
+        printf("Attribute Names within the layer: [%s] you can map to the a extruded polygon property: \n", layer.lock()->get_Name() );
         for(unsigned i = 0; i < def->count(); ++i )
         {
             printf("\t[%s]\n", def->get_AtIndex(i)->property_name  );

@@ -4,7 +4,7 @@
 
 OpenGLImageLoader_Devil::OpenGLImageLoader_Devil() :   MyGUI::OpenGLImageLoader()
 {
-    // Take this out of here if you initialise DevIL elsewhere
+    // Take this out of here if you initialize DevIL elsewhere
     ilInit();
 }
 

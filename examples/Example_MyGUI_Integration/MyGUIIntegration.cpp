@@ -164,7 +164,7 @@ private:
 
         mPlatform->getRenderManagerPtr()->setViewSize(starting_width,starting_height);
 
-        //this will iterator over alot of directories.. but this broad
+        //this will iterator over a lot of directories.. but this broad
         //as it will work for this example app pending where
         //their working directory is
         mPlatform->getDataManagerPtr()->addResourceLocation("../", true);
@@ -374,7 +374,7 @@ Geoweb3d::IGW3DCameraWPtr CreateCamera( Geoweb3d::IGW3DWindowWPtr windowptr, con
 
 
         //camera.lock()->get_DateTime()->put_Time(12,0);
-        //go back to useing the date and time of this computer
+        //go back to using the date and time of this computer
         camera.lock()->get_DateTime()->put_isUseComputerDate(true);
         camera.lock()->get_DateTime()->put_isUseComputerTime(true);
     }

@@ -546,7 +546,7 @@ public:
 			env.put(-77.0, -77.1, 38.9, 40.0, 0.0, 0.0);
 		}
 
-        //you set the end locatoin, as this is where you want to end up when
+        //you set the end location, as this is where you want to end up when
         //the animation is completed
         camera_start_location.put_X( (env.MinX + env.MaxX ) * 0.5);
         camera_start_location.put_Y( (env.MinY + env.MaxY ) * 0.5);
@@ -625,7 +625,7 @@ public:
 		//to this location added above, and we can start all over.  However
 		//this wastes more memory as we need to maintain the original
 		//data, so if you are never going to commit your data to static,
-		//or make a new "starting point" to replay, its probably more efficent
+		//or make a new "starting point" to replay, its probably more efficient
 		//if you set the layer into an editable mode before you add
 		//any features.
 		people_layer.lock()->put_GeometryEditableMode( true );
@@ -732,7 +732,7 @@ private:
     {
         //if(!lightpoint_representation_.expired())
         //{
-        //    //variants are expensive to create and destroy, so resuse the object when you can.
+        //    //variants are expensive to create and destroy, so reuse the object when you can.
         //    Geoweb3d::IGW3DVariant scratchpad;
         //    Geoweb3d::IGW3DPropertyCollection *properties = lightpoint_representation_.lock()->get_PropertyCollection();
         //    scratchpad = 1.0;
@@ -1037,7 +1037,7 @@ private:
     Geoweb3d::IGW3DVectorDataSourceWPtr  dynamic_features_datasource;
     /// <summary>	The people layer. </summary>
     Geoweb3d::IGW3DVectorLayerWPtr people_layer;
-    /// <summary>	The modelrepresentation. </summary>
+    /// <summary>	The model representation. </summary>
     Geoweb3d::IGW3DVectorRepresentationWPtr  modelrepresentation;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1162,10 +1162,10 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsCustom( Geoweb3d::IGW3DGeoweb
     }
     else
     {
-        // prints the values the layers has to help the user know what they can attribute map into the representatin
+        // prints the values the layers has to help the user know what they can attribute map into the representation
         const Geoweb3d::IGW3DDefinitionCollection* def = layer.lock()->get_AttributeDefinitionCollection();
 
-        printf("Attribute Names within the layer: [%s] you can map to the a custom propery: \n", layer.lock()->get_Name() );
+        printf("Attribute Names within the layer: [%s] you can map to the a custom property: \n", layer.lock()->get_Name() );
         for(unsigned i = 0; i < def->count(); ++i )
         {
             printf("\t[%s]\n", def->get_AtIndex(i)->property_name  );
@@ -1207,10 +1207,10 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsLights( Geoweb3d::IGW3DGeoweb
     }
     else
     {
-        // prints the values the layers has to help the user know what they can attribute map into the representatin
+        // prints the values the layers has to help the user know what they can attribute map into the representation
         const Geoweb3d::IGW3DDefinitionCollection* def = layer.lock()->get_AttributeDefinitionCollection();
 
-        printf("Attribute Names within the layer: [%s] you can map to the a lightpoint propery: \n", layer.lock()->get_Name() );
+        printf("Attribute Names within the layer: [%s] you can map to the a lightpoint property: \n", layer.lock()->get_Name() );
         for(unsigned i = 0; i < def->count(); ++i )
         {
             printf("\t[%s]\n", def->get_AtIndex(i)->property_name  );
@@ -1254,10 +1254,10 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsExtruded( Geoweb3d::IGW3DGeow
     }
     else
     {
-        // prints the values the layers has to help the user know what they can attribute map into the representatin
+        // prints the values the layers has to help the user know what they can attribute map into the representation
         const Geoweb3d::IGW3DDefinitionCollection* def = layer.lock()->get_AttributeDefinitionCollection();
 
-        printf("Attribute Names within the layer: [%s] you can map to the a extruded polygon propery: \n", layer.lock()->get_Name() );
+        printf("Attribute Names within the layer: [%s] you can map to the a extruded polygon property: \n", layer.lock()->get_Name() );
         for(unsigned i = 0; i < def->count(); ++i )
         {
             printf("\t[%s]\n", def->get_AtIndex(i)->property_name );
@@ -1280,13 +1280,13 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsExtruded( Geoweb3d::IGW3DGeow
 ///
 /// <remarks>	Geoweb3d, 11/2/2012. </remarks>
 ///
-/// <param name="polygonrepresentation">	The polygonrepresentation. </param>
+/// <param name="polygonrepresentation">	The polygon representation. </param>
 /// <param name="new_height">				Height of the new. </param>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void UpdateDefaultPolygonExtrusion(Geoweb3d::IGW3DVectorRepresentationWPtr polygonrepresentation, double new_height)
 {
-    //variants are expensive to create and destroy, so resuse the object when you can.
+    //variants are expensive to create and destroy, so reuse the object when you can.
     static Geoweb3d::IGW3DVariant scratchpad;
 
     scratchpad = new_height;
@@ -1355,7 +1355,7 @@ public:
 
             //NOTE, OnStream gives the results of all the new collisions, but nothing is stopping you to
             //query the results directly. *However*, calling STREAM is what runs the analysis within the SDK!
-            //What this means is, if you are not interested the way to get spacially all the linesegment results,
+            //What this means is, if you are not interested the way to get spatially all the linesegment results,
             //you can just call stream leaving this function empty, and then call get_IntersectionCollection
             //on your linesegment of interest.
             Geoweb3d::IGW3DLineSegmentIntersectionTestWPtr linesegment;
@@ -1374,7 +1374,7 @@ public:
 
                 while(intersectioninfo->next( &intersection ))
                 {
-                    printf("Represenstation Driver[%s] vector layer[%s]\n",
+                    printf("Representation Driver[%s] vector layer[%s]\n",
                            intersection->get_VectorRepresentation().lock()->get_Driver().lock()->get_Name(),
                            intersection->get_VectorRepresentation().lock()->get_VectorLayer().lock()->get_Name() );
 
@@ -1542,7 +1542,7 @@ Geoweb3d::IGW3DCameraWPtr CreateCamera( Geoweb3d::IGW3DWindowWPtr windowptr, con
 
 
         camera.lock()->get_DateTime()->put_Time(12,0);
-        //go back to useing the date and time of this computer
+        //go back to using the date and time of this computer
         //camera.lock()->get_DateTime()->put_isUseComputerDate(true);
         //camera.lock()->get_DateTime()->put_isUseComputerTime(true);
     }

@@ -78,7 +78,7 @@ void RunApplication(  Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context )
 
     if(driver.expired())
     {
-        printf("Could  not find the driver requested!  For a list of supported drivers, run the Print Capabilites example");
+        printf("Could  not find the driver requested!  For a list of supported drivers, run the Print Capabilities example");
         return;
     }
 

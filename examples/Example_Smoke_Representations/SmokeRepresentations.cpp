@@ -293,7 +293,7 @@ public:
 			env.put(-77.0, -77.1, 38.9, 40.0, 0.0, 0.0);
 		}
 
-        //you set the end locatoin, as this is where you want to end up when
+        //you set the end location, as this is where you want to end up when
         //the animation is completed
 		camera_start_location.put_X((env.MinX + env.MaxX) * 0.5);
 		camera_start_location.put_Y((env.MinY + env.MaxY) * 0.5);
@@ -355,7 +355,7 @@ public:
 		//to this location added above, and we can start all over.  However
 		//this wastes more memory as we need to maintain the original
 		//data, so if you are never going to commit your data to static,
-		//or make a new "starting point" to replay, its probably more efficent
+		//or make a new "starting point" to replay, its probably more efficient
 		//if you set the layer into an editable mode before you add
 		//any features.
 		smoke_dynamic_layer.lock()->put_GeometryEditableMode( true );
@@ -577,7 +577,7 @@ private:
     /// <summary>	The camera controller. </summary>
     Geoweb3d::IGW3DCameraController *camera_controller_;
 
-    /// <summary>	experimental linearslerp for moving around.  Use at your own risk. </summary>
+    /// <summary>	experimental linear slurp for moving around.  Use at your own risk. </summary>
 	Geoweb3d::GW3DPoint  camera_start_location;
 
     /// <summary>	The features datasource. </summary>
@@ -586,7 +586,7 @@ private:
     Geoweb3d::IGW3DVectorLayerWPtr smoke_static_layer;
 	/// <summary>	The smoke dynamic layer. </summary>
 	Geoweb3d::IGW3DVectorLayerWPtr smoke_dynamic_layer;
-    /// <summary>	The smokerepresentation. </summary>
+    /// <summary>	The smoke representation. </summary>
     Geoweb3d::IGW3DVectorRepresentationWPtr  smokerepresentation;
 
 	NavigationHelper* nav_helper_;
@@ -696,7 +696,7 @@ Geoweb3d::IGW3DCameraWPtr CreateCamera( Geoweb3d::IGW3DWindowWPtr windowptr, con
 
 
         camera.lock()->get_DateTime()->put_Time(12,0);
-        //go back to useing the date and time of this computer
+        //go back to using the date and time of this computer
         //camera.lock()->get_DateTime()->put_isUseComputerDate(true);
         //camera.lock()->get_DateTime()->put_isUseComputerTime(true);
     }

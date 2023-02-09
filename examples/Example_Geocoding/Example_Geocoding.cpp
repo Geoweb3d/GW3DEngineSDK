@@ -400,7 +400,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
             
             if ( geocode_driver_.expired() || draped_line_rep_driver_.expired() )
             {
-                std::cout << "Could not find the requested driver! For a list of supported drivers, run the Print Capabilites example" << std::endl;
+                std::cout << "Could not find the requested driver! For a list of supported drivers, run the Print Capabilities example" << std::endl;
                 return false;
             }
 
@@ -573,7 +573,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
             draped_line_rep_layer_creation_params.page_level = 1;
             draped_line_rep_layer_creation_params.representation_default_parameters = default_draped_line_properties;
 
-            // This will tell the driver to officially represent the layer with the previous set layer paramaters and should now be visible in the scene.
+            // This will tell the driver to officially represent the layer with the previous set layer parameters and should now be visible in the scene.
             draped_line_rep_ = draped_line_rep_driver_.lock()->get_RepresentationLayerCollection()->create( draped_line_layer_, draped_line_rep_layer_creation_params );
 
             if( draped_line_rep_.expired() )
@@ -655,7 +655,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
 
                 int selection = 0;
                 bool user_quit = false;
-                // Safe std::cin method for determing user's selection for which index in the search results we will act upon.
+                // Safe std::cin method for determining user's selection for which index in the search results we will act upon.
                 while( !received_valid_response && !user_quit )
                 {
                     std::string response;
@@ -682,7 +682,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
                     }
                     else
                     {
-                        std::cout << "Error, selection was out of range, please eneter a valid entry from 1 to " << search_results.size() << std::endl;
+                        std::cout << "Error, selection was out of range, please enter a valid entry from 1 to " << search_results.size() << std::endl;
                     }
                 }
 
@@ -732,7 +732,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary> Runs the Geocoding Application instance.
-///           This will continuosly run until the window is closed. </summary>
+///           This will continuously run until the window is closed. </summary>
 /// 
 /// <param name="sdk_context"> The Geoweb3d engine context.         </param>
 ////////////////////////////////////////////////////////////////////////////////////////////////////

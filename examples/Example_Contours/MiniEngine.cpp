@@ -69,7 +69,7 @@ public:
 	// When IGW3DVectorLayer::Stream is called with this class, the SDK will call OnStream for each requested feature
 	virtual bool OnStream(Geoweb3d::IGW3DVectorLayerStreamResult* result)
 	{
-		// Request the attibute data for the current feature
+		// Request the attribute data for the current feature
 		const Geoweb3d::IGW3DAttributeCollection* attribute_collection = result->get_AttributeCollection();
 
 		// Query the object id (or feature id) for the current feature
@@ -278,11 +278,11 @@ bool MiniEngine::LoadData(const char* rootpath)
 		Geoweb3d::IGW3DRasterDriverCollection* raster_drivers = sdk_context_->get_RasterDriverCollection();
 		Geoweb3d::IGW3DLayerHelperCollectionPtr layer_col = sdk_context_->create_LayerHelperCollection();
 
-		//Populate the IGW3DLayerHelperCollection wil the layers of interest.
+		//Populate the IGW3DLayerHelperCollection with the layers of interest.
 		//For this example use all dems that are loaded within the target bounds. 
 
 		//This is meant to composite multiple data sources - but for this example we should get back one since we are using the 
-		//exacty envelope of that data source to query it back out.  Kind of pointless but it show if you had more datasources and different
+		//exact envelope of that data source to query it back out.  Kind of pointless but it shows if you had more datasources and different
 		//envelops how it would query them back out of the system. 
 		MyQuery raster_query;
 		Geoweb3d::GW3DResult query_res = Geoweb3d::Raster::StreamRasterQuery(env, raster_query);
@@ -431,7 +431,7 @@ bool MiniEngine::LoadData(const char* rootpath)
 									{
 										if (1) //show rasterized contours as imagery
 										{
-											if (0) //legacy way to show an overlay using "Imagery" representations - basically invalid value are not composited when no replacements are set
+											if (0) //legacy way to show an overlay using "Imagery" representations - basically invalid values are not composited when no replacements are set
 											{
 												auto imagery_rep_driver = sdk_context_->get_RasterLayerRepresentationDriverCollection()->get_Driver("Imagery");
 												if (!imagery_rep_driver.expired())
@@ -498,7 +498,7 @@ bool MiniEngine::LoadData(const char* rootpath)
 									}
 									else
 									{
-										printf("layer collectiion valid but first layer is null - shouldn't ever occur with a valid data source.\n");
+										printf("layer collection valid but first layer is null - shouldn't ever occur with a valid data source.\n");
 									}
 								}
 								else
@@ -531,7 +531,7 @@ bool MiniEngine::LoadData(const char* rootpath)
 					}
 					else
 					{
-						std::cout << "FAILURE: outputted vrt to tif succesfully\n";
+						std::cout << "FAILURE: outputted vrt to tif successfully\n";
 					}
 				}
 			}

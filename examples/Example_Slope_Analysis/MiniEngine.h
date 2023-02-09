@@ -153,7 +153,7 @@ private:
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Called just before drawing starts</summary>
     ///
-    /// <remarks>	If a client draws or uses the framebuffer at this point, it will get overwritten
+    /// <remarks>	If a client draws or uses the frame buffer at this point, it will get overwritten
     ///             when the sdk starts to draw.
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 	virtual void OnDrawBegin( )

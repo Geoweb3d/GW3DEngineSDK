@@ -54,7 +54,7 @@ Geoweb3d::IGW3DVectorLayerWPtr CreateDynamicdWayPoints(Geoweb3d::IGW3DGeoweb3dSD
 
 	if (driver.expired())
 	{
-		printf("Could  not find the driver requested!  For a list of supported drivers, run the Print Capabilites example");
+		printf("Could  not find the driver requested!  For a list of supported drivers, run the Print Capabilities example");
 		return Geoweb3d::IGW3DVectorLayerWPtr();
 	}
 
@@ -219,7 +219,7 @@ public:
 
 		if (driver.expired())
 		{
-			printf("Could  not find the driver requested!  For a list of supported drivers, run the Print Capabilites example");
+			printf("Could  not find the driver requested!  For a list of supported drivers, run the Print Capabilities example");
 		}
 
 		if (!driver.lock()->get_IsCapable(isCreateDataSourceSupported))

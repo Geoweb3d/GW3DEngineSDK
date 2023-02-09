@@ -168,7 +168,7 @@ Geoweb3d::Vector::IGW3DConstructionCallback::ConstructionCallbackReturnType Extr
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	///
-	/// And here we map the layer attribute to a corresponding represenation property
+	/// And here we map the layer attribute to a corresponding representation property
 	///
 	///	We show some basic mapping of the feature's "Function" to a representation color
 	/// And we also show how not to save individual representation properties when not needed
@@ -214,7 +214,7 @@ Geoweb3d::Vector::IGW3DConstructionCallback::ConstructionCallbackReturnType Extr
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		///
 		///  Decide whether to persist this property. Persistence allows a client not to have to store the state
-		///	 of a propety themselves (for example if they wish to query back later what the property was. 
+		///	 of a property themselves (for example if they wish to query back later what the property was. 
 		///
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		return Geoweb3d::Vector::IGW3DConstructionCallback::KEEP_AND_SAVE;
@@ -224,7 +224,7 @@ Geoweb3d::Vector::IGW3DConstructionCallback::ConstructionCallbackReturnType Extr
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		///
 		///  Decide whether to persist this property. Persistence allows a client not to have to store the state
-		///	 of a propety themselves (for example if they wish to query back later what the property was. 
+		///	 of a property themselves (for example if they wish to query back later what the property was. 
 		///
 		///  In this case no need to save the properties as the defaults are fine (saves on memory)
 		////////////////////////////////////////////////////////////////////////////////////////////////////
