@@ -501,21 +501,15 @@ void MiniEngine::SetDefaultModelProps(Geoweb3d::IGW3DPropertyCollectionPtr defau
 bool MiniEngine::LoadData(const char *rootpath)
 {
 	//also add a web service for the rest of the world:
-	const char* map_service = "http://app.geoweb3d.com/dashboard/data/frmt_wms_virtualearth_hybrid.xml";
+	const char* map_service = "..\\examples\\media\\test_service_xmls\\servers\\Bing\\Hybrid.xml";
 
-	//https://earth.app.goo.gl/8MNfJR
-	//	printf("Please wait: loading %s\n", map_service);
-
-	Geoweb3d::IGW3DRasterDriverCollection *raster_drivers = sdk_context_->get_RasterDriverCollection();
+	//Geoweb3d::IGW3DRasterDriverCollection *raster_drivers = sdk_context_->get_RasterDriverCollection();
+	if (CreateImageryRep(sdk_context_, map_service, 6, 1, true).expired())
+	{
+		printf("Error loading WMS: %s", map_service);
+	}
 
 	Geoweb3d::GW3DResult res;
-
-	//NOTE: Using auto_Open allows the system to select the most appropriate driver to open the data source instead of the user
-	//having to guess which data source driver is needed to open up a particular dataset.
-	Geoweb3d::IGW3DRasterDataSourceWPtr rdatasource = raster_drivers->auto_Open(map_service, res);
-
-	Geoweb3d::IGW3DRasterRepresentationDriverCollection* raster_repdrivers = sdk_context_->get_RasterLayerRepresentationDriverCollection();
-	Geoweb3d::IGW3DRasterRepresentationDriverWPtr imagery_driver = raster_repdrivers->get_Driver("Imagery");
 
 	Geoweb3d::IGW3DVectorDriverWPtr driver = sdk_context_->get_VectorDriverCollection()->get_Driver("CDB_Datasource");
 

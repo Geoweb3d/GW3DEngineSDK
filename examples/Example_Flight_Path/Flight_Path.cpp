@@ -126,10 +126,6 @@ int main(int argc, char* argv[])
 			if (sdkContext) {
 				// Create an initialization context
 				auto init = sdkContext->create_InitializationConfiguration();
-
-				// We're not using ESRI so disable the entitlement request
-				init->put_ESRILicenseCheckout(false);
-
 				// Initialize the SDK
 				if (Geoweb3d::Succeeded(sdkContext->InitializeLibrary("geoweb3dsdkdemo", init, 5, 0))) {
 					// Test if the system can properly support Geoweb3d

@@ -127,9 +127,19 @@ struct LightPointProperties
 		/// <summary>	Light falloff (meters) </summary>
 		FALL_OFF  = 8,
 		/// <summary>	Bulb radius (meters) </summary>
-		BULB_RADIUS= 9,
+		BULB_RADIUS = 9,
 		/// <summary>	Illumination radius (meters) </summary>
-		ILLUMINATION_RADIUS_CUTOFF= 10,
+		ILLUMINATION_RADIUS_CUTOFF = 10,
+		/// <summary>	Horizontal cone angle (degrees) 360 is omni-directional </summary>
+		HORIZONTAL_CONE_ANGLE = 11,
+		/// <summary>	Vertical cone angle (degrees) 360 is omni-directional </summary>
+		VERTICAL_CONE_ANGLE = 12,
+		/// <summary>	Heading (degrees) when the light is directional </summary>
+		HEADING				= 13,
+		/// <summary>	Pitch (degrees) when the light is directional </summary>
+		PITCH				= 14,
+		/// <summary>	Roll (degrees) when the light is directional </summary>
+		ROLL				= 15,
 		/// <summary>	MAX - Do Not Use </summary>
 		LP_PARAM_MAX = 0xFFFF
 	};
@@ -169,7 +179,7 @@ struct SpotLightProperties
 		/// <summary>	Bulb radius (meters) </summary>
 		BULB_RADIUS			= 9,
 		/// <summary>	Illumination radius (meters) </summary>
-		ILLUMINATION_RADIUS_CUTOFF= 10,
+		ILLUMINATION_RADIUS_CUTOFF = 10,
 		/// <summary>	Inner cutoff angle </summary>
 		INNER_CUTOFF_ANGLE = 11,
 		/// <summary>	Outer cutoff angle </summary>

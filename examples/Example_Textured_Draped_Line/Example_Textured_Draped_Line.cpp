@@ -300,7 +300,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
                             // Step 5. Create the actual RasterRepresentation. You can optionally capture the return of this,
                             //         but is not necessary for one-time visualization purposes, like in this example App.
 							Geoweb3d::Raster::RasterRepresentationLayerCreationParameter params;
-							params.page_level = 0;
+							params.page_level = 6;
 							params.priority = 0;
 							params.representation_layer_activity = true;
                             elevation_rep_driver.lock()->get_RepresentationLayerCollection()->create( elevation_layer, params);
@@ -546,20 +546,19 @@ class App : public Geoweb3d::IGW3DWindowCallback
             properties->put_Property( definition_collection->get_IndexByName( "GREEN" ), 1.0 );
             properties->put_Property( definition_collection->get_IndexByName( "BLUE" ),  1.0 );
 
-			Geoweb3d::Vector::RepresentationLayerCreationParameter rep_layer_creation_params;
-			rep_layer_creation_params.page_level = 1;
-            rep_layer_creation_params.representation_default_parameters = properties;
-
-            // Using the layer, we can now create a VectorRepresentation with the above set properties.
-            short_textured_draped_line_representation_ = draped_line_rep_driver.lock()->get_RepresentationLayerCollection()->create( short_line_layer, rep_layer_creation_params );
-            
             // To add an image collection to the Representation, query for the IGW3DSceneGraphContext and create a new IGW3DImageCollection.
             // Off of the image collection we can visualize a texture at palette index 0.
             Geoweb3d::IGW3DImageCollectionPtr image_collection = sdk_engine_context_->get_SceneGraphContext()->create_ImageCollection();
-            image_collection->create( "..//examples//media//Texture//Arrow.png" );
-            short_textured_draped_line_representation_.lock()->put_GW3DFinalizationToken( image_collection->create_FinalizeToken() );
+            image_collection->create("..//examples//media//Texture//Arrow.png");
 
-			return true;
+			Geoweb3d::Vector::RepresentationLayerCreationParameter rep_layer_creation_params;
+			rep_layer_creation_params.page_level = 1;
+            rep_layer_creation_params.representation_default_parameters = properties;
+            rep_layer_creation_params.finalization_token = image_collection->create_FinalizeToken();
+
+            // Using the layer, we can now create a VectorRepresentation with the above set properties.
+            short_textured_draped_line_representation_ = draped_line_rep_driver.lock()->get_RepresentationLayerCollection()->create( short_line_layer, rep_layer_creation_params );
+ 			return true;
 		}
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -664,7 +663,6 @@ int _tmain( int argc, _TCHAR* argv[] )
     if ( sdk_context )
     {
         Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
-        sdk_init->put_ESRILicenseCheckout( false ); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
         if ( Geoweb3d::Succeeded( sdk_context->InitializeLibrary( "geoweb3dsdkdemo", sdk_init, 5, 0 ) ) )
         {
             RunApplication( sdk_context );

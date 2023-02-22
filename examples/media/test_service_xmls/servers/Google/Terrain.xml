@@ -18,8 +18,8 @@
 	<BandsCount>3</BandsCount>
 	<Cache>
 		<Path></Path>
+		<MaxSize>64</MaxSize>
+		<Expires>604800</Expires>
 	</Cache>
 	<MaxConnections>5</MaxConnections>
-	<MaxSize>64</MaxSize>
-	<Expires>604800</Expires>
 </GDAL_WMS>

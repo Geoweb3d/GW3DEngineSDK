@@ -4,6 +4,8 @@
 #include "engine/IGW3DWindowCallback.h"
 #include "Geoweb3dCore/SystemExports.h"
 #include "../Common/NavigationHelper.h"
+#include "../Common/MiniEngineCore.h"
+
 #include "Geoweb3dCore/LayerParameters.h"
 #include "engine/IGW3DVectorLayerStream.h"
 #include <deque>
@@ -19,7 +21,7 @@ class FannedViewshedHandler;
 /// <remarks>	Geoweb3d, 11/2/2012. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class MiniEngine : public Geoweb3d::IGW3DWindowCallback
+class MiniEngine : public Geoweb3d::IGW3DWindowCallback, MiniEngineCore
 {
 public:
 

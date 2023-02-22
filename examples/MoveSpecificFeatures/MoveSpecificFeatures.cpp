@@ -30,7 +30,10 @@
 #include "engine/GW3DRaster.h"
 #include "engine/GW3DWindow.h"
 #include "engine/GW3DCamera.h"
+#include "engine/IGW3DWindowCallback.h"
 #include "GeoWeb3dCore/SystemExports.h"
+#include "Geoweb3dCore/LayerParameters.h"
+#include "../Common/NavigationHelper.h"
 
 #pragma comment(lib, "GW3DEngineSDK.lib")
 #pragma comment(lib, "GW3DCommon.lib")
@@ -39,6 +42,36 @@ void my_fatal_function(const char *msg );
 void my_info_function(const char *msg);
 void SetInformationHandling();
 
+
+class WindowCallback : public Geoweb3d::IGW3DWindowCallback
+{
+	public: 
+		WindowCallback( )
+		{
+		}
+		virtual ~WindowCallback() {}
+
+		void initialize(Geoweb3d::IGW3DWindowWPtr window, Geoweb3d::IGW3DCameraWPtr camera)
+		{
+			window_ = window;
+			nav_helper_.add_Camera(camera);
+		}
+
+		// public Geoweb3d::IGW3DWindowCallback
+		void OnCreate() override {}
+		void OnDrawBegin() override {}
+		void OnDrawEnd() override {}
+		void OnDraw2D(const Geoweb3d::IGW3DCameraWPtr& camera) override {}
+
+		void ProcessEvent(const Geoweb3d::WindowEvent& win_event) override
+		{
+			nav_helper_.ProcessEvent(win_event, window_);
+		}
+
+private:
+		Geoweb3d::IGW3DWindowWPtr	window_;
+		NavigationHelper			nav_helper_;
+};
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Executes the application operation. </summary>
 ///
@@ -50,9 +83,11 @@ void SetInformationHandling();
 void RunApplication(Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context)
 {
 
+	WindowCallback window_callback;
+
 	Geoweb3d::IGW3DWindowCollection * wcol = sdk_context->get_WindowCollection();
 
-	Geoweb3d::IGW3DWindowWPtr window = wcol->create_3DWindow("Moving Specific Features", GW3D_OVERLAPPED, 50, 50, 800, 600, 0, Geoweb3d::IGW3DStereoDriverPtr(), nullptr);
+	Geoweb3d::IGW3DWindowWPtr window = wcol->create_3DWindow("Moving Specific Features", GW3D_OVERLAPPED, 50, 50, 1280, 720, 0, Geoweb3d::IGW3DStereoDriverPtr(), &window_callback );
 
 	if (window.expired())
 	{
@@ -64,6 +99,7 @@ void RunApplication(Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context)
 	Geoweb3d::IGW3DCameraCollection *ccol = window.lock()->get_CameraCollection();
 
 	Geoweb3d::IGW3DCameraWPtr camera = ccol->create("A-Camera");
+	window_callback.initialize(window, camera);
 
 	/////////////////////////////////
 	// lets create our entities! 
@@ -105,8 +141,9 @@ void RunApplication(Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context)
 	Geoweb3d::IGW3DPropertyCollectionPtr fcolfeature_attributes = fdcol_header_title_whatever->create_PropertyCollection();
 	fcolfeature_attributes->put_Property(fcolfeature_attributes->get_DefinitionCollection()->get_IndexByName("SomethingIWantToStoreSuchAs_NAME"), "feature_id_A_NAME_is_BUDDY");
 
+	double elevation = 20.0;
 	//its geometry
-	Geoweb3d::GW3DPoint starting_location(-75.9833, 42.2167, 3);
+	Geoweb3d::GW3DPoint starting_location(-75.9833, 42.2167, elevation );
 
 	Geoweb3d::GW3DResult retval;
 	long feature_id_A = entity_layer.lock()->create_Feature(fcolfeature_attributes.get(), &starting_location, retval);
@@ -119,7 +156,7 @@ void RunApplication(Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context)
 
 	starting_location.put_X(-75.9832);
 	starting_location.put_Y(42.2167);
-	starting_location.put_Z(2); 
+	starting_location.put_Z(elevation);
 
 	long feature_id_B = entity_layer.lock()->create_Feature(fcolfeature_attributes.get(), &starting_location, retval);
 	//error check against retval!
@@ -130,7 +167,7 @@ void RunApplication(Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context)
 
 	starting_location.put_X(-75.9832);
 	starting_location.put_Y(42.2166);
-	starting_location.put_Z(2);
+	starting_location.put_Z(elevation);
 
 	long feature_id_C = entity_layer.lock()->create_Feature(fcolfeature_attributes.get(), &starting_location,retval);
 	//error check against retval!
@@ -147,7 +184,7 @@ void RunApplication(Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context)
 	//the same vector layer.  One use case may be where you have a sphere as the real world location, but then went
 	//a billboard also at that location but offset a bit from the sphere (billboard is more of a screenspace visual)
 	Geoweb3d::Vector::RepresentationLayerCreationParameter construction_defaults;
-	
+
 	Geoweb3d::IGW3DVectorRepresentationWPtr entities_in_3Dmap =
 		sdk_context->get_VectorRepresentationDriverCollection()->get_Driver("BillBoard").lock()
 		->get_RepresentationLayerCollection()->create( entity_layer , construction_defaults);
@@ -295,7 +332,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	if (sdk_context)
 	{
 		Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
-		sdk_init->put_ESRILicenseCheckout(false); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
 		if (Geoweb3d::Succeeded(sdk_context->InitializeLibrary("geoweb3dsdkdemo", sdk_init, 5, 0)))
 		{
 			RunApplication(sdk_context);

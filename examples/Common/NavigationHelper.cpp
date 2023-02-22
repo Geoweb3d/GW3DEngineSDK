@@ -284,7 +284,7 @@ bool NavigationHelper::getCentralPixelLocation(const Geoweb3d::GW3DPoint **pt)
 		//printf("Bug detected - selected camera has no query structure!\n");
 
 	}
-	printf("Could not obtain center pixel location\n");
+	//printf("Could not obtain center pixel location\n");
 	return false;
 }
 
@@ -309,7 +309,7 @@ bool NavigationHelper::getMousePixelLocation(const Geoweb3d::GW3DPoint **pt)
 		//printf("Bug detected - selected camera has no query structure!\n");
 
 	}
-	printf("Could not obtain pixel location\n");
+	//printf("Could not obtain pixel location\n");
 	return false;
 }
 

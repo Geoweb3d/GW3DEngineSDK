@@ -379,9 +379,25 @@ private:
 			break;
 
 			case Geoweb3d::Key::R:
+			{
 				RemoveProjects();
-				break;
+			}
+			break;
+			case Geoweb3d::Key::PageUp:
+			{
+				hours_ = (hours_ + 1) % 24;
 
+				Geoweb3d::IGW3DDateTime* dt = camera_.lock()->get_DateTime();
+				dt->put_Time(hours_, minutes_);
+			}
+			break;
+			case Geoweb3d::Key::PageDown:
+			{
+				hours_ = std::max<int>( 0, (hours_ - 1) ) % 24;
+				Geoweb3d::IGW3DDateTime* dt = camera_.lock()->get_DateTime();
+				dt->put_Time(hours_, minutes_);
+			}
+			break;
 			default:
 				nav_helper_->ProcessEvent( win_event, window_ );
 				break;
@@ -392,9 +408,9 @@ private:
 		default:
 		{
 			nav_helper_->ProcessEvent( win_event, window_ );
-			float heading = camera_.lock()->get_CameraController()->get_Heading();
-			float pitch = camera_.lock()->get_CameraController()->get_Pitch();
-			printf( "Heading: %lf, Pitch: %lf \n", heading, pitch );
+			//float heading = camera_.lock()->get_CameraController()->get_Heading();
+			//float pitch = camera_.lock()->get_CameraController()->get_Pitch();
+			//printf( "Heading: %lf, Pitch: %lf \n", heading, pitch );
 		}
 		break;
 		}
@@ -533,7 +549,7 @@ private:
 
 			Geoweb3d::IGW3DDateTime* dt = camera.lock()->get_DateTime();
 			dt->put_isFollowCameraLocationForReference( true );
-			dt->put_Time(22,00);
+			dt->put_Time(hours_,minutes_);
 			dt->put_DateFromUnDelimitedString("2023125");
 
 			//go back to using the date and time of this computer
@@ -719,6 +735,8 @@ private:
 	float haze_visibility_range_ = 2000.0f;
 	float haze_transition_range_ = 2000.0f;
 
+	int hours_ = 22;
+	int minutes_ = 0;
 }; //engine end of class
 
 
@@ -784,7 +802,6 @@ int _tmain(int argc, _TCHAR* argv[])
     if(sdk_context)
     {
 		Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
-		sdk_init->put_ESRILicenseCheckout(false); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
         if( Geoweb3d::Succeeded( sdk_context->InitializeLibrary( "geoweb3dsdkdemo", sdk_init, 5, 0 ) ) )
         {
             RunApplication( sdk_context );

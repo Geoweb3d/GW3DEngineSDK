@@ -34,10 +34,11 @@ namespace Geoweb3d
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Default constructor. </summary>
+			/// <remarks>	Page level 0 is the unset case, defaults will be applied.  </remarks>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
 			RasterRepresentationLayerCreationParameter() :
-				page_level(0),
+				page_level(0), 
 				priority(0),
 				representation_layer_activity(true)
 			{ }
@@ -48,13 +49,22 @@ namespace Geoweb3d
 			/// <remarks>	Ranges from 1 - 17 unless other low level configurations have taken place.
 			/// 			Lower numbers bringing in the dataset further away, thus memory footprints
 			/// 			will increase as well as performance decreasing.  This value range depends
-			/// 			on other values internal to the SDK. </remarks>
+			/// 			on other values internal to the SDK.
+			/// 
+			///				NOTE: If page level is not set (i.e. 0 then an appropriate default will be choosen
+			///					  based on the representation.
+			///					Imagery and Imagery-Overlay defaults to 1
+			///					Elevation defaults to 11
+			///  </remarks>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
 			unsigned page_level;
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	The imagery priority (images with higher values display on top of lower priority images). </summary>
+			///
+			/// <remarks>	Priority is not currently considered for an elevation represenation. 
+			///				In that case the highest resolution data source will be prioritized. </remarks>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
 			int priority;

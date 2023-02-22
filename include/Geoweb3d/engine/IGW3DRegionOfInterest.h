@@ -72,14 +72,14 @@ namespace Geoweb3d
 
 			/// <summary>	This mode follows the same methodology as the FullIn mode but with the addition quality clamp algorithm.
 			///</summary>	Quality clamping is explained more in the put_QualityTargetValues API, but essentially it clamps the
-			///				full in mode from going all the way done to the maximum LOD based on a defined resource limit.
+			///				full in mode from going all the way down to the maximum LOD based on a defined resource limit.
 			/// <remarks>	
 			///	</remarks>
 			FullIn_QualityClamp = 5,
 
 			/// <summary>	This mode follows the same methodology as the FullIn_ViewOnly mode but with the addition quality clamp algorithm.
 			///</summary>	Quality clamping is explained more in the put_QualityTargetValues API, but essentially it clamps the
-			///				full in mode from going all the way done to the maximum LOD based on a defined resource limit.
+			///				full in mode from going all the way down to the maximum LOD based on a defined resource limit.
 			/// <remarks>	
 			///	</remarks>
 			FullIn_ViewOnly_QualityClamp = 6,
@@ -190,7 +190,7 @@ namespace Geoweb3d
 		/// <param name="distance">		The target distance. (meters > 0.0) </param>
 		/// <param name="resolution">	The target resolution. (meters > 0.0)</param>
 		///
-		/// <returns>	GW3D_sOk means the values we're within appropriate ranges.. </returns>
+		/// <returns>	GW3D_sOk means the values were within appropriate ranges.. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		virtual GW3DResult put_QualityTargetValues(double distance, double resolution) = 0;
@@ -215,12 +215,12 @@ namespace Geoweb3d
 		///				This allows a user to check the the resolutions at different quality percentages. </remarks>
 		///
 		/// <param name="quality_percentage">	The quality percentage. </param>
-		/// <param name="min_resolution"> TODO </param>
+		/// <param name="min_resolution"> The minimus posting resolution attained under this criteria. </param>
 		/// <param name="up_to_distance">	The target distance. (meters) </param>
 		///
 		/// <returns>	The minimum resolution a viewshed can expect.(meters) </returns>
 		/// <returns>	The minimum resolution a viewshed can expect to this maximum extent.(meters) </returns>
-		/// <returns>	GW3D_sOk means the values we're within appropriate ranges.. </returns>
+		/// <returns>	GW3D_sOk means the values were within appropriate ranges.. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		virtual GW3DResult get_MinResolution(double distance, double quality_percentage, double& min_resolution, double& up_to_distance) const = 0;

@@ -40,9 +40,9 @@ ImagePaletteCreator::ImagePaletteCreator( Geoweb3d::IGW3DGeoweb3dSDKPtr &sdk_con
 	, use_ip_camera_property_index_( use_ip_camera_property_index )
 {
 	imagepalette = sdk_context->get_SceneGraphContext()->create_ImageCollection();
-	imagepalette->put_CollectionWidthHeightMode( IGW3DImageCollection::FORCED );
-	imagepalette->put_Width( 1024 );
-	imagepalette->put_Height( 1024 );
+	//imagepalette->put_CollectionWidthHeightMode( IGW3DImageCollection::FORCED );
+	//imagepalette->put_Width( 1024 );
+	//imagepalette->put_Height( 1024 );
 
 	//this will all be changing with the c++ api
 	Geoweb3d::VideoCapture::SystemCaptureDeviceInfo system_info;

@@ -43,7 +43,9 @@ private:
 	IGW3DCameraWPtr _SecondaryCamera;
 	GW3DEnvelope _Envelope;
 
-	IGW3DFontWPtr _Font;
+	IGW3DFontPtr _Font;
+	IGW3DFontPtr _SmallerFont;
+	IGW3DFontPtr _SmallestFont;
 
 	FlightDataController _Data;
 	ModelController _ModelController;

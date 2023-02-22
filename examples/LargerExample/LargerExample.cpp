@@ -274,7 +274,7 @@ class MiniEngine : public Geoweb3d::IGW3DEventStream, public Geoweb3d::IGW3DWind
 	//Geoweb3d::IGW3DVectorRepresentationWPtr entity_icons_;
 
 	//static data, but labels
-	Geoweb3d::IGW3DVectorLayerWPtr roads_;
+	Geoweb3d::IGW3DVectorLayerWPtr shapefile_layer_;
 
 	// for lon lat position feedback
 	//Geoweb3d::IGW3DWindowCoordinateToGeodeticQueryWPtr windows_camera_to_longitude_latitude_;
@@ -403,9 +403,9 @@ public:
 		model_properties->put_Property(Geoweb3d::Vector::ModelProperties::TRANSLATION_Z_OFFSET, 0.0); //elevation
 		model_properties->put_Property(Geoweb3d::Vector::ModelProperties::TRANSLATION_Z_OFFSET_MODE, Geoweb3d::Vector::RELATIVE_MODE | Geoweb3d::Vector::IGNORE_VERTEX_Z);  //Relative to ground + ignore Z coordinate (i.e. ground clamped)
 
-		model_properties->put_Property(Geoweb3d::Vector::ModelProperties::SCALE_X, 1.0); //scale in X
-		model_properties->put_Property(Geoweb3d::Vector::ModelProperties::SCALE_Y, 1.0); //scale in Y
-		model_properties->put_Property(Geoweb3d::Vector::ModelProperties::SCALE_Z, 1.0); //scale in Z			
+		model_properties->put_Property(Geoweb3d::Vector::ModelProperties::SCALE_X, 5.0); //scale in X
+		model_properties->put_Property(Geoweb3d::Vector::ModelProperties::SCALE_Y, 5.0); //scale in Y
+		model_properties->put_Property(Geoweb3d::Vector::ModelProperties::SCALE_Z, 5.0); //scale in Z			
 
 		Geoweb3d::Vector::RepresentationLayerCreationParameter  defaultparams_models;
 
@@ -448,7 +448,7 @@ public:
 	void LoadStaticVectorData()
 	{
 		//open data source
-		std::string filepath = "../examples/media/customerdata/gis_osm_roads_free_1.shp";
+		std::string filepath = "../examples/media/Building Footprints.shp";
 
 		Geoweb3d::GW3DResult res;
 		Geoweb3d::IGW3DVectorDataSourceWPtr data_source = sdk_context_->get_VectorDriverCollection()->auto_Open(filepath.c_str(), res);
@@ -461,7 +461,7 @@ public:
 		
 
 		//shapefiles only  have 1 layer, assuming not playing in a shapefile workspace!
-		 roads_ = data_source.lock()->get_VectorLayerCollection()->get_AtIndex(0);
+		 shapefile_layer_ = data_source.lock()->get_VectorLayerCollection()->get_AtIndex(0);
 
 		//so lets take this layer and place it into the 3d map.	
 		Geoweb3d::IGW3DVectorRepresentationDriverWPtr line = sdk_context_->get_VectorRepresentationDriverCollection()->get_Driver("ColoredLine");
@@ -474,12 +474,12 @@ public:
 		Geoweb3d::Vector::RepresentationLayerCreationParameter  params;
 		params.page_level = 10;
 		params.representation_default_parameters = my_default_props;
-		Geoweb3d::IGW3DVectorRepresentationWPtr rep = line.lock()->get_RepresentationLayerCollection()->create(roads_, params);
+		Geoweb3d::IGW3DVectorRepresentationWPtr rep = line.lock()->get_RepresentationLayerCollection()->create(shapefile_layer_, params);
 
 
 
 		// lets make the home position of the navigation helper at the center of the osm road data.
-		const Geoweb3d::GW3DEnvelope envelope = roads_.lock()->get_Envelope();
+		const Geoweb3d::GW3DEnvelope envelope = shapefile_layer_.lock()->get_Envelope();
 
 		const double cam_lon = (envelope.MaxX + envelope.MinX) * 0.5;
 		const double cam_lat = (envelope.MaxY + envelope.MinY) * 0.5;
@@ -503,10 +503,7 @@ public:
 		//NOTE this just creates a rest from the camera out, but
 		//you can put these anywhere in the world.
 		
-		/*IdentifyVector::*/addAllVectorRepresentationToTest();
-
-
-		//pretend we get an initial position here before we start the update thread..
+		addAllVectorRepresentationToTest();
 
 		//lets get the attributes definitions that we already setup when we created the database shell and description
 		const Geoweb3d::IGW3DDefinitionCollection* attribute_fields = entity_layer_.lock()->get_AttributeDefinitionCollection();
@@ -516,18 +513,14 @@ public:
 		int label_field = field_values->get_DefinitionCollection()->get_IndexByName("Label");
 		int balloon_field = field_values->get_DefinitionCollection()->get_IndexByName("Balloon");
 
-		
-
-
-
-		if (roads_.expired())
+		if (shapefile_layer_.expired())
 		{
 			printf("no roads layer..please fix that and the continue\n");
 			return;
 		}
 
 		//lets scatter moving cards or whatever around the roads layer we loaded
-		const Geoweb3d::GW3DEnvelope envelope = roads_.lock()->get_Envelope();
+		const Geoweb3d::GW3DEnvelope envelope = shapefile_layer_.lock()->get_Envelope();
 
 		const double center_lat = (envelope.MaxY + envelope.MinY) * 0.5;
 		const double center_lon = (envelope.MaxX + envelope.MinX) * 0.5;
@@ -607,6 +600,8 @@ public:
 
 	bool UpdateAndDraw()
 	{
+		UpdateEntity();
+
 		if (sdk_context_->draw(window_) == Geoweb3d::GW3D_sOk)
 		{
 			//show what they picked in in the 3d Scene
@@ -624,10 +619,7 @@ public:
 			}
 
 			{
-				//locked because our thread is pumping locations updates etc..
-				CritSectEx::Scope scope(database_thread_protection_);			/* Now we stream, which prompts the Geoweb3d::IGW3DVectorLayerStream::OnStream callback to get called for each entity */
 				entity_layer_.lock()->Stream(this);
-
 				dirty_fids_.clear();
 			}
 
@@ -638,44 +630,25 @@ public:
 		//return that we did not draw. (app closing?)
 		return false;
 	}
-
-	void StartServices()
-	{
-		HANDLE threadhandle = CreateThread(NULL, 0, runThreadFunction<MiniEngine>,
-			makeThreadInfo(this, &MiniEngine::ThreadFunction, NULL), 0, NULL);
-	}
 	
-	//this here is a thread
-	DWORD ThreadFunction(void *parm)
+	void UpdateEntity()
 	{
-		while (1)
-		{
+		//randomly pick an entity to update
+		int minc = 0;
+		int maxc = static_cast<int>(entity_database_.size());
+		std::size_t iteratoroffset = (rand() % (maxc - minc) + minc);
+		EntityDatabaseType::iterator itr = entity_database_.begin();
+		std::advance(itr, iteratoroffset);
 
-			if (entity_database_.empty())
-				continue;
+		EntityInfo& entityinfo = itr->second;
+		entityinfo.wgs84_location.put_X(entityinfo.wgs84_location.get_X() + .00001);
+		entityinfo.wgs84_location.put_Y(entityinfo.wgs84_location.get_Y() + .00002);
+		entityinfo.wgs84_location.put_Z(entityinfo.wgs84_location.get_Z() + .005);
 
-			//randomly pick an entity to update
-			int minc = 0;
-			int maxc = static_cast<int>( entity_database_.size() );
-			std::size_t iteratoroffset = (rand() % (maxc - minc) + minc);
+		entityinfo.heading_ += 5.0;
 
-			CritSectEx::Scope scope(database_thread_protection_);
-
-			EntityDatabaseType::iterator itr = entity_database_.begin();
-			std::advance(itr, iteratoroffset);
-
-			EntityInfo &entityinfo = itr->second;
-			entityinfo.wgs84_location.put_X(entityinfo.wgs84_location.get_X() + .00001);
-			entityinfo.wgs84_location.put_Y(entityinfo.wgs84_location.get_Y() + .00002);
-			entityinfo.wgs84_location.put_Z(entityinfo.wgs84_location.get_Z() + .005);
-
-			entityinfo.heading_ += 5.0;
-
-			/* Now we make sure the sdk updates this entity, as it has changed */
-			dirty_fids_.insert(itr->first);
-		}
-
-		return 0;
+		/* Now we make sure the sdk updates this entity, as it has changed */
+		dirty_fids_.insert(itr->first);
 	}
 protected:
 	//Geoweb3d::IGW3DEventStream event
@@ -788,9 +761,6 @@ void RunApplication(Geoweb3d::IGW3DGeoweb3dSDKPtr &sdk_context)
 	hello_engine.LoadGISData();
 	hello_engine.MoveCameraToVectorData();
 
-	hello_engine.StartServices();
-
-
 	while (hello_engine.UpdateAndDraw())
 	{
 		//could do other app stuff here
@@ -810,7 +780,6 @@ int main()
 	if (sdk_context)
 	{
 		Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
-		sdk_init->put_ESRILicenseCheckout(false); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
 		if (Geoweb3d::Succeeded(sdk_context->InitializeLibrary("geoweb3dsdkdemo", sdk_init, 5, 0)))
 		{
 			RunApplication(sdk_context);

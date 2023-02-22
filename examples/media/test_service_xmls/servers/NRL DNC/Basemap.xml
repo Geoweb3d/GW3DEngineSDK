@@ -1,5 +1,5 @@
 <GDAL_WMTS>
-  <GetCapabilitiesUrl>WMTSCapabilitiesBasemap.xml</GetCapabilitiesUrl>
+  <GetCapabilitiesUrl>https://geoint.nrlssc.navy.mil/dnc/wmts/DNC-WORLD/basemap/DNC-BASEMAP?REQUEST=GetCapabilities&VERSION=1.0.0&SERVICE=WMTS</GetCapabilitiesUrl>
   <Layer>DNC-BASEMAP</Layer>
   <Style>default</Style>
   <TileMatrixSet>GlobalCRS84Pixel</TileMatrixSet>
@@ -13,11 +13,11 @@
   <BandsCount>3</BandsCount>
   <Cache>
     <Path></Path>
+	<MaxSize>64</MaxSize>
+	<Expires>604800</Expires>
   </Cache>
   <UnsafeSSL>true</UnsafeSSL>
   <ZeroBlockHttpCodes>204,404</ZeroBlockHttpCodes>
   <ZeroBlockOnServerException>true</ZeroBlockOnServerException>
   <MaxConnections>5</MaxConnections>
-  <MaxSize>64</MaxSize>
-  <Expires>604800</Expires>
 </GDAL_WMTS>

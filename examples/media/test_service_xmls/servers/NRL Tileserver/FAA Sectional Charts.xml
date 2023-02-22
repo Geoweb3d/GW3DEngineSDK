@@ -1,23 +1,23 @@
 <GDAL_WMTS>
-	<GetCapabilitiesUrl>WMTSCapabilities.xml</GetCapabilitiesUrl>
-	<Layer>FAASectionals</Layer>
-	<Style>default</Style>
-	<TileMatrixSet>GlobalCRS84Pixel</TileMatrixSet>
-	<Format>image/png</Format>
-	<DataWindow>
-		<UpperLeftX>-180</UpperLeftX>
-		<UpperLeftY>90</UpperLeftY>
-		<LowerRightX>179.9999999999998</LowerRightX>
-		<LowerRightY>-89.99999999999989</LowerRightY>
-	</DataWindow>
-	<BandsCount>3</BandsCount>
-	<Cache>
-		<Path></Path>
-	</Cache>
-	<UnsafeSSL>true</UnsafeSSL>
-	<ZeroBlockHttpCodes>204,404</ZeroBlockHttpCodes>
-	<ZeroBlockOnServerException>true</ZeroBlockOnServerException>
-	<MaxConnections>5</MaxConnections>
-	<MaxSize>64</MaxSize>
-	<Expires>604800</Expires>
+  <GetCapabilitiesUrl>F:\gw3d\trunk\geoweb3d\distribution\examples\media\test_service_xmls\servers\NRL Tileserver\WMTSCapabilities.xml</GetCapabilitiesUrl>
+  <Layer>FAASectionals</Layer>
+  <Style>default</Style>
+  <TileMatrixSet>GlobalCRS84Pixel</TileMatrixSet>
+  <Format>image/png</Format>
+  <DataWindow>
+    <UpperLeftX>-180</UpperLeftX>
+    <UpperLeftY>90</UpperLeftY>
+    <LowerRightX>179.9999999999998</LowerRightX>
+    <LowerRightY>-89.99999999999989</LowerRightY>
+  </DataWindow>
+  <BandsCount>3</BandsCount>
+  <Cache>
+    <Path />
+    <MaxSize>64</MaxSize>
+    <Expires>604800</Expires>
+  </Cache>
+  <UnsafeSSL>true</UnsafeSSL>
+  <ZeroBlockHttpCodes>204,404</ZeroBlockHttpCodes>
+  <ZeroBlockOnServerException>true</ZeroBlockOnServerException>
+  <MaxConnections>5</MaxConnections>
 </GDAL_WMTS>

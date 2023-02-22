@@ -138,27 +138,7 @@ namespace Geoweb3d
 
 		virtual bool get_AllowNewerRenderingContext() const = 0;
 
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-		/// <summary>	Sets whether to check out an Esri license. </summary>
-		///
-		/// <remarks>	Set to false to prevent Geoweb3d from checking for an Esri license. This prevents
-		/// 			a floating license from being checked out, for example.  The extended Esri
-		/// 			capabilities (such as file geodatabase, ArcSDE, etc) will not be available.
-		/// 			 </remarks>
-		///
-		/// <param name="val">	true to allow. </param>
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		virtual void put_ESRILicenseCheckout(bool val) = 0;
-
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-		/// <summary>	Check if Esri license checkout is enabled. </summary>
-		///
-		/// <returns>	true if enabled, false if disabled. </returns>
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		virtual bool get_ESRILicenseCheckout() const = 0;
-
+	
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Sets whether to display onscreen performance statistics by default. </summary>
 		///

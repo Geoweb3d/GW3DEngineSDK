@@ -249,16 +249,6 @@ namespace Geoweb3d
 		{
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Query if this object is ESRI capable. </summary>
-			///
-			/// <remarks>	Queries if this computer has a valid ESRI license. </remarks>
-			///
-			/// <returns>	true if esri capable, false if not. </returns>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-
-			GW3D_DLL bool	isESRICapable();
-
-			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Geoweb3d license details. </summary>
 			///
 			/// <remarks>	Additional license information may exists and can be queried
@@ -282,8 +272,7 @@ namespace Geoweb3d
 					GOODONCE				= 4,	// True if license can only be activated once
 					ISSUED					= 5,	// Date the license was issued
 					OPTIONAL_INFO			= 6,	// Optional info
-					VALID_ESRI_LICENSE		= 7,	// Valid ESRI license is checked out
-					LICENSE_TYPE			= 8,	// 0 is purchased, non-0 is demo/eval
+					LICENSE_TYPE			= 7,	// 0 is purchased, non-0 is demo/eval
 					LI_PARAM_MAX			= 0xff
 				};
 			};

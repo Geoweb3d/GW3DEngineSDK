@@ -113,9 +113,9 @@ void RunApplication(  Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context )
 
 	//showing we will be able to load off disk
 	//field_values->put_Property(0,"http://plazacam.studentaffairs.duke.edu/mjpg/video.mjpg");
-	//field_values->put_Property( 0, "../examples/media/test_images/one.png" );
-	//field_values->put_Property( 0, R"(C:\dev_nas\mobile\MMPS_UI\MMPS_UI\Resources\drawable-xxxhdpi\Airports_24.png)");
-	field_values->put_Property( 0, R"(C:\dev_nas\geoweb3d_trunk_clean\geoweb3d\distribution\examples\media\Texture\bullseye_white.png)");
+	field_values->put_Property( 0, "../examples/media/test_images/one.png" );
+	//field_values->put_Property( 0, "..//examples//media//Texture//bullseye_white.png" );
+	//field_values->put_Property( 0, R"(C:\dev_nas\geoweb3d_trunk_clean\geoweb3d\distribution\examples\media\Texture\bullseye_white.png)");
 	field_values->put_Property( 1, 1 /*We will use 1 to say its red*/ );
 	field_values->put_Property( 2, false );
 	field_values->put_Property( 3, 0 );
@@ -127,9 +127,9 @@ void RunApplication(  Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context )
 
 	//showing we will be able to load from a url
     //field_values->put_Property(0,"http://217.22.201.135/mjpg/video.mjpg");
-	//field_values->put_Property( 0, "../examples/media/test_images/two.png" );
-	//field_values->put_Property( 0, R"(C:\dev_nas\mobile\MMPS_UI\MMPS_UI\Resources\drawable-xxxhdpi\Airways_24.png)" );
-	field_values->put_Property( 0, R"(C:\dev_nas\geoweb3d_trunk_clean\geoweb3d\distribution\examples\media\Texture\bullseye_white.png)");
+	field_values->put_Property( 0, "../examples/media/test_images/two.png" );
+	//field_values->put_Property( 0, "..//examples//media//Texture//bullseye_white.png" );
+	//field_values->put_Property( 0, R"(C:\dev_nas\geoweb3d_trunk_clean\geoweb3d\distribution\examples\media\Texture\bullseye_white.png)");
 	field_values->put_Property( 1, 2 /*We will use 2 to say its green*/ );
 	field_values->put_Property( 2, false );
 	field_values->put_Property( 3, 1 );
@@ -403,7 +403,6 @@ int _tmain(int argc, _TCHAR* argv[])
     if(sdk_context)
     {
 		Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
-		sdk_init->put_ESRILicenseCheckout(false); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
         if( Geoweb3d::Succeeded( sdk_context->InitializeLibrary( "geoweb3dsdkdemo", sdk_init, 5, 0 ) ) )
         {
             RunApplication( sdk_context );

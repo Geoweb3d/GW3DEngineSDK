@@ -90,7 +90,6 @@ int _tmain( int argc, _TCHAR* argv[] )
     {
 		//create the initialization configuration
 		Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
-		sdk_init->put_ESRILicenseCheckout(false); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
 		//sdk_init->put_TerrainMaxLODDepth(20);
         if( Geoweb3d::Succeeded( sdk_context->InitializeLibrary( "geoweb3dsdkdemo", sdk_init, 5, 0 ) ) )
         {

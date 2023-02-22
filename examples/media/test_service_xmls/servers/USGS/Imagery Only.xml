@@ -1,5 +1,5 @@
 <GDAL_WMTS>
-	<GetCapabilitiesUrl>WMTSCapabilitiesImagery Only.xml</GetCapabilitiesUrl>
+	<GetCapabilitiesUrl>https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/WMTS/1.0.0/WMTSCapabilities.xml</GetCapabilitiesUrl>
 	<Layer>USGSImageryOnly</Layer>
 	<Style>default</Style>
 	<TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
@@ -14,11 +14,11 @@
 	<BandsCount>3</BandsCount>
 	<Cache>
 		<Path></Path>
+		<MaxSize>64</MaxSize>
+		<Expires>604800</Expires>
 	</Cache>
 	<UnsafeSSL>true</UnsafeSSL>
 	<ZeroBlockHttpCodes>204,404</ZeroBlockHttpCodes>
 	<ZeroBlockOnServerException>true</ZeroBlockOnServerException>
 	<MaxConnections>2</MaxConnections>
-	<MaxSize>64</MaxSize>
-	<Expires>604800</Expires>
 </GDAL_WMTS>

@@ -954,7 +954,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
                             // Step 5. Create the actual RasterRepresentation. You can optionally capture the return of this,
                             //         but is not necessary for one-time visualization purposes, like in this example App.
                             Geoweb3d::Raster::RasterRepresentationLayerCreationParameter params;
-                            params.page_level = 0;
+                            params.page_level = 6;
                             params.priority = 0;
                             params.representation_layer_activity = true;
 
@@ -1058,7 +1058,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
             
             // For Draped Lines, you should use Geoweb3d::gtLINE_STRING_25D. 
             // This will create the layer to be used for the feature creation.
-            Geoweb3d::IGW3DVectorLayerWPtr layer = data_source_.lock()->get_VectorLayerCollection()->create( layer_name, Geoweb3d::gtLINE_STRING_25D, field_definition, Geoweb3d::IGW3DPropertyCollectionPtr() );
+            Geoweb3d::IGW3DVectorLayerWPtr layer = data_source_.lock()->get_VectorLayerCollection()->create( layer_name, Geoweb3d::gtLINE_STRING_25D, field_definition, driver_layer_creation_properties);
 
             // Some drivers have persistence which will allow layers to be loaded into memory implicitly when instantiating said driver.
             // A layer may fail to create if its name is not unique and was already created in a said previous run.
@@ -1232,7 +1232,6 @@ int _tmain( int argc, _TCHAR* argv[] )
     if( sdk_context )
     {
 		Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
-		sdk_init->put_ESRILicenseCheckout(false); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
         if( Geoweb3d::Succeeded( sdk_context->InitializeLibrary( "geoweb3dsdkdemo", sdk_init, 5, 0 ) ) )
         {
             RunApplication( sdk_context );

@@ -719,14 +719,14 @@ class App : public Geoweb3d::IGW3DWindowCallback
                         auto property_collection   = elevation_rep_driver.lock()->get_PropertyCollection()->create_Clone();
                         auto definition_collection = property_collection->get_DefinitionCollection();
                         // We'll add some vertical scale to the elevation layer so it's more pronounced to see its effects.
-                        property_collection->put_Property( definition_collection->get_IndexByName( "VERTICAL_SCALE" ), "10" );
-                        
+                        property_collection->put_Property(Geoweb3d::Raster::ElevationParameters::VERTICAL_SCALE, 10.0 );
+
                         if ( !elevation_rep_driver.expired() )
                         {
                             // Step 5. Create the actual RasterRepresentation. You can optionally capture the return of this,
                             //         but is not necessary for one-time visualization purposes, like in this example App.
 							Geoweb3d::Raster::RasterRepresentationLayerCreationParameter params;
-							params.page_level = 0;
+							params.page_level = 6;
 							params.priority = 0;
 							params.representation_layer_activity = true;
                             elevation_rep_driver.lock()->get_RepresentationLayerCollection()->create( elevation_layer, params);
@@ -972,7 +972,6 @@ int _tmain( int argc, _TCHAR* argv[] )
     if ( sdk_context )
     {
         Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
-        sdk_init->put_ESRILicenseCheckout( false ); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
         if ( Geoweb3d::Succeeded( sdk_context->InitializeLibrary( "geoweb3dsdkdemo", sdk_init, 5, 0 ) ) )
         {
             RunApplication( sdk_context );

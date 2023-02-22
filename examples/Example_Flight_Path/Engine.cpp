@@ -47,6 +47,7 @@ bool Engine::SetSdkContext(const IGW3DGeoweb3dSDKPtr & context)
 {
 	if (context) {
 		this->_SdkContext = context;
+
 		return true;
 	}
 
@@ -605,13 +606,22 @@ void Engine::OnDraw2D(const IGW3DCameraWPtr & camera, IGW3D2DDrawContext * drawc
 
 	// Frustum Analysis object used to determine the pixel position of
 	// the model
-	ModelLabelController labels;
+	static ModelLabelController labels;
 
 	// Create a font to use with 2D drawing.
-	// TODO : This should probably be created once in order to save overhead.
-	auto font = IGW3DFont::create("Arial", 16, IGW3DFont::Style::BOLD, false);
-	auto smallerFont = IGW3DFont::create("Arial", 12, IGW3DFont::Style::NORMAL, false);
-	auto smallestFont = IGW3DFont::create("Arial", 10, IGW3DFont::Style::NORMAL, false);
+	if (_Font == nullptr )
+	{
+		_Font = IGW3DFont::create("Arial.ttf", 16, IGW3DFont::Style::BOLD, false);
+	}
+	if (_SmallerFont == nullptr )
+	{
+		_SmallerFont = IGW3DFont::create("Arial.ttf", 12, IGW3DFont::Style::NORMAL, false);
+	}
+
+	if (_SmallestFont == nullptr )
+	{
+		_SmallestFont = IGW3DFont::create("Arial.ttf", 10, IGW3DFont::Style::NORMAL, false);
+	}
 
 	// Get the current camera's window coordinates so we can do a bit of math
 	// for things like centering.
@@ -623,7 +633,7 @@ void Engine::OnDraw2D(const IGW3DCameraWPtr & camera, IGW3D2DDrawContext * drawc
 	// Pull the determined pixel coordinates off the analysis object
 	// and draw our label
 	labels.GetWindowPosition(x, y);
-	drawcontext->draw_Text(font, x - (cx / 20), y - (cy / 7), 1.0f, 1.0f, 1.0f, 1.0f, "Flight Label");
+	drawcontext->draw_Text(_Font, x - (cx / 20), y - (cy / 7), 1.0f, 1.0f, 1.0f, 1.0f, "Flight Label");
 
 	// Ensure we're writing the following data only to the primary camera, not the secondary (inset) camera
 	if (camera == _PrimaryCamera) {
@@ -638,7 +648,7 @@ void Engine::OnDraw2D(const IGW3DCameraWPtr & camera, IGW3D2DDrawContext * drawc
 		text << std::fixed << std::setprecision(2) << "Altitude: " << currentPOI.get_Z() << std::endl;
 		text << std::fixed << std::setprecision(2) << "Heading: " << ((currentBearing < 0.0) ? currentBearing + 360.0 : currentBearing) << std::endl;
 
-		drawcontext->draw_Text(smallerFont, 10, 10, 1.0, 1.0, 1.0, 1.0, text.str().c_str());
+		drawcontext->draw_Text(_SmallerFont, 10, 10, 1.0, 1.0, 1.0, 1.0, text.str().c_str());
 
 		text.clear();
 		text.str("");
@@ -652,7 +662,7 @@ void Engine::OnDraw2D(const IGW3DCameraWPtr & camera, IGW3D2DDrawContext * drawc
 		text << "F8: Toggle GIS Elevation Data On/Off" << std::endl;
 		text << "F9: Toggle Path Representation Type" << std::endl;
 
-		drawcontext->draw_Text(smallestFont, 10, cy - (cy / 4), 1.0, 1.0, 1.0, 1.0, text.str().c_str());
+		drawcontext->draw_Text(_SmallestFont, 10, cy - (cy / 4), 1.0, 1.0, 1.0, 1.0, text.str().c_str());
 
 		CreatePIPCameraBackground(camera);
 	}

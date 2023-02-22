@@ -146,7 +146,7 @@ Geoweb3d::IGW3DVectorRepresentationWPtr RepresentAsExtruded( Geoweb3d::IGW3DGeow
 			if (!layer.expired())
 			{
 				Geoweb3d::Raster::RasterRepresentationLayerCreationParameter params;
-				params.page_level = 0;
+				params.page_level = 6;
 				params.priority = 0;
 				params.representation_layer_activity = true;
 				Geoweb3d::IGW3DRasterRepresentationWPtr imagery_rep = elevation_driver.lock()->get_RepresentationLayerCollection()->create(layer, params);

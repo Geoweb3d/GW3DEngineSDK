@@ -113,18 +113,16 @@ void DumpLicenseDetails()
 
 	/*! Number of general tasks left to execute */
 	const Geoweb3d::IGW3DPropertyCollection* p = Geoweb3d::SDK_License::GetLicenseProperty();
-
-	const Geoweb3d::IGW3DDefinitionCollection* def = p->get_DefinitionCollection();
-	Geoweb3d::IGW3DStringPtr string_val;
-	for (unsigned int i = 0; i < p->count(); ++i)
+	if (p != nullptr)
 	{
-		p->get_Property(i).to_string(string_val);
-		std::cout << def->get_AtIndex(i)->property_name << ": " << string_val->c_str() << std::endl;
+		const Geoweb3d::IGW3DDefinitionCollection* def = p->get_DefinitionCollection();
+		Geoweb3d::IGW3DStringPtr string_val;
+		for (unsigned int i = 0; i < p->count(); ++i)
+		{
+			p->get_Property(i).to_string(string_val);
+			std::cout << def->get_AtIndex(i)->property_name << ": " << string_val->c_str() << std::endl;
+		}
 	}
-
-	if( Geoweb3d::SDK_License::isESRICapable())
-		std::cout << " Is ESRI Capable" << std::endl;
- 
 }
 
 void DisplaySupportedRasterDataTypes( Geoweb3d::IGW3DGeoweb3dSDKPtr sdk_context )
@@ -289,7 +287,6 @@ int _tmain( int argc, _TCHAR* argv[] )
     if( sdk_context )
     {
 		Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
-		sdk_init->put_ESRILicenseCheckout(false); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
         if( Geoweb3d::Succeeded( sdk_context->InitializeLibrary( "geoweb3dsdkdemo", sdk_init, 5, 0 ) ) )
         {
             RunApplication( sdk_context );

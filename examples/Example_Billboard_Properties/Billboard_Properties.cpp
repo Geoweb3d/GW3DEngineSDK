@@ -228,7 +228,9 @@ public:
 			1.0f, 0.0f, 0.0f, 1.0f,
 			40.0f, 40.0f,
 			0.0f,
-			-1
+			-1,
+			"",
+			Geoweb3d::IGW3DImage::ANCHOR_POSITION::MIDDLE_LEFT
 		};
 
 		specific_state_ = {
@@ -240,7 +242,9 @@ public:
 			1.0f, 0.0f, 0.0f, 1.0f,
 			40.0f, 40.0f,
 			0.0f,
-			-1
+			-1,
+			"",
+			Geoweb3d::IGW3DImage::ANCHOR_POSITION::MIDDLE_LEFT
 		};
 
 	}
@@ -1117,16 +1121,6 @@ public:
 		const Geoweb3d::IGW3DVariant label = attribute_collection->get_Property(label_index_);
 		const Geoweb3d::IGW3DVariant label_anchor_pos = attribute_collection->get_Property(label_anchor_index_);
 
-		//if( representation_properties )
-		//{
-		//	//const Geoweb3d::IGW3DDefinitionCollection* rep_def = representation_properties->get_DefinitionCollection();
-		//	result->put_VectorRepresentationProperty( current_rep_, rep_img_collection_prop_index_, img_property_collection_id );
-		//}
-		//else
-		//{
-		//	result->put_VectorRepresentationProperty( current_rep_, rep_img_collection_prop_index_, img_property_collection_id );
-		//}
-
 		result->put_VectorRepresentationProperty(current_rep_, rep_img_collection_prop_index_, img_property_collection_id);
 
 		result->put_VectorRepresentationProperty(current_rep_, rep_color_r_prop_index_, color_r);
@@ -1285,7 +1279,7 @@ public:
 		if (!elevation_rep_driver_.expired())
 		{
 			Geoweb3d::Raster::RasterRepresentationLayerCreationParameter params;
-			params.page_level = 0;
+			params.page_level = 6;
 			params.priority = 0;
 			params.representation_layer_activity = true;
 			Geoweb3d::IGW3DRasterRepresentationWPtr raster_rep = elevation_rep_driver_.lock()->get_RepresentationLayerCollection()->create(raster_layer_, params);
@@ -1333,6 +1327,14 @@ public:
 			specific_state_.size_y_ = current_props->get_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::SIZE_Y);
 			specific_state_.leader_top_y_increase_percent_ = current_props->get_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::LEADER_TOP_Y_EXTEND_PERCENT);
 			specific_state_.palette_ = current_props->get_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::TEXTURE_PALETTE_INDEX);
+
+			specific_state_.label_pos_ = current_props->get_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::LABEL_ANCHOR_POS );
+			auto& label = current_props->get_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::LABEL);
+			if (label.is_string())
+			{
+				const char* label_string = label.raw_string();
+				specific_state_.label_ = label_string != nullptr ? label_string : std::string("");
+			}
 		}
 		else
 		{
@@ -1352,6 +1354,9 @@ public:
 			specific_state_.size_y_ = default_state_.size_y_;
 			specific_state_.leader_top_y_increase_percent_ = default_state_.leader_top_y_increase_percent_;
 			specific_state_.palette_ = default_state_.palette_;
+
+			specific_state_.label_ = default_state_.label_;
+			specific_state_.label_pos_ = default_state_.label_pos_;
 		}
 	}
 
@@ -1372,6 +1377,10 @@ public:
 		current->put_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::SIZE_Y, specific_state_.size_y_);
 		current->put_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::LEADER_TOP_Y_EXTEND_PERCENT, specific_state_.leader_top_y_increase_percent_);
 		current->put_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::TEXTURE_PALETTE_INDEX, specific_state_.palette_);
+
+		current->put_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::LABEL, specific_state_.label_.c_str() );
+		current->put_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::LABEL_ANCHOR_POS, specific_state_.label_pos_);
+
 		if (selected)
 		{
 			current->put_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::SECONDARY_TEXTURE_PALETTE_IDX, 6);
@@ -1403,6 +1412,10 @@ public:
 		defaults->put_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::LEADER_TOP_Y_EXTEND_PERCENT, default_state_.leader_top_y_increase_percent_ );
 		defaults->put_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::TEXTURE_PALETTE_INDEX, default_state_.palette_);
 		defaults->put_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::SECONDARY_TEXTURE_PALETTE_IDX, -1);
+
+		defaults->put_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::LABEL, default_state_.label_.c_str() );
+		defaults->put_Property(Geoweb3d::Vector::BillboardProperties::IndividualProperties::LABEL_ANCHOR_POS, default_state_.label_pos_);
+
 
 		defaults->put_Property(Geoweb3d::Vector::BillboardProperties::LayerDefaultsOnlyProperties::AUTOHEIGHT, default_state_.auto_height_);
 		defaults->put_Property(Geoweb3d::Vector::BillboardProperties::LayerDefaultsOnlyProperties::LEADER_LINES_ENABLED, default_layer_props_.leaders_enabled );
@@ -1598,6 +1611,8 @@ public:
 		float size_y_;
 		float leader_top_y_increase_percent_;
 		int palette_;
+		std::string label_;
+		int label_pos_;
 	};
 
 	struct layer_prop_state
@@ -1640,7 +1655,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	if (sdk_context)
 	{
 		Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
-		sdk_init->put_ESRILicenseCheckout(false); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
 		if (Geoweb3d::Succeeded(sdk_context->InitializeLibrary("geoweb3dsdkdemo", sdk_init, 5, 0)))
 		{
 			RunApplication(sdk_context);

@@ -1,5 +1,5 @@
 <GDAL_WMTS>
-	<GetCapabilitiesUrl>WMTSCapabilities.xml</GetCapabilitiesUrl>
+	<GetCapabilitiesUrl>https://geoint.nrlssc.navy.mil/nrltileserver/wmts2/1.0.0/WMTSCapabilities.xml</GetCapabilitiesUrl>
 	<Layer>DRG_AUTO</Layer>
 	<Style>default</Style>
 	<TileMatrixSet>GlobalCRS84Pixel</TileMatrixSet>
@@ -13,11 +13,11 @@
 	<BandsCount>3</BandsCount>
 	<Cache>
 		<Path></Path>
+		<MaxSize>64</MaxSize>
+		<Expires>604800</Expires>
 	</Cache>
 	<UnsafeSSL>true</UnsafeSSL>
 	<ZeroBlockHttpCodes>204,404</ZeroBlockHttpCodes>
 	<ZeroBlockOnServerException>true</ZeroBlockOnServerException>
 	<MaxConnections>5</MaxConnections>
-	<MaxSize>64</MaxSize>
-	<Expires>604800</Expires>
 </GDAL_WMTS>

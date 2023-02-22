@@ -144,7 +144,6 @@ int _tmain(int argc, _TCHAR* argv[])
 		// the initial and only configuration of the sdk context.  this must be done before the sdk context can be used.
 		// this configuration 
 		Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
-		sdk_init->put_ESRILicenseCheckout(false); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
 
 		// configuration of the sdk to use an authorized license as it can be seen from the Geoweb3d License Activation Center ( Geoweb3dLicenseTool.exe )
 		// the string under product is the name of the license
@@ -156,7 +155,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			//WindowCallback w_windowCallBack(window_ptr);
 			WindowCallback w_windowCallBack(sdk_context);			
 
-			Geoweb3d::IGW3DWindowWPtr window_ptr = sdk_context->get_WindowCollection()->create_3DWindow("window title",GW3D_OVERLAPPED,0,0,1280,720,0,Geoweb3d::IGW3DStereoDriverWPtr(),&w_windowCallBack);
+			Geoweb3d::IGW3DWindowWPtr window_ptr = sdk_context->get_WindowCollection()->create_3DWindow("Identify",GW3D_OVERLAPPED,0,0,1280,720,0,Geoweb3d::IGW3DStereoDriverWPtr(),&w_windowCallBack);
 			w_windowCallBack.put_window ( window_ptr );
 			
 			Geoweb3d::GW3DEnvelope w_env;

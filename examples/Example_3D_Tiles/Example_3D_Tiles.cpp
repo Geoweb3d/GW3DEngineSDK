@@ -213,7 +213,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
 				UpdateCamera( 0.0, 0.0, 500.0 );
 			}
 
-			return true;
+            return true;
 		}
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -352,9 +352,9 @@ int _tmain( int argc, _TCHAR* argv[] )
     if ( sdk_context )
     {
         Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
-        sdk_init->put_ESRILicenseCheckout( false ); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
         if ( Geoweb3d::Succeeded( sdk_context->InitializeLibrary( "geoweb3dsdkdemo", sdk_init, 5, 0 ) ) )
         {
+            std::cout << "\n****This example required user specific 3DTile data. The data should be placed in ./examples/media/ or any sub-directory thereof.***" << std::endl;
             RunApplication( sdk_context );
         }
         else

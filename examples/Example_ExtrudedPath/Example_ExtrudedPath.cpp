@@ -73,7 +73,7 @@ public:
 
     bool Initialize()
     {
-        window_ = sdk_engine_context_->get_WindowCollection()->create_3DWindow( "Extruded Path Example", GW3D_OVERLAPPED, 10, 10, 1280, 720, 0, Geoweb3d::IGW3DStereoDriverPtr(), nullptr );
+        window_ = sdk_engine_context_->get_WindowCollection()->create_3DWindow( "Extruded Path Example : Press H for Help( See Console )", GW3D_OVERLAPPED, 10, 10, 1280, 720, 0, Geoweb3d::IGW3DStereoDriverPtr(), nullptr );
         Geoweb3d::IGW3DVectorDriverWPtr driver = sdk_engine_context_->get_VectorDriverCollection()->get_Driver( "Geoweb3d_Datasource" );
 
         if ( driver.expired() )
@@ -195,7 +195,7 @@ public:
                         // Step 5. Create the actual RasterRepresentation. You can optionally capture the return of this,
                         //         but is not necessary for one-time visualization purposes, like in this example App.
 						Geoweb3d::Raster::RasterRepresentationLayerCreationParameter params;
-						params.page_level = 0;
+						params.page_level = 6;
 						params.priority = 0;
 						params.representation_layer_activity = true;
                         elevation_rep_driver_.lock()->get_RepresentationLayerCollection()->create( elevation_layer_ , params);
@@ -539,7 +539,6 @@ int _tmain( int argc, _TCHAR* argv[] )
     if ( sdk_context )
     {
         Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
-        sdk_init->put_ESRILicenseCheckout( false ); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
         if ( Geoweb3d::Succeeded( sdk_context->InitializeLibrary( "geoweb3dsdkdemo", sdk_init, 5, 0 ) ) )
         {
             RunApplication( sdk_context );

@@ -360,10 +360,42 @@ class App : public Geoweb3d::IGW3DWindowCallback
                     {
                         // Note: After pressing the "L" key, focus must be explicitly set to the console window.
                         case Geoweb3d::Key::Code::L:
+                        {
                             QueryLocation();
-                            break;
+                        }
+                        break;
+                        case Geoweb3d::Key::Code::Num1:
+                        case Geoweb3d::Key::Code::Num2:
+                        case Geoweb3d::Key::Code::Num3:
+                        case Geoweb3d::Key::Code::Num4:
+                        case Geoweb3d::Key::Code::Num5:
+                        case Geoweb3d::Key::Code::Num6:
+                        case Geoweb3d::Key::Code::Num7:
+                        case Geoweb3d::Key::Code::Num8:
+                        case Geoweb3d::Key::Code::Num9:
+                        {
+                            int key_index = static_cast<int>(Geoweb3d::Key::Code::Num9 ) - static_cast<int>(win_event.Key.code);
+                            int key = 9 - key_index;
+                            GoToLocation(key);
+                        }
+                        break;
+                        case Geoweb3d::Key::Code::Numpad1:
+                        case Geoweb3d::Key::Code::Numpad2:
+                        case Geoweb3d::Key::Code::Numpad3:
+                        case Geoweb3d::Key::Code::Numpad4:
+                        case Geoweb3d::Key::Code::Numpad5:
+                        case Geoweb3d::Key::Code::Numpad6:
+                        case Geoweb3d::Key::Code::Numpad7:
+                        case Geoweb3d::Key::Code::Numpad8:
+                        case Geoweb3d::Key::Code::Numpad9:
+                        {
+                            int key_index = static_cast<int>(Geoweb3d::Key::Code::Numpad9) - static_cast<int>(win_event.Key.code);
+                            int key = 9 - key_index;
+                            GoToLocation(key);
+                        }
+                        break;
                         default:
-                            break;
+                        break;
                     }
                     break;
                 }
@@ -411,14 +443,11 @@ class App : public Geoweb3d::IGW3DWindowCallback
             // Creates and sets up some defaults for the camera.
             camera_ = window_.lock()->get_CameraCollection()->create( "Main Camera" );
             navHelper_->add_Camera( camera_ );
-            camera_.lock()->get_CameraController()->put_Location( 0.0, 0.0 );
+            camera_.lock()->get_CameraController()->put_Location(-77.045, 38.89);
+            camera_.lock()->get_CameraController()->put_Elevation(1000.0);
             navHelper_->put_HomePosition( camera_ );
 
-            // Note: This first query will stall the application with an initial query example.
-            //       Like mentioned in comments above, you must give focus to the console window
-            //       and input your selection before the program will continue.
             QueryLocation( "Washington DC" );
-
             return true;
         }
 
@@ -432,7 +461,7 @@ class App : public Geoweb3d::IGW3DWindowCallback
             // Step 1. Either use auto_Open or retrieve the proper RasterDriver for the particular data type.
             //         Auto open will attempt to use the best-match raster driver for the data type.
             Geoweb3d::GW3DResult result;
-            imagery_data_source_ = sdk_engine_context_->get_RasterDriverCollection()->auto_Open( "http://app.geoweb3d.com/dashboard/data/frmt_wms_virtualearth_hybrid.xml", result );
+            imagery_data_source_ = sdk_engine_context_->get_RasterDriverCollection()->auto_Open( "../examples/media/test_service_xmls/servers/Bing/Hybrid.xml", result );
             if ( Geoweb3d::Succeeded( result ) && !imagery_data_source_.expired() )
             {
                 // Step 2. Get the layer collection from the raster data source.
@@ -604,7 +633,9 @@ class App : public Geoweb3d::IGW3DWindowCallback
             // ability to quit the search early.
             if( location == "q" ) return;
 
-            std::string location_to_search = location;
+            location_to_search_ = location;
+
+            std::string& location_to_search = location_to_search_;
             // User-supplied input via std::cin.
             if( location.empty() )
             {
@@ -634,74 +665,24 @@ class App : public Geoweb3d::IGW3DWindowCallback
             geocode_driver_.lock()->get_VectorDataSourceCollection()->close( geocode_search_datasource );
 
             // Now we should have collected all of the results from the Streamer and can iterate over them.
-            std::vector< GeocodeStreamResultInformation > search_results = geocode_extraction_stream.get_SearchResults();
-            if( !search_results.empty() )
+            search_results_ = geocode_extraction_stream.get_SearchResults();
+
+            if (!search_results_.empty())
             {
                 std::cout << "Please select which result you'd like to go to:" << std::endl;
-                // If there's only one valid search result, there's no point in asking for input.
-                bool received_valid_response = search_results.size() == 1;
-                for( int i = 1; i <= search_results.size(); ++i )
+
+                //NOTE: Since we use the Geoweb3d key events for selection, we limit the selection range
+                //in order to be able to use the numeric keys for selection [ 1 - 9 ]
+                for (int i = 1; i <= search_results_.size() && i < 10; ++i)
                 {
-                    if( i >= 10 )
+                    if (i >= 10)
                     {
-                        std::cout << "\t " << "[" << i << "] " << search_results.at(i - 1);
+                        std::cout << "\t " << "[" << i << "] " << search_results_.at(i - 1);
                     }
                     else
                     {
                         // Extra padding so the entries align neatly.
-                        std::cout << "\t " << "[" << i << "]  " << search_results.at(i - 1);
-                    }
-                }
-
-                int selection = 0;
-                bool user_quit = false;
-                // Safe std::cin method for determining user's selection for which index in the search results we will act upon.
-                while( !received_valid_response && !user_quit )
-                {
-                    std::string response;
-                    getline( std::cin, response );
-                    if( response == "q" )
-                    {
-                        user_quit = true;
-                        break;
-                    }
-
-                    selection = 0;
-
-                    try
-                    {
-                        selection = std::stoi( response );
-                    }
-                    catch( std::exception& ) { }
-
-                    if( selection >= 1 && selection < search_results.size() + 1 )
-                    {
-                        // selection from the user is 1-index based, but we're accessing a vector, so this will make it 0-index based.
-                        --selection;
-                        received_valid_response = true;
-                    }
-                    else
-                    {
-                        std::cout << "Error, selection was out of range, please enter a valid entry from 1 to " << search_results.size() << std::endl;
-                    }
-                }
-
-                // At this point we have the ability to properly update the camera position and redraw the feature's points for a Draped Line Representation.
-                if( received_valid_response )
-                {
-                    Geoweb3d::GW3DResult ensure_visible_valid;
-                    GeocodeStreamResultInformation picked_result = search_results.at( selection );
-                    // ensure_Visible will take a GW3DEnvelope and give the user a point such that it's guaranteed that the envelope will be completely within view of a camera.
-                    Geoweb3d::GW3DPoint geocoding_location = camera_.lock()->get_CameraController()->ensure_Visible( picked_result.envelope, ensure_visible_valid );
-                    if( Geoweb3d::Succeeded( ensure_visible_valid ) )
-                    {
-                        camera_.lock()->get_CameraController()->put_Location( geocoding_location.get_X(), geocoding_location.get_Y() );
-                        camera_.lock()->get_CameraController()->put_Elevation( geocoding_location.get_Z() );
-                        camera_.lock()->get_CameraController()->put_Rotation( 0.0, 90.0, 0.0 );
-
-                        CreateDrapedLineLayer( picked_result.display_name.c_str(), picked_result.envelope );
-                        CreateDrapedLineRepresentation();
-                        navHelper_->put_HomePosition( camera_ );
+                        std::cout << "\t " << "[" << i << "]  " << search_results_.at(i - 1);
                     }
                 }
             }
@@ -711,6 +692,45 @@ class App : public Geoweb3d::IGW3DWindowCallback
                 std::cout << "Please refine your search to contain less information to get a wider query." << std::endl;
             }
 
+        }
+
+        void GoToLocation(int key)
+        {
+            int selection = key;
+
+            // If there's only one valid search result, there's no point in asking for input.
+            bool received_valid_response = search_results_.size() == 1;
+
+            if (selection >= 1 && selection < search_results_.size() + 1)
+            {
+                // selection from the user is 1-index based, but we're accessing a vector, so this will make it 0-index based.
+                --selection;
+                received_valid_response = true;
+            }
+            else
+            {
+                received_valid_response = false;
+                std::cout << "Error, selection was out of range, please enter a valid entry from 1 to " << search_results_.size() << std::endl;
+            }
+
+            // At this point we have the ability to properly update the camera position and redraw the feature's points for a Draped Line Representation.
+            if (received_valid_response)
+            {
+                Geoweb3d::GW3DResult ensure_visible_valid;
+                GeocodeStreamResultInformation picked_result = search_results_.at(selection);
+                // ensure_Visible will take a GW3DEnvelope and give the user a point such that it's guaranteed that the envelope will be completely within view of a camera.
+                Geoweb3d::GW3DPoint geocoding_location = camera_.lock()->get_CameraController()->ensure_Visible(picked_result.envelope, ensure_visible_valid);
+                if (Geoweb3d::Succeeded(ensure_visible_valid))
+                {
+                    camera_.lock()->get_CameraController()->put_Location(geocoding_location.get_X(), geocoding_location.get_Y());
+                    camera_.lock()->get_CameraController()->put_Elevation(geocoding_location.get_Z());
+                    camera_.lock()->get_CameraController()->put_Rotation(0.0, 90.0, 0.0);
+
+                    CreateDrapedLineLayer(picked_result.display_name.c_str(), picked_result.envelope);
+                    CreateDrapedLineRepresentation();
+                    navHelper_->put_HomePosition(camera_);
+                }
+            }
         }
 
     private:
@@ -728,6 +748,9 @@ class App : public Geoweb3d::IGW3DWindowCallback
         Geoweb3d::IGW3DVectorDataSourceWPtr           draped_line_datasource_;
         Geoweb3d::IGW3DVectorLayerWPtr			      draped_line_layer_;
         Geoweb3d::IGW3DVectorRepresentationWPtr		  draped_line_rep_;
+       
+        std::string                                   location_to_search_;
+        std::vector< GeocodeStreamResultInformation > search_results_;
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -783,7 +806,6 @@ int _tmain( int argc, _TCHAR* argv[] )
     if( sdk_context )
     {
 		Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
-		sdk_init->put_ESRILicenseCheckout(false); //If you have an ESRI license and want to be able to load data using their drivers, remove this line
         if( Geoweb3d::Succeeded( sdk_context->InitializeLibrary( "geoweb3dsdkdemo", sdk_init, 5, 0 ) ) )
         {            
             RunApplication( sdk_context );               

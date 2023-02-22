@@ -415,11 +415,13 @@ bool MiniEngine::LoadData(const char* rootpath)
 	Geoweb3d::GW3DResult res;
 
 	Geoweb3d::IGW3DVectorDriverWPtr	lidar_vector_driver_ = sdk_context_->get_VectorDriverCollection(true)->get_Driver("Liblas");
-	Geoweb3d::IGW3DVectorDataSourceWPtr data_source = lidar_vector_driver_.lock()->get_VectorDataSourceCollection()->open("../examples/media/lidar/0629.las", res);
+	//Geoweb3d::IGW3DVectorDataSourceWPtr data_source = lidar_vector_driver_.lock()->get_VectorDataSourceCollection()->open("../examples/media/lidar/0629.las", res);
+	Geoweb3d::IGW3DVectorDataSourceWPtr data_source = Geoweb3d::IGW3DVectorDataSourceWPtr();// lidar_vector_driver_.lock()->get_VectorDataSourceCollection()->open("", res);
 
 	if (data_source.expired())
 	{
 		std::cout << "Could not load the following Vector Data Source\n";
+		return false;
 	}
 
 	Geoweb3d::IGW3DVectorLayerCollection* vlyrcollection = data_source.lock()->get_VectorLayerCollection();

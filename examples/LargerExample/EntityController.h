@@ -84,7 +84,6 @@ protected:
 	EntityDatabaseType entity_database_;
 	std::set<long> dirty_fids_;
 	std::set<long>::iterator index_itr_;
-	CritSectEx  database_thread_protection_;
 
 private:
     //this is an expensive object to create and destroy, so keep a scratchpad/reusable object

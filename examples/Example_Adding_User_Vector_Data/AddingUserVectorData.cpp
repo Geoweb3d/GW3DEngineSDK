@@ -198,10 +198,6 @@ int _tmain( int argc, _TCHAR* argv[] )
 		// configure the SDK prior to initializing
 		Geoweb3d::IGW3DInitializationConfigurationPtr sdk_init = sdk_context->create_InitializationConfiguration();
 
-		// The SDK will look for and check out an Esri license for additional capabilties, like enterprise geodatabase support
-		// This takes time, so if it is known that no Esri license is present or needed, this can be disabled
-		sdk_init->put_ESRILicenseCheckout(false); 
-
 		// Initialize the SDK
         if( Geoweb3d::Succeeded( sdk_context->InitializeLibrary( "geoweb3dsdkdemo", sdk_init, 5, 0 ) ) )
         {
